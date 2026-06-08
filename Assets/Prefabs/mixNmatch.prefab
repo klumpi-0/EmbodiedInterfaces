@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: f13629aa-d95a-4a17-b69a-622e2325680b
+  instanceId: 4ff52129-e76c-4b6f-94e0-6e6c6e6fe9b2
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 8497af29-17f8-483c-bfbd-82961eba1abd
+  instanceId: 56a550b2-8d8d-4455-a4a2-15108ce23c85
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: ea41846b-9e85-42fc-b991-0f7a1287b4dd
+  instanceId: 5bfea016-82c6-4e51-ab7c-30737283c371
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -1058,6 +1058,7 @@ Transform:
   m_Children:
   - {fileID: 4356541803335672127}
   - {fileID: 3559660107384341284}
+  - {fileID: 8812471030726102685}
   m_Father: {fileID: 9218423871546051903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3274023466631933233
@@ -1221,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 56fbe376-d7a6-4a3f-8302-544377822d8e
+  instanceId: 0a12f06e-c33a-4cf2-8854-f75a07cc3b6f
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -1744,7 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: e1b7144b-0a13-4955-8ac7-a99eefb743cc
+  instanceId: ddb4e10a-c66e-45cb-a87f-063d30cc0868
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -2426,6 +2427,57 @@ Transform:
   - {fileID: 7295781461978714985}
   m_Father: {fileID: 7823727511807189040}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!1 &7205659048408024834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8812471030726102685}
+  - component: {fileID: 6709563176031190046}
+  m_Layer: 0
+  m_Name: SetRotationDigitalTwin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8812471030726102685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205659048408024834}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.153, y: 0.29031003, z: 0.016479984}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5229863400265520879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6709563176031190046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205659048408024834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b4f071bdda9ff4b852a11249d90bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetRotationDigitalTwin
+  debugRotation: 0
+  lowRotation: 0
+  middleRotation: 0
+  highRotation: 0
+  lowCube: {fileID: 684266456272082130}
+  middleCube: {fileID: 2382597932715146497}
+  highCube: {fileID: 810396222463187983}
 --- !u!1 &7541317367318891383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,7 +2526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: a22d7e57-3b27-46a4-a3cb-9779cc1a4279
+  instanceId: c232b977-5a25-4812-bc89-e5added05899
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
