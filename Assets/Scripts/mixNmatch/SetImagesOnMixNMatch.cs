@@ -1,5 +1,3 @@
-using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,59 +6,69 @@ public class SetImagesOnMixNMatch : MonoBehaviour
 {
     public static SetImagesOnMixNMatch Instance;
 
+    [Header("Puzzle Data")]
+    [SerializeField] private PuzzleData currentPuzzle;
+
     [Header("LowCube")]
-    [SerializeField] private Image imgLow01;
-    [SerializeField] private Image imgLow02;
-    [SerializeField] private Image imgLow03;
-    [SerializeField] private Image imgLow04;
+    [SerializeField] private Image[] lowImages = new Image[4];
 
     [Header("MiddleCube")]
-    [SerializeField] private Image imgMiddle01;
-    [SerializeField] private Image imgMiddle02;
-    [SerializeField] private Image imgMiddle03;
-    [SerializeField] private Image imgMiddle04;
+    [SerializeField] private Image[] middleImages = new Image[4];
 
     [Header("HighCube")]
-    [SerializeField] private Image imgHighe01;
-    [SerializeField] private Image imgHighe02;
-    [SerializeField] private Image imgHighe03;
-    [SerializeField] private Image imgHighe04;
+    [SerializeField] private Image[] highImages = new Image[4];
 
-    private List<Image> lowImages = new List<Image>();
-    private List<Image> middleImages = new List<Image>();
-    private List<Image> highImages = new List<Image>(); 
-    
     private void Awake()
     {
-        if(Instance == null)
-        {
+        if (Instance == null)
             Instance = this;
-        }
-        AddImagesToList();
-
+        else
+            Destroy(gameObject);
     }
 
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="sprite"></param>
-    /// <param name="cube">0 = low, 1 = middle, 2 = high</param>
-    /// <param name="numImage"></param>
-    public void SetImages(Sprite sprite, int cube, int numImage)
+    private void Start()
     {
-        List<Image> targetList = GetCubeList(cube);
+        ApplyPuzzle(currentPuzzle);
+    }
 
-        if (targetList == null)
+    public void ApplyPuzzle(PuzzleData puzzle)
+    {
+        if (puzzle == null)
         {
-            Debug.LogError("Invalid cube index!");
+            Debug.LogError("No PuzzleData assigned!");
             return;
         }
 
-        SetImageOnCube(targetList, sprite, numImage);
+        ApplyToCube(lowImages, puzzle.lowSprites);
+        ApplyToCube(middleImages, puzzle.middleSprites);
+        ApplyToCube(highImages, puzzle.highSprites);
     }
 
-    private List<Image> GetCubeList(int cube)
+    private void ApplyToCube(Image[] images, Sprite[] sprites)
+    {
+        int count = Mathf.Min(images.Length, sprites.Length);
+
+        for (int i = 0; i < count; i++)
+        {
+            if (images[i] != null && sprites[i] != null)
+            {
+                images[i].sprite = sprites[i];
+                //images[i].SetNativeSize(); // optional
+            }
+        }
+    }
+
+    public void SetSingleImage(int cube, int index, Sprite sprite)
+    {
+        Image[] target = GetCube(cube);
+
+        if (target == null || index < 0 || index >= target.Length)
+            return;
+
+        target[index].sprite = sprite;
+    }
+
+    private Image[] GetCube(int cube)
     {
         return cube switch
         {
@@ -68,44 +76,6 @@ public class SetImagesOnMixNMatch : MonoBehaviour
             1 => middleImages,
             2 => highImages,
             _ => null
-        };
-    }
-
-    private void SetImageOnCube(List<Image> imageList, Sprite sprite, int index)
-    {
-        if (index < 0 || index >= imageList.Count)
-        {
-            Debug.LogError("Index out of range!");
-            return;
-        }
-
-        imageList[index].sprite = sprite;
-    }
-
-    private void AddImagesToList()
-    {
-        lowImages = new List<Image>
-        {
-            imgLow01,
-            imgLow02,
-            imgLow03,
-            imgLow04
-        };
-
-        middleImages = new List<Image>
-        {
-            imgMiddle01,
-            imgMiddle02,
-            imgMiddle03,
-            imgMiddle04
-        };
-
-        highImages = new List<Image>
-        {
-            imgHighe01,
-            imgHighe02,
-            imgHighe03,
-            imgHighe04
         };
     }
 }

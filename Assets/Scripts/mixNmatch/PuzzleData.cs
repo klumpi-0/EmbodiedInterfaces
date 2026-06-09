@@ -11,4 +11,7 @@ public class PuzzleData : ScriptableObject
 
     [Header("High Cube")]
     public Sprite[] highSprites = new Sprite[4];
+
+    [Header("Correct Solution")]
+    public int[] correctSolutionSites = new int[3];
 }

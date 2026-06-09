@@ -2941,6 +2941,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3046698868713377812, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: currentPuzzle
+      value: 
+      objectReference: {fileID: 11400000, guid: 77fdd21dfa01dcc438c3622371a84c45, type: 2}
     - target: {fileID: 3991668212445294941, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
       value: '@Get_ProcessRoations'
