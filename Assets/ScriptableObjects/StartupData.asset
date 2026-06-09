@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277bd86ee6139c2459b3c2fba706c275, type: 3}
+  m_Name: StartupData
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
+  lowSprites:
+  - {fileID: 21300000, guid: b5b33b38a7fb11a4aaee40d66ebdac98, type: 3}
+  - {fileID: 21300000, guid: 49120841489727440953b1a5936e8793, type: 3}
+  - {fileID: 21300000, guid: f4f0ef11007ae374c87eb8f5932fdbe6, type: 3}
+  - {fileID: 21300000, guid: ed49fbf0d73161c4e934b5fd73789398, type: 3}
+  middleSprites:
+  - {fileID: 21300000, guid: b5b33b38a7fb11a4aaee40d66ebdac98, type: 3}
+  - {fileID: 21300000, guid: 49120841489727440953b1a5936e8793, type: 3}
+  - {fileID: 21300000, guid: f4f0ef11007ae374c87eb8f5932fdbe6, type: 3}
+  - {fileID: 21300000, guid: ed49fbf0d73161c4e934b5fd73789398, type: 3}
+  highSprites:
+  - {fileID: 21300000, guid: b5b33b38a7fb11a4aaee40d66ebdac98, type: 3}
+  - {fileID: 21300000, guid: 49120841489727440953b1a5936e8793, type: 3}
+  - {fileID: 21300000, guid: f4f0ef11007ae374c87eb8f5932fdbe6, type: 3}
+  - {fileID: 21300000, guid: ed49fbf0d73161c4e934b5fd73789398, type: 3}

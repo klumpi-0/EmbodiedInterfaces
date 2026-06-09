@@ -1443,6 +1443,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1121837102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1121837103}
+  - component: {fileID: 1121837104}
+  m_Layer: 0
+  m_Name: TestChangeImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1121837103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121837102}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.61335, y: 0, z: 2.43027}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1919572257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1121837104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121837102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039e965b3ec0a764da8c4ee5bbf5de30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestChangeImage
+  sprite: {fileID: 21300000, guid: ed49fbf0d73161c4e934b5fd73789398, type: 3}
+  image: {fileID: 0}
 --- !u!1 &1155538499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,6 +2571,7 @@ Transform:
   m_Children:
   - {fileID: 1155538500}
   - {fileID: 2034857819}
+  - {fileID: 1121837103}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973568186
@@ -2866,6 +2913,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1913170008025369762, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913170008025369762, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913170008025369762, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787542838053353123, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ed49fbf0d73161c4e934b5fd73789398, type: 3}
+    - target: {fileID: 2787542838053353123, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787542838053353123, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2787542838053353123, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3991668212445294941, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
       value: '@Get_ProcessRoations'
