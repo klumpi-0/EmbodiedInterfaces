@@ -3,21 +3,15 @@ using UnityEngine.UI;
 
 public class TestChangeImage : MonoBehaviour
 {
-    public Sprite sprite;
-    public Image image;
-
+    public PuzzleData puzzleData;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        MixNMatchController.Instance.SetNewPuzzleData(puzzleData);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            
-        }
     }
 }

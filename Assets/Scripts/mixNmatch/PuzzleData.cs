@@ -14,4 +14,5 @@ public class PuzzleData : ScriptableObject
 
     [Header("Correct Solution")]
     public int[] correctSolutionSites = new int[3];
+    public bool finishedPuzzle = false;
 }

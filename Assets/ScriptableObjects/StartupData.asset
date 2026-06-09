@@ -27,3 +27,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 49120841489727440953b1a5936e8793, type: 3}
   - {fileID: 21300000, guid: f4f0ef11007ae374c87eb8f5932fdbe6, type: 3}
   - {fileID: 21300000, guid: ed49fbf0d73161c4e934b5fd73789398, type: 3}
+  correctSolutionSites: 000000000100000002000000

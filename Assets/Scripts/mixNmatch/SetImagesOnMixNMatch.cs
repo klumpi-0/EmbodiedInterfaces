@@ -28,10 +28,10 @@ public class SetImagesOnMixNMatch : MonoBehaviour
 
     private void Start()
     {
-        ApplyPuzzle(currentPuzzle);
+        ApplyImages(currentPuzzle);
     }
 
-    public void ApplyPuzzle(PuzzleData puzzle)
+    public void ApplyImages(PuzzleData puzzle)
     {
         if (puzzle == null)
         {

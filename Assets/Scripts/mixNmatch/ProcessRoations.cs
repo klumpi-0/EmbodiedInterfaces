@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ProcessRoations : MonoBehaviour
@@ -10,10 +11,12 @@ public class ProcessRoations : MonoBehaviour
     [SerializeField] private int frontFacingSideLow;
     [SerializeField] private int frontFacingSideMiddle;
     [SerializeField] private int frontFacingSideHigh;
+    [SerializeField] private int[] frontFacingSides = new int[3];
 
     [Header("Settings")]
     [Tooltip("Based on this number, the calcualtion in the script will calculate stuff dynamicly")]
     [SerializeField] private int numberSides = 4;
+    [SerializeField] private int[] targetRotation;
 
     [Header("References")]
     [SerializeField] private GetVirtuallRotation rotation;
@@ -34,9 +37,10 @@ public class ProcessRoations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        frontFacingSideLow = GetNearestSide(rotation.rotationLow);
-        frontFacingSideMiddle = GetNearestSide(rotation.rotationMiddle);
-        frontFacingSideHigh = GetNearestSide(rotation.rotationHigh);
+        frontFacingSides[0] = GetNearestSide(rotation.rotationLow);
+        frontFacingSides[1] = GetNearestSide(rotation.rotationMiddle);
+        frontFacingSides[2] = GetNearestSide(rotation.rotationHigh);
+        CheckForTargetRotation();
     }
 
     private float[] CalculateRoationSteps()
@@ -50,6 +54,7 @@ public class ProcessRoations : MonoBehaviour
         return rotList.ToArray();
     }
 
+    // TODO: maybe change angle, that it is a little bit smaller 
     private int GetNearestSide(float currentRot)
     {
         int nearestSide = 0;
@@ -65,17 +70,24 @@ public class ProcessRoations : MonoBehaviour
         return nearestSide;
     }
 
+    private void CheckForTargetRotation()
+    {
+        if(frontFacingSides.SequenceEqual(targetRotation))
+        {
+            MixNMatchController.Instance.InitFoundMatchEvent();
+        }
+    }
+
     /// <summary>
     /// Is used to return the front facing sides of the mixNmatch.
     /// </summary>
     /// <returns>Returns an array with the  number of sides looking forward [low, middle, high] </returns>
     public int[] GetFrontFacingSidesArray()
     {
-        return new int[] { frontFacingSideLow, frontFacingSideMiddle, frontFacingSideHigh };
+        return frontFacingSides;
     }
-
-    public (int, int, int) GetFrontFacingSides()
+    public void SetTargetRotation(int[] newTargetRotation)
     {
-        return (frontFacingSideLow, frontFacingSideMiddle, frontFacingSideHigh);
+        targetRotation = newTargetRotation;
     }
 }
