@@ -56,12 +56,10 @@ public class ProcessRoations : MonoBehaviour
         float smallestAngle = float.MaxValue;
         for(int i = 0; i < rotationSteps.Length; i++)
         {
-            Debug.Log("Found " + rotationSteps[i]);
             if(Mathf.Abs(currentRot - rotationSteps[i]) < smallestAngle)
             {
                 nearestSide = i;
                 smallestAngle = Mathf.Abs(currentRot - rotationSteps[i]);
-                Debug.Log($"Found nearest angle({smallestAngle}) with side {nearestSide}");
             }
         }
         return nearestSide;
