@@ -42,6 +42,7 @@ public class MixNMatchController : MonoBehaviour
         this.data = data;
         processRotation.SetTargetRotation(data.correctSolutionSites);
         imageSetter.ApplyImages(data);
+        FollowTaskController.Instance.SetCurrentFollowTask(data.prefabTask);
     }
 
     public void InitFoundMatchEvent()

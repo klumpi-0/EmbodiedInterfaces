@@ -7,6 +7,7 @@ public class TestChangeImage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        puzzleData.finishedPuzzle = false;
         MixNMatchController.Instance.SetNewPuzzleData(puzzleData);
     }
 
