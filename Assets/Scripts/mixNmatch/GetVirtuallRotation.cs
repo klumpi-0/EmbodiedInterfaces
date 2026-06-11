@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GetVirtuallRotation : MonoBehaviour
 {
+    public static GetVirtuallRotation Instance;
+
     [Header("Rotations")]
     public float rotationLow { private set; get; }
     public float rotationMiddle { private set; get; }
@@ -13,10 +15,12 @@ public class GetVirtuallRotation : MonoBehaviour
     [SerializeField] private GameObject cubeHigh;
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        
+        if(Instance == null)
+        {
+            Instance = this;
+        }
     }
 
     // Update is called once per frame

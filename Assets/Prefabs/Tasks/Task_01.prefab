@@ -615,3 +615,5 @@ MonoBehaviour:
   flowerGrabbable: {fileID: 4442780333319428507}
   targetTransformFlower: {fileID: 8512440597117067152}
   isInCollider: 0
+  source: {fileID: 0}
+  finiedTaskClip: {fileID: 8300000, guid: 496684a7d3441e7479af834ecd2fbc2c, type: 3}

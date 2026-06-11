@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Task01 : MonoBehaviour
@@ -8,6 +9,9 @@ public class Task01 : MonoBehaviour
     [SerializeField] private Grabbable flowerGrabbable;
     [SerializeField] private Transform targetTransformFlower;
     [SerializeField] private bool isInCollider;
+
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip finiedTaskClip;
 
     private void Awake()
     {
@@ -31,6 +35,7 @@ public class Task01 : MonoBehaviour
 
     private void OnEnable()
     {
+        source = FindAnyObjectByType<AudioSource>();
         if (flowerGrabbable == null)
         {
             flowerGrabbable = flowerObject.GetComponent<Grabbable>();
@@ -58,7 +63,11 @@ public class Task01 : MonoBehaviour
     private void MoveFowerSmootToEnd()
     {
         SmoothMover mover = flowerObject.AddComponent<SmoothMover>();
-        mover.Init(targetTransformFlower, 2); 
+        mover.Init(targetTransformFlower, 2);
+
+        // TODO: Nicer einbauen
+        source.clip = finiedTaskClip;
+        source.Play();
     }
 
 }

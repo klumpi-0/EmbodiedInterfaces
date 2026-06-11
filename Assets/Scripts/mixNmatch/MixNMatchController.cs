@@ -40,9 +40,10 @@ public class MixNMatchController : MonoBehaviour
     public void SetNewPuzzleData(PuzzleData data)
     {
         this.data = data;
-        processRotation.SetTargetRotation(data.correctSolutionSites);
-        imageSetter.ApplyImages(data);
-        FollowTaskController.Instance.SetCurrentFollowTask(data.prefabTask);
+        processRotation?.SetTargetRotation(data.correctSolutionSites);
+        imageSetter?.ApplyImages(data);
+        FollowTaskController.Instance?.SetCurrentFollowTask(data.prefabTask);
+        MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
     }
 
     public void InitFoundMatchEvent()

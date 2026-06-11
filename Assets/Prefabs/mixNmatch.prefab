@@ -1685,6 +1685,9 @@ MonoBehaviour:
   introText_clip: {fileID: 0}
   finishSound_clip: {fileID: 0}
   finishText_clip: {fileID: 0}
+  moreInfo_01: {fileID: 0}
+  moreInfo_02: {fileID: 0}
+  moreInfo_03: {fileID: 0}
 --- !u!1 &3101853244964721313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1721,6 +1724,7 @@ Transform:
   - {fileID: 67873155329275871}
   - {fileID: 156259802013390171}
   - {fileID: 4419382658531809967}
+  - {fileID: 4289846103691101805}
   m_Father: {fileID: 9218423871546051903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3132987366482505408
@@ -8415,6 +8419,50 @@ Transform:
   - {fileID: 3992426279010381104}
   m_Father: {fileID: 1696044640412556659}
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+--- !u!1 &6811909767340720271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4289846103691101805}
+  - component: {fileID: 7427812589363744679}
+  m_Layer: 0
+  m_Name: moreInfoAudioWatcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4289846103691101805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6811909767340720271}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 1.46985, y: -1.52433, z: -12.12143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5229863400265520879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7427812589363744679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6811909767340720271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22811183245959a46ae043e94fcb5002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::moreInfoAudioWatcher
 --- !u!1 &6943425790524434701
 GameObject:
   m_ObjectHideFlags: 0

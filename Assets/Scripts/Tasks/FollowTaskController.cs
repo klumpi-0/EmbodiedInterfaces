@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Is the controller which is used to create the following task of the mixNmatch
+/// </summary>
 public class FollowTaskController : MonoBehaviour
 {
     public static FollowTaskController Instance;

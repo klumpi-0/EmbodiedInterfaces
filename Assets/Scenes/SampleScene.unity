@@ -2808,13 +2808,45 @@ PrefabInstance:
       propertyPath: currentPuzzle
       value: 
       objectReference: {fileID: 11400000, guid: 77fdd21dfa01dcc438c3622371a84c45, type: 2}
+    - target: {fileID: 3879575441439388221, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_Name
+      value: SetImages
+      objectReference: {fileID: 0}
     - target: {fileID: 3991668212445294941, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
-      value: '@Get_ProcessRoations'
+      value: ProcessRoations
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4419382658531809967, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4621595003337105492, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
-      value: '@Get_GetVirtuallRotation'
+      value: GetVirtuallRotation
       objectReference: {fileID: 0}
     - target: {fileID: 4855741768469559158, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
@@ -2858,7 +2890,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 1d63cdeac00df4649848103f51e538fc, type: 3}
     - target: {fileID: 7205659048408024834, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
-      value: '@Set_SetRotationDigitalTwin'
+      value: SetRotationDigitalTwin
       objectReference: {fileID: 0}
     - target: {fileID: 8832176813927502181, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalScale.x
@@ -2878,7 +2910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9218423871546051903, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.98
+      value: 1.799
       objectReference: {fileID: 0}
     - target: {fileID: 9218423871546051903, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.z
