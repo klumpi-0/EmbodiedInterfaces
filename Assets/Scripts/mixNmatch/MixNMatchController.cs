@@ -55,4 +55,9 @@ public class MixNMatchController : MonoBehaviour
         }
     }
 
+    public void ForceFoundMatchEvent()
+    {
+        foundMatchEvent.Invoke();
+    }
+
 }

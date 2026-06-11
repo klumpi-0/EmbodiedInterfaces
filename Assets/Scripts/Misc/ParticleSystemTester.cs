@@ -30,7 +30,7 @@ public class ParticleSystemTester : MonoBehaviour
         foreach(ParticleSystem p in particleSystems)
         {
             var emission = p.emission;
-            emission.rateOverDistance = (int)newAmount;
+            emission.rateOverTime = (int)newAmount;
         }
     }
 

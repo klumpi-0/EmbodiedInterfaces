@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4442780333319428507}
   - component: {fileID: 2270523263405571901}
   m_Layer: 0
-  m_Name: '[BuildingBlock] Cube'
+  m_Name: Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ Transform:
   m_GameObject: {fileID: 3517635211529745372}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.916, z: 0}
+  m_LocalPosition: {x: -0.338, y: 0.916, z: 0.524}
   m_LocalScale: {x: 0.29622, y: 0.29622, z: 0.29622}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: fc838a05-aa3b-4a4b-ac2c-158d75fd300e
+  instanceId: 6c803899-eb2f-4a03-a477-43f4f5ffaa8a
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -318,7 +318,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: e7bd6d871687510469e646156d45c79f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 56d13aa1-5a1e-4fc0-b4a5-2270dda91600
+  instanceId: 9502b4df-e1b9-4b96-a9e7-7f2e8570bfaa
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8

@@ -18,7 +18,6 @@ public class Task01 : MonoBehaviour
         if(other.gameObject == flowerObject)
         {
             isInCollider = true;
-            FollowTaskController.Instance.finishedTaskEvent.Invoke();
         }
     }
 
