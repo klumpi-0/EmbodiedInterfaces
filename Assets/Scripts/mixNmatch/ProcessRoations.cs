@@ -20,9 +20,10 @@ public class ProcessRoations : MonoBehaviour
     [SerializeField] private int[] targetRotation;
 
     [Header("Events")]
-    UnityEvent<int> newFrontSideLowEvent;
-    UnityEvent<int> newFrontSideMiddleEvent;
-    UnityEvent<int> newFrontSideHighEvent;
+    [SerializeField] private UnityEvent<int> newFrontSideLowEvent;
+    [SerializeField] private UnityEvent<int> newFrontSideMiddleEvent;
+    [SerializeField] private UnityEvent<int> newFrontSideHighEvent;
+    [SerializeField] private UnityEvent<int> leftFrontFacingSideEvent;
 
     [Header("References")]
     [SerializeField] private GetVirtuallRotation rotation;
@@ -103,18 +104,71 @@ public class ProcessRoations : MonoBehaviour
 
     private void CheckIfEventsNeedInvoked()
     {
-
+        if (EnteredQuarterRotationArea(lastRotLow, rotLow, angleForFrontSideEvents, out int frontSideLow))
+        {
+            newFrontSideLowEvent.Invoke(frontSideLow);
+        }
+        if (EnteredQuarterRotationArea(lastRotMiddle, rotMiddle, angleForFrontSideEvents, out int frontSideMiddle))
+        {
+            newFrontSideMiddleEvent.Invoke(frontSideMiddle);
+        }
+        if (EnteredQuarterRotationArea(lastRotHigh, rotHigh, angleForFrontSideEvents, out int frontSideHigh))
+        {
+            newFrontSideHighEvent.Invoke(frontSideHigh);
+        }
+        if(LeftQuarterRotationArea(lastRotLow, rotLow, angleForFrontSideEvents)) { leftFrontFacingSideEvent.Invoke(0); }
+        if(LeftQuarterRotationArea(lastRotMiddle, rotMiddle, angleForFrontSideEvents)) { leftFrontFacingSideEvent.Invoke(1); }
+        if(LeftQuarterRotationArea(lastRotHigh, rotHigh, angleForFrontSideEvents)) { leftFrontFacingSideEvent.Invoke(2); }
     }
 
-    private bool NeedToFireEvent(float currentValue, float lastValue)
+    public static bool EnteredQuarterRotationArea(
+        float previousYRotation,
+        float currentYRotation,
+        float tolerance,
+        out int nearestPosition)
     {
-        return false;
+        nearestPosition = GetNearestQuarterPosition(currentYRotation);
+
+        bool wasInside = IsNearQuarterRotation(previousYRotation, tolerance, out _);
+        bool isInside = IsNearQuarterRotation(currentYRotation, tolerance, out _);
+
+        return !wasInside && isInside;
     }
 
-    private bool UnderTargetAngle(float targetAngle, float currentAngle)
+    public static bool IsNearQuarterRotation(
+        float yRotation,
+        float tolerance,
+        out int nearestPosition)
     {
-        return Mathf.Abs(targetAngle - currentAngle) < angleForFrontSideEvents;
+        yRotation = (yRotation % 360f + 360f) % 360f;
+
+        nearestPosition = Mathf.RoundToInt(yRotation / 90f) % 4;
+
+        float targetAngle = nearestPosition * 90f;
+        float delta = Mathf.Abs(Mathf.DeltaAngle(yRotation, targetAngle));
+
+        return delta <= tolerance;
     }
+
+    public static bool LeftQuarterRotationArea(
+    float previousYRotation,
+    float currentYRotation,
+    float tolerance)
+    {
+        bool wasInside = IsNearQuarterRotation(previousYRotation, tolerance, out _);
+        bool isInside = IsNearQuarterRotation(currentYRotation, tolerance, out _);
+
+        return wasInside && !isInside;
+    }
+
+
+    public static int GetNearestQuarterPosition(float yRotation)
+    {
+        yRotation = (yRotation % 360f + 360f) % 360f;
+        return Mathf.RoundToInt(yRotation / 90f) % 4;
+    }
+
+
 
     /// <summary>
     /// Is used to return the front facing sides of the mixNmatch.
