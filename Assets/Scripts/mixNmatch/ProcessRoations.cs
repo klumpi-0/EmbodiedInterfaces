@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ProcessRoations : MonoBehaviour
 {
@@ -18,8 +19,19 @@ public class ProcessRoations : MonoBehaviour
     [SerializeField] private int numberSides = 4;
     [SerializeField] private int[] targetRotation;
 
+    [Header("Events")]
+    UnityEvent<int> newFrontSideLowEvent;
+    UnityEvent<int> newFrontSideMiddleEvent;
+    UnityEvent<int> newFrontSideHighEvent;
+
     [Header("References")]
     [SerializeField] private GetVirtuallRotation rotation;
+
+    [Header("RotationData")]
+    [Tooltip("Angle which must be undergone to call the new frontSide Events")]
+    [SerializeField] private float angleForFrontSideEvents = 20f;
+    private float rotLow, rotMiddle, rotHigh;
+    private float lastRotLow, lastRotMiddle, lastRotHigh;
 
     // Internal values
     private float[] rotationSteps;
@@ -37,10 +49,19 @@ public class ProcessRoations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        (rotLow, rotMiddle, rotHigh) = GetVirtuallRotation.Instance.GetVirtuallRotations();
+        UpdateFrontFacingSides();
+        CheckForTargetRotation();
+        CheckIfEventsNeedInvoked();
+        // Get last rotations
+        (lastRotLow, lastRotMiddle, lastRotHigh) = GetVirtuallRotation.Instance.GetVirtuallRotations();
+    }
+
+    private void UpdateFrontFacingSides()
+    {
         frontFacingSides[0] = GetNearestSide(rotation.rotationLow);
         frontFacingSides[1] = GetNearestSide(rotation.rotationMiddle);
         frontFacingSides[2] = GetNearestSide(rotation.rotationHigh);
-        CheckForTargetRotation();
     }
 
     private float[] CalculateRoationSteps()
@@ -70,12 +91,29 @@ public class ProcessRoations : MonoBehaviour
         return nearestSide;
     }
 
+    
+
     private void CheckForTargetRotation()
     {
         if(frontFacingSides.SequenceEqual(targetRotation))
         {
             MixNMatchController.Instance.InitFoundMatchEvent();
         }
+    }
+
+    private void CheckIfEventsNeedInvoked()
+    {
+
+    }
+
+    private bool NeedToFireEvent(float currentValue, float lastValue)
+    {
+        return false;
+    }
+
+    private bool UnderTargetAngle(float targetAngle, float currentAngle)
+    {
+        return Mathf.Abs(targetAngle - currentAngle) < angleForFrontSideEvents;
     }
 
     /// <summary>

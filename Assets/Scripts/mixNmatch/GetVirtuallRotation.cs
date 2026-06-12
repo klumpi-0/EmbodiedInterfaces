@@ -35,4 +35,9 @@ public class GetVirtuallRotation : MonoBehaviour
     {
         return Mathf.Abs(cube.transform.localEulerAngles.y % 360);
     }
+
+    public (float, float, float) GetVirtuallRotations()
+    {
+        return (rotationLow, rotationMiddle, rotationHigh);
+    }
 }
