@@ -12,6 +12,7 @@ public class MixNMatchController : MonoBehaviour
     [Header("References")]
     [SerializeField] private SetImagesOnMixNMatch imageSetter;
     [SerializeField] private ProcessRoations processRotation;
+    [SerializeField] private GameObject[] plantBubbles;
 
     [Header("Events")]
     public UnityEvent foundMatchEvent;

@@ -1,4 +1,7 @@
+using Oculus.Interaction;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SmoothMover : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class SmoothMover : MonoBehaviour
     private Quaternion endRot;
     private float time;
 
+    public UnityEvent atFinalTransformEvent = new UnityEvent();
+
 
     public void Init(Vector3 targetPosition_, Vector3 targetRotation_, float duration_, float curveStrength_ = 1f)
     {
@@ -21,6 +26,7 @@ public class SmoothMover : MonoBehaviour
         endRot = Quaternion.Euler(targetRotation_);
         duration = duration_;
         curveStrength = curveStrength_;
+        StartCoroutine(InvokeDelayed(duration));
         Destroy(this, duration);
     }
 
@@ -31,6 +37,7 @@ public class SmoothMover : MonoBehaviour
         endRot = targetTransform_.rotation;
         duration = duration_;
         curveStrength = curveStrength_;
+        StartCoroutine(InvokeDelayed(duration));
         Destroy(this, duration);
     }
 
@@ -68,6 +75,13 @@ public class SmoothMover : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, targetPosition, t);
             transform.rotation = Quaternion.Slerp(startRot, endRot, t);
         }
+    }
+
+    IEnumerator InvokeDelayed(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        atFinalTransformEvent?.Invoke();
     }
 
     public void SetPositionAndRotation(Vector3 position, Vector3 rotation)
