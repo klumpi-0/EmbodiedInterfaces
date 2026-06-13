@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FlowerWaveSpawner : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class FlowerWaveSpawner : MonoBehaviour
     [Header("Wave Settings")]
     public Transform origin;
     public float maxRadius = 10f;
+    [Obsolete]
     public float waveSpeed = 5f;
 
     [Header("Spawn Settings")]
@@ -18,12 +21,17 @@ public class FlowerWaveSpawner : MonoBehaviour
 
     [Header("Scale Animation")]
     public float growDuration = 1f;
-    public float shrinkChance = 0.8f;
+    [Range(0f, 1f)] public float shrinkChance = 0.8f;
     public float shrinkDelay = 2f;
+
+    [Header("TimeStuff")]
+    [SerializeField] private float startTime;
+    [SerializeField] private float maxTime = 5f;
 
     public void StartWave()
     {
         StartCoroutine(SpawnWave());
+        //StartCoroutine(SpawnWaveTime());
     }
 
     private IEnumerator SpawnWave()
@@ -51,6 +59,32 @@ public class FlowerWaveSpawner : MonoBehaviour
         }
     }
 
+    private IEnumerator SpawnWaveTime()
+    {
+        List<GameObject> spawned = new List<GameObject>();
+        startTime = Time.time;
+        for (int i = 0; i < totalFlowers; i++)
+        {
+            float currentProgess = Mathf.InverseLerp(startTime, startTime + maxTime, Time.deltaTime);
+            Vector2 randomCircle = Random.insideUnitCircle.normalized * maxRadius * currentProgess;
+            Debug.Log($"Random Circle x:{randomCircle.x}, y:{randomCircle.y}");
+            Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
+
+            GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
+            GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
+
+            flower.transform.localScale = Vector3.zero;
+            spawned.Add(flower);
+
+            float distance = Vector3.Distance(origin.position, pos);
+            float delay = distance / waveSpeed;
+
+            StartCoroutine(AnimateFlower(flower, 0));
+
+            yield return null; // leicht verteilt spawnen (optional)
+        }
+    }
+
     private IEnumerator AnimateFlower(GameObject flower, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -61,7 +95,7 @@ public class FlowerWaveSpawner : MonoBehaviour
         yield return StartCoroutine(ScaleOverTime(flower.transform, Vector3.zero, Vector3.one, growDuration));
 
         // optional: manche schrumpfen wieder
-        if (Random.value > stayRatio && Random.value < shrinkChance)
+        if (/*Random.value > stayRatio &&*/ Random.value < shrinkChance)
         {
             yield return new WaitForSeconds(shrinkDelay);
 
