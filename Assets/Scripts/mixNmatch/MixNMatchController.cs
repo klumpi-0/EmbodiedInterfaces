@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,7 +22,10 @@ public class MixNMatchController : MonoBehaviour
     [SerializeField] private GameObject plantBubble_4;
 
     [Header("Events")]
+    [Tooltip("Gets Invoked when user locks in correct solution for mNm puzzle")]
     public UnityEvent foundMatchEvent;
+    [Tooltip("Gets invoked when user planted plant into final position")]
+    public UnityEvent plantedPlantEvent;
 
 
     private void Awake()
@@ -44,9 +48,14 @@ public class MixNMatchController : MonoBehaviour
         
     }
 
-    public void SetNewPuzzleData(PuzzleData data)
+    public void SetNewPuzzleData(PuzzleData data, bool allreadySolved = false)
     {
         this.data = data;
+        if (!allreadySolved)
+        {
+            this.data.solvedPuzzle = false;
+            this.data.plantedPlant = false;
+        }
         (lowSprites, middleSprites, highSprites, solution) = CreateMixNMatchFill.Instance.CreateNewFill(this.data);
         processRotation?.SetTargetRotation(data.correctSolutionSites);
         imageSetter?.ApplyImages(lowSprites, middleSprites, highSprites);
@@ -57,10 +66,10 @@ public class MixNMatchController : MonoBehaviour
 
     public void InitFoundMatchEvent()
     {
-        if(!data.finishedPuzzle)
+        if(!data.solvedPuzzle)
         {
             Debug.Log("Found match");
-            data.finishedPuzzle = true;
+            data.solvedPuzzle = true;
             foundMatchEvent.Invoke();
         }
     }
@@ -68,6 +77,17 @@ public class MixNMatchController : MonoBehaviour
     public void ForceFoundMatchEvent()
     {
         foundMatchEvent.Invoke();
+    }
+
+    public void InitPlantedEvent(float delay)
+    {
+        StartCoroutine(CoroutinePlantEvent(delay));
+    }
+
+    private IEnumerator CoroutinePlantEvent(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        plantedPlantEvent.Invoke();
     }
 
 }

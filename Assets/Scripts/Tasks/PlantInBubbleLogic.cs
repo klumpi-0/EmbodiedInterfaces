@@ -48,7 +48,8 @@ public class PlantInBubbleLogic : MonoBehaviour
         {
             if (isInCollider)
             {
-                visuals.ActivateStateMoveToFinal();
+                var delayTime = visuals.ActivateStateMoveToFinal();
+                MixNMatchController.Instance.InitPlantedEvent(delayTime);
             }
         }
     }

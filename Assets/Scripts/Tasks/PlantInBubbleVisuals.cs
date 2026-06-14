@@ -24,6 +24,7 @@ public class PlantInBubbleVisuals : MonoBehaviour
     [SerializeField][Range(0f, 2f)] private float normalPower;
     private float waitingIntervall = 2f;
     private float intervallSpeed = 2f;
+    private float floatToFinalPositionTime = 2f;
 
     [Header("References")]
     [SerializeField] private GameObject flowerObject;
@@ -107,11 +108,12 @@ public class PlantInBubbleVisuals : MonoBehaviour
         }
     }
 
-    public void ActivateStateMoveToFinal()
+    public float ActivateStateMoveToFinal()
     {
         bubbleState = BubbleState.MoveToFinal;
         StopCoroutine(currentRoutine);
-        currentRoutine = StartCoroutine(MoveToFinalRoutine(2f));
+        currentRoutine = StartCoroutine(MoveToFinalRoutine(floatToFinalPositionTime));
+        return floatToFinalPositionTime;
     }
 
     private IEnumerator MoveToFinalRoutine(float duration)

@@ -21,7 +21,8 @@ public class PuzzleData : ScriptableObject
     [Header("Correct Solution")]
     [Tooltip("Gets created by Unity during runtime")]
     public int[] correctSolutionSites = new int[3];
-    public bool finishedPuzzle = false;
+    public bool solvedPuzzle = false;
+    public bool plantedPlant = false;
 
     [Header("Prefab for Task afterwards")]
     [Obsolete]
