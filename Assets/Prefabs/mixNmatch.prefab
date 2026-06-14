@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: e57ab640-dc85-41ef-8fa4-8da3a55e71f0
+  instanceId: 2fdb10c9-866b-460e-aaa0-e62cce9d3da1
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 09072c82-08c2-4c15-930c-c2a054783b9c
+  instanceId: a4f1b061-aac7-4e0c-87e5-da0e2f7a500d
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: f917d4ac-7cfd-49fd-91b0-91277123a708
+  instanceId: 28c6282f-1f23-42c4-a4f5-584e26b5e59d
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -1839,6 +1839,7 @@ Transform:
   - {fileID: 156259802013390171}
   - {fileID: 4419382658531809967}
   - {fileID: 4289846103691101805}
+  - {fileID: 117490889701611405}
   m_Father: {fileID: 9218423871546051903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3132987366482505408
@@ -1991,7 +1992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 9cae969e-6a42-4402-914e-a4d82b0f9183
+  instanceId: d566d543-361b-4702-a3d7-043c1bc6336b
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -2506,6 +2507,18 @@ MonoBehaviour:
   frontFacingSides: 000000000000000000000000
   numberSides: 4
   targetRotation: 
+  newFrontSideLowEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  newFrontSideMiddleEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  newFrontSideHighEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  leftFrontFacingSideEvent:
+    m_PersistentCalls:
+      m_Calls: []
   rotation: {fileID: 8479586396663543367}
   angleForFrontSideEvents: 20
 --- !u!1 &4002786851252614522
@@ -7835,8 +7848,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5257963667081143309}
-  - {fileID: 1734277513524946632}
   - {fileID: 5229863400265520879}
+  - {fileID: 1734277513524946632}
   - {fileID: 5530127900893434557}
   - {fileID: 8073214675790448582}
   - {fileID: 299696761803778617}
@@ -7856,8 +7869,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MixNMatchController
   data: {fileID: 0}
+  lowSprites: []
+  middleSprites: []
+  highSprites: []
+  solution: 
   imageSetter: {fileID: 3046698868713377812}
   processRotation: {fileID: 6932526857509868272}
+  plantBubble_1: {fileID: 0}
+  plantBubble_2: {fileID: 0}
+  plantBubble_3: {fileID: 0}
+  plantBubble_4: {fileID: 0}
   foundMatchEvent:
     m_PersistentCalls:
       m_Calls:
@@ -7953,7 +7974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: be12d015-e553-4ea0-9185-412be805e7eb
+  instanceId: 3ed93eb0-affb-452f-946a-ad50f3c5ef9e
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -8536,6 +8557,52 @@ Transform:
   - {fileID: 3992426279010381104}
   m_Father: {fileID: 1696044640412556659}
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+--- !u!1 &6707919214490901327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 117490889701611405}
+  - component: {fileID: 2194793301941628227}
+  m_Layer: 0
+  m_Name: CreateMixNMatchFill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &117490889701611405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707919214490901327}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -1.53733, y: -1.6413901, z: -11.57397}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5229863400265520879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2194793301941628227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6707919214490901327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc75884d8e9a2c43ba11121dfac5dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreateMixNMatchFill
+  puzzleData: {fileID: 0}
+  solution: 
 --- !u!1 &6811909767340720271
 GameObject:
   m_ObjectHideFlags: 0
@@ -8888,7 +8955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 5fffe5b1-59fd-40c3-b81d-1f5501f9e6d1
+  instanceId: 16cce48e-0a77-436c-a890-16faab12c356
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8

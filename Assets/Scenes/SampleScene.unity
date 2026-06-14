@@ -1760,7 +1760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039e965b3ec0a764da8c4ee5bbf5de30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestChangeImage
-  puzzleData: {fileID: 11400000, guid: 77fdd21dfa01dcc438c3622371a84c45, type: 2}
+  puzzleData: {fileID: 11400000, guid: f8daaed9a40eec54792cfed211212cf1, type: 2}
 --- !u!1 &1243432632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3166,7 +3166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6146088518293136126, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: foundMatchEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6146088518293136126, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: foundMatchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

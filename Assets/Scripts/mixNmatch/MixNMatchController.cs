@@ -7,12 +7,18 @@ public class MixNMatchController : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private PuzzleData data;
-
+    [SerializeField] private Sprite[] lowSprites;
+    [SerializeField] private Sprite[] middleSprites;
+    [SerializeField] private Sprite[] highSprites;
+    [SerializeField] private int[] solution;
 
     [Header("References")]
     [SerializeField] private SetImagesOnMixNMatch imageSetter;
     [SerializeField] private ProcessRoations processRotation;
-    [SerializeField] private GameObject[] plantBubbles;
+    [SerializeField] private GameObject plantBubble_1;
+    [SerializeField] private GameObject plantBubble_2;
+    [SerializeField] private GameObject plantBubble_3;
+    [SerializeField] private GameObject plantBubble_4;
 
     [Header("Events")]
     public UnityEvent foundMatchEvent;
@@ -41,9 +47,11 @@ public class MixNMatchController : MonoBehaviour
     public void SetNewPuzzleData(PuzzleData data)
     {
         this.data = data;
+        (lowSprites, middleSprites, highSprites, solution) = CreateMixNMatchFill.Instance.CreateNewFill(this.data);
         processRotation?.SetTargetRotation(data.correctSolutionSites);
-        imageSetter?.ApplyImages(data);
-        FollowTaskController.Instance?.SetCurrentFollowTask(data.prefabTask);
+        imageSetter?.ApplyImages(lowSprites, middleSprites, highSprites);
+        ProcessRoations.Instance.SetTargetRotation(solution);
+        //FollowTaskController.Instance?.SetCurrentFollowTask(data.prefabTask);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
     }
 

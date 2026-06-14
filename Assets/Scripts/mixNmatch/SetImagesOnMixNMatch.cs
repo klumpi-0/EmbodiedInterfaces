@@ -28,20 +28,27 @@ public class SetImagesOnMixNMatch : MonoBehaviour
 
     private void Start()
     {
-        ApplyImages(currentPuzzle);
+        //ApplyImages(currentPuzzle);
     }
 
-    public void ApplyImages(PuzzleData puzzle)
-    {
-        if (puzzle == null)
-        {
-            Debug.LogError("No PuzzleData assigned!");
-            return;
-        }
+    //public void ApplyImages(PuzzleData puzzle)
+    //{
+    //    if (puzzle == null)
+    //    {
+    //        Debug.LogError("No PuzzleData assigned!");
+    //        return;
+    //    }
 
-        ApplyToCube(lowImages, puzzle.lowSprites);
-        ApplyToCube(middleImages, puzzle.middleSprites);
-        ApplyToCube(highImages, puzzle.highSprites);
+    //    ApplyToCube(lowImages, puzzle.lowSprites);
+    //    ApplyToCube(middleImages, puzzle.middleSprites);
+    //    ApplyToCube(highImages, puzzle.highSprites);
+    //}
+
+    public void ApplyImages(Sprite[] low, Sprite[] middle, Sprite[] high)
+    {
+        ApplyToCube(lowImages, low);
+        ApplyToCube(middleImages, middle);
+        ApplyToCube(highImages, high);
     }
 
     private void ApplyToCube(Image[] images, Sprite[] sprites)

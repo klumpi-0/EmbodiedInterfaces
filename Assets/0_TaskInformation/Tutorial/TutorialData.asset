@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277bd86ee6139c2459b3c2fba706c275, type: 3}
+  m_Name: TutorialData
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
+  correctSprites:
+  - {fileID: 21300000, guid: 0e226b145a99e8048bf22c7f21cea0f9, type: 3}
+  - {fileID: 21300000, guid: 0e226b145a99e8048bf22c7f21cea0f9, type: 3}
+  - {fileID: 21300000, guid: 0e226b145a99e8048bf22c7f21cea0f9, type: 3}
+  lowSprites:
+  - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
+  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
+  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  middleSprites:
+  - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
+  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
+  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  highSprites:
+  - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
+  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
+  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  correctSolutionSites: 000000000100000002000000
+  finishedPuzzle: 0
+  prefabTask: {fileID: 3877014336080867360, guid: a1e8e2b7e08e17d48b6f3678ccbcf58b, type: 3}
+  flowerMesh: {fileID: 0}
+  flowerMaterial: {fileID: 0}
+  flowerPrefab: {fileID: 0}
+  introClip: {fileID: 0}
+  finishedPuzzleClip: {fileID: 0}
+  morInfo_01Clip: {fileID: 0}
+  morInfo_02Clip: {fileID: 0}
+  morInfo_03Clip: {fileID: 0}
+  finishedText: 
+  highInfoText: 
+  middleInfoText: 
+  lowInfoText: 
