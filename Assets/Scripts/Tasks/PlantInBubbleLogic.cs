@@ -10,6 +10,13 @@ public class PlantInBubbleLogic : MonoBehaviour
     [SerializeField] private bool isInCollider;
     [SerializeField] private PlantInBubbleVisuals visuals;
 
+    public void SetupPlantBubble(GameObject flower, Grabbable grabbable)
+    {
+        flowerObject = flower;
+        flowerGrabbable = grabbable;
+        visuals.SetUpVisuals(flowerObject, targetTransformFlower);
+    }
+
     private void OnEnable()
     {
         if (flowerGrabbable == null)
@@ -17,6 +24,7 @@ public class PlantInBubbleLogic : MonoBehaviour
             flowerGrabbable = flowerObject.GetComponent<Grabbable>();
         }
         flowerGrabbable.WhenPointerEventRaised += HandlePointerEvent;
+        visuals.ActivateStateWaiting();
     }
     private void OnDisable()
     {
@@ -30,6 +38,12 @@ public class PlantInBubbleLogic : MonoBehaviour
         {
             isInCollider = true;
             visuals.ActivateStateIsInside();
+            if (flowerGrabbable == null)
+            {
+                flowerGrabbable = flowerObject.GetComponent<Grabbable>();
+            }
+            flowerGrabbable.WhenPointerEventRaised += HandlePointerEvent;
+
         }
     }
 

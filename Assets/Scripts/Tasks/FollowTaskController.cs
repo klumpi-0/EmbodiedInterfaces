@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +9,7 @@ public class FollowTaskController : MonoBehaviour
 {
     public static FollowTaskController Instance;
 
-    [SerializeField] private GameObject currentFollowTask;
+    [SerializeField] private GameObject currentFollowPrefab;
     [SerializeField] private GameObject spawnParent;
 
     public UnityEvent finishedTaskEvent;
@@ -35,11 +36,15 @@ public class FollowTaskController : MonoBehaviour
 
     private void SpawnFollowTask()
     {
-        Instantiate(currentFollowTask, spawnParent.transform);
+        var prefab = Instantiate(currentFollowPrefab, spawnParent.transform);
+        MixNMatchController.Instance.SetCurrentFollowUpObject(prefab);
+        //Instantiate(currentFollowTask, spawnParent.transform);
     }
 
-    public void SetCurrentFollowTask(GameObject followTaskPrefab)
+    public void SetCurrentFollowTask(GameObject currentFollowPrefab)
     {
-        currentFollowTask = followTaskPrefab;
+        this.currentFollowPrefab = currentFollowPrefab;
     }
+
+
 }

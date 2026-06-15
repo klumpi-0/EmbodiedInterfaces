@@ -6,13 +6,14 @@ using Random = UnityEngine.Random;
 
 public class FlowerWaveSpawner : MonoBehaviour
 {
+    public static FlowerWaveSpawner Instance;
+
     [Header("Prefabs")]
-    public GameObject[] flowerPrefabs;
+    public GameObject[] flowerPrefabs = new GameObject[1];
 
     [Header("Wave Settings")]
     public Transform origin;
     public float maxRadius = 10f;
-    [Obsolete]
     public float waveSpeed = 5f;
 
     [Header("Spawn Settings")]
@@ -28,10 +29,25 @@ public class FlowerWaveSpawner : MonoBehaviour
     [SerializeField] private float startTime;
     [SerializeField] private float maxTime = 5f;
 
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     public void StartWave()
     {
         StartCoroutine(SpawnWave());
         //StartCoroutine(SpawnWaveTime());
+    }
+
+    public void StartWave(GameObject flower, float shrinkChance)
+    {
+        flowerPrefabs[0] = flower;
+        this.shrinkChance = shrinkChance;
+        StartCoroutine(SpawnWave());
     }
 
     private IEnumerator SpawnWave()

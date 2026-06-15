@@ -156,4 +156,10 @@ public class PlantInBubbleVisuals : MonoBehaviour
             yield return null;
         }
     }
+
+    public void SetUpVisuals(GameObject flowerObject, Transform targetTransform)
+    {
+        this.flowerObject = flowerObject;
+        this.targetTransformFlower = targetTransform;
+    }
 }

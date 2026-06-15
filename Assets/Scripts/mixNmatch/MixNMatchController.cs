@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,10 +17,8 @@ public class MixNMatchController : MonoBehaviour
     [Header("References")]
     [SerializeField] private SetImagesOnMixNMatch imageSetter;
     [SerializeField] private ProcessRoations processRotation;
-    [SerializeField] private GameObject plantBubble_1;
-    [SerializeField] private GameObject plantBubble_2;
-    [SerializeField] private GameObject plantBubble_3;
-    [SerializeField] private GameObject plantBubble_4;
+    [SerializeField] private GameObject currentFollowUpObject;
+    [SerializeField] private GameObject[] plantBubbles;
 
     [Header("Events")]
     [Tooltip("Gets Invoked when user locks in correct solution for mNm puzzle")]
@@ -39,7 +38,12 @@ public class MixNMatchController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        foundMatchEvent.AddListener(ActivatePlantBubble);
+
+        plantedPlantEvent.AddListener(SetBubbleFinished);
+        plantedPlantEvent.AddListener(StartFlowerWaveGround);
+
+        DeactivateAllBubbles();
     }
 
     // Update is called once per frame
@@ -59,9 +63,44 @@ public class MixNMatchController : MonoBehaviour
         (lowSprites, middleSprites, highSprites, solution) = CreateMixNMatchFill.Instance.CreateNewFill(this.data);
         processRotation?.SetTargetRotation(data.correctSolutionSites);
         imageSetter?.ApplyImages(lowSprites, middleSprites, highSprites);
-        ProcessRoations.Instance.SetTargetRotation(solution);
-        //FollowTaskController.Instance?.SetCurrentFollowTask(data.prefabTask);
+        ProcessRoations.Instance?.SetTargetRotation(solution);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
+        FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
+    }
+
+    private void StartFlowerWaveGround()
+    {
+        FlowerWaveSpawner.Instance.StartWave(this.data.groundFlowerPrefab, this.data.shrinkChanceGround);
+    }
+
+    private void ActivatePlantBubble()
+    {
+        var currentBubble = plantBubbles[data.numberPhase];
+        currentBubble.SetActive(true);
+        var logic = currentBubble.GetComponent<PlantInBubbleLogic>();
+        logic.SetupPlantBubble(currentFollowUpObject, currentFollowUpObject.GetComponent<Grabbable>());
+    }
+
+
+    private void SetBubbleFinished()
+    {
+        plantBubbles[data.numberPhase].GetComponent<PlantInBubbleLogic>().enabled = false;
+    }
+    /// <summary>
+    /// Gets called if bubble has flower in it
+    /// </summary>
+
+    private void DeactivateAllBubbles()
+    {
+        foreach(GameObject bubble in plantBubbles)
+        {
+            bubble.SetActive(false);
+        }
+    }
+
+    public void SetCurrentFollowUpObject(GameObject followObject)
+    {
+        currentFollowUpObject = followObject;
     }
 
     public void InitFoundMatchEvent()
@@ -86,6 +125,7 @@ public class MixNMatchController : MonoBehaviour
 
     private IEnumerator CoroutinePlantEvent(float delay)
     {
+        Debug.Log("Invoked planted plant event");
         yield return new WaitForSeconds(delay);
         plantedPlantEvent.Invoke();
     }

@@ -9,6 +9,11 @@ public enum ProgressMNM
 [CreateAssetMenu(fileName = "PuzzleData", menuName = "Puzzle/Puzzle Data")]
 public class PuzzleData : ScriptableObject
 {
+    [Header("Overall Information")]
+    public string namePhase;
+    [Tooltip("Is manly used to activate the correct plantBubble")]
+    public int numberPhase;
+
     [Header("Images")]
     [Tooltip("Images go from low to high (0 = low, 1 = middle, 2 = )")]
     public Sprite[] correctSprites = new Sprite[3];
@@ -24,14 +29,10 @@ public class PuzzleData : ScriptableObject
     public bool solvedPuzzle = false;
     public bool plantedPlant = false;
 
-    [Header("Prefab for Task afterwards")]
-    [Obsolete]
-    public GameObject prefabTask;
-
     [Header("Flower spawn afterwards")]
-    public Mesh flowerMesh;
-    public Material flowerMaterial;
-    public GameObject flowerPrefab;
+    public GameObject grabbablePrefab;
+    public GameObject groundFlowerPrefab;
+    public float shrinkChanceGround;
 
 
     [Header("AudioClips")]

@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: _centerEyeCamera
       value: 
       objectReference: {fileID: 135578294}
+    - target: {fileID: 504431858778884319, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2336446269904782542, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: _leftEyeAnchor
       value: 
@@ -3129,19 +3133,19 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 1d63cdeac00df4649848103f51e538fc, type: 3}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: newFrontSideLowEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: newFrontSideHighEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: newFrontSideMiddleEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: leftFrontFacingSideEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: newFrontSideLowEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3330,6 +3334,10 @@ PrefabInstance:
     - target: {fileID: 7205659048408024834, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
       value: SetRotationDigitalTwin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8073214675790448582, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.267
       objectReference: {fileID: 0}
     - target: {fileID: 8832176813927502181, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalScale.x

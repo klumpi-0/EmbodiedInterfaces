@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 700316261846706016}
   - component: {fileID: 1338867890326487359}
   - component: {fileID: 5989702773273704882}
+  - component: {fileID: -8270907387523519522}
   m_Layer: 0
   m_Name: PlantBubble
   m_TagString: Untagged
@@ -166,3 +167,20 @@ MonoBehaviour:
   flowerObject: {fileID: 0}
   targetTransformFlower: {fileID: 8345303568068746187}
   bubbleRenderer: {fileID: 700316261846706016}
+--- !u!114 &-8270907387523519522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750358984298353787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3940e4368d9ee6469e47e3b595439dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlantInBubbleLogic
+  flowerObject: {fileID: 0}
+  flowerGrabbable: {fileID: 0}
+  targetTransformFlower: {fileID: 8345303568068746187}
+  isInCollider: 0
+  visuals: {fileID: 5989702773273704882}
