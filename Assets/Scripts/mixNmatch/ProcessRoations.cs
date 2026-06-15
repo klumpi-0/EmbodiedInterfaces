@@ -20,10 +20,10 @@ public class ProcessRoations : MonoBehaviour
     [SerializeField] private int[] targetRotation;
 
     [Header("Events")]
-    [SerializeField] private UnityEvent<int> newFrontSideLowEvent;
-    [SerializeField] private UnityEvent<int> newFrontSideMiddleEvent;
-    [SerializeField] private UnityEvent<int> newFrontSideHighEvent;
-    [SerializeField] private UnityEvent<int> leftFrontFacingSideEvent;
+    public UnityEvent<int> newFrontSideLowEvent;
+    public UnityEvent<int> newFrontSideMiddleEvent;
+    public UnityEvent<int> newFrontSideHighEvent;
+    public UnityEvent<int> leftFrontFacingSideEvent;
 
     [Header("References")]
     [SerializeField] private GetVirtuallRotation rotation;

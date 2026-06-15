@@ -64,7 +64,26 @@ public class SetImagesOnMixNMatch : MonoBehaviour
             }
         }
     }
+    public void ApplySingleImageToAllSides(Sprite[] sprites)
+    {
+        SetAllSides(lowImages, sprites[0]);
+        SetAllSides(lowImages, sprites[1]);
+        SetAllSides(lowImages, sprites[2]);
+    }
 
+    private void SetAllSides(Image[] images, Sprite sprite)
+    {
+        if (images == null || sprite == null)
+            return;
+
+        foreach (Image image in images)
+        {
+            if (image != null)
+            {
+                image.sprite = sprite;
+            }
+        }
+    }
     public void SetSingleImage(int cube, int index, Sprite sprite)
     {
         Image[] target = GetCube(cube);

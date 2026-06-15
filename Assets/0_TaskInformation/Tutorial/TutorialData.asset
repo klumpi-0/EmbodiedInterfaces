@@ -30,10 +30,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
   - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
   - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
-  correctSolutionSites: 020000000000000001000000
-  solvedPuzzle: 0
+  correctSolutionSites: 000000000000000002000000
+  solvedPuzzle: 1
   plantedPlant: 0
-  grabbablePrefab: {fileID: 3613802500611775873, guid: fd150042d1197954cb956cad219b0d94, type: 3}
+  grabbablePrefab: {fileID: 3613802500611775873, guid: cb775a27da8be9b49855d5a68b105f68, type: 3}
   groundFlowerPrefab: {fileID: 3613802500611775873, guid: fd150042d1197954cb956cad219b0d94, type: 3}
   shrinkChanceGround: 1
   introClip: {fileID: 0}

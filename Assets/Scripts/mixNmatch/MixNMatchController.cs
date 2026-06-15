@@ -42,6 +42,7 @@ public class MixNMatchController : MonoBehaviour
 
         plantedPlantEvent.AddListener(SetBubbleFinished);
         plantedPlantEvent.AddListener(StartFlowerWaveGround);
+        plantedPlantEvent.AddListener(SetupFollowUpInformation);
 
         DeactivateAllBubbles();
     }
@@ -73,6 +74,13 @@ public class MixNMatchController : MonoBehaviour
         FlowerWaveSpawner.Instance.StartWave(this.data.groundFlowerPrefab, this.data.shrinkChanceGround);
     }
 
+    private void SetupFollowUpInformation()
+    {
+        SetImagesOnMixNMatch.Instance.ApplySingleImageToAllSides(data.correctSprites);
+        MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
+    }
+
+    #region Bubble Stuff
     private void ActivatePlantBubble()
     {
         var currentBubble = plantBubbles[data.numberPhase];
@@ -102,7 +110,7 @@ public class MixNMatchController : MonoBehaviour
     {
         currentFollowUpObject = followObject;
     }
-
+    #endregion
     public void InitFoundMatchEvent()
     {
         if(!data.solvedPuzzle)
