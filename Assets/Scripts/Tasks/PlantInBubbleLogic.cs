@@ -10,6 +10,14 @@ public class PlantInBubbleLogic : MonoBehaviour
     [SerializeField] private bool isInCollider;
     [SerializeField] private PlantInBubbleVisuals visuals;
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            DebugMoveInPlant();
+        }
+    }
+
     public void SetupPlantBubble(GameObject flower, Grabbable grabbable)
     {
         flowerObject = flower;
@@ -65,6 +73,16 @@ public class PlantInBubbleLogic : MonoBehaviour
                 var delayTime = visuals.ActivateStateMoveToFinal();
                 MixNMatchController.Instance.InitPlantedEvent(delayTime);
             }
+        }
+    }
+
+    private void DebugMoveInPlant()
+    {
+        isInCollider = true;
+        if (isInCollider)
+        {
+            var delayTime = visuals.ActivateStateMoveToFinal();
+            MixNMatchController.Instance.InitPlantedEvent(delayTime);
         }
     }
 

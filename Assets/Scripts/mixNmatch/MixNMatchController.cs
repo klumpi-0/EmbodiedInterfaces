@@ -67,6 +67,7 @@ public class MixNMatchController : MonoBehaviour
         ProcessRoations.Instance?.SetTargetRotation(solution);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
+        MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
     }
 
     private void StartFlowerWaveGround()
