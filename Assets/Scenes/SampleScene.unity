@@ -2899,6 +2899,34 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1380827853881724575, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1913170008025369762, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Color.b
       value: 1
