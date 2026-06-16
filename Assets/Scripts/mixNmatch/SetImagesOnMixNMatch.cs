@@ -18,6 +18,9 @@ public class SetImagesOnMixNMatch : MonoBehaviour
     [Header("HighCube")]
     [SerializeField] private Image[] highImages = new Image[4];
 
+    [Header("More Sprites")]
+    [SerializeField] private Sprite arrowSprite;
+
     private void Awake()
     {
         if (Instance == null)
@@ -84,6 +87,15 @@ public class SetImagesOnMixNMatch : MonoBehaviour
             }
         }
     }
+
+    public void SetupMoreInformationImages(int[] positionsArrowImage, Sprite[] otherSprites)
+    {
+        ApplySingleImageToAllSides(otherSprites);
+        SetSingleImage(0, positionsArrowImage[0], arrowSprite);
+        SetSingleImage(1, positionsArrowImage[1], arrowSprite);
+        SetSingleImage(2, positionsArrowImage[2], arrowSprite);
+    }
+
     public void SetSingleImage(int cube, int index, Sprite sprite)
     {
         Image[] target = GetCube(cube);

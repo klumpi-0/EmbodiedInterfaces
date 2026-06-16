@@ -27,6 +27,10 @@ public class PlantInBubbleLogic : MonoBehaviour
 
     private void OnEnable()
     {
+        if(flowerObject == null)
+        {
+            return;
+        }
         if (flowerGrabbable == null)
         {
             flowerGrabbable = flowerObject.GetComponent<Grabbable>();
@@ -36,6 +40,7 @@ public class PlantInBubbleLogic : MonoBehaviour
     }
     private void OnDisable()
     {
+        if (flowerGrabbable == null) { return; }
         flowerGrabbable.WhenPointerEventRaised -= HandlePointerEvent;
     }
 

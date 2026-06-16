@@ -85,7 +85,7 @@ public class MoreInformationController : MonoBehaviour
         }
     }
 
-    private void DisableAllText(int randomInt)
+    public void DisableAllText(int randomInt)
     {
         DisableTextOnOneCube(lowCubeTexts);
         DisableTextOnOneCube(middleCubeTexts);

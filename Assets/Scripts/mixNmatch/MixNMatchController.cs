@@ -25,6 +25,8 @@ public class MixNMatchController : MonoBehaviour
     public UnityEvent foundMatchEvent;
     [Tooltip("Gets invoked when user planted plant into final position")]
     public UnityEvent plantedPlantEvent;
+    [Tooltip("Gets invoked when user locked in the forward arrows")]
+    public UnityEvent forwardArrowsEvent;
 
 
     private void Awake()
@@ -66,9 +68,11 @@ public class MixNMatchController : MonoBehaviour
         processRotation?.SetTargetRotation(data.correctSolutionSites);
         imageSetter?.ApplyImages(lowSprites, middleSprites, highSprites);
         ProcessRoations.Instance?.SetTargetRotation(solution);
+        ProcessRoations.Instance.SetTargetRotationArrows(data.arrowSolutionSites);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
+        MoreInformationController.Instance.DisableAllText(1);
     }
 
     private void StartFlowerWaveGround()
@@ -78,7 +82,9 @@ public class MixNMatchController : MonoBehaviour
 
     private void SetupFollowUpInformation()
     {
-        SetImagesOnMixNMatch.Instance.ApplySingleImageToAllSides(data.correctSprites);
+
+        //SetImagesOnMixNMatch.Instance.ApplySingleImageToAllSides(data.correctSprites);
+        SetImagesOnMixNMatch.Instance.SetupMoreInformationImages(data.arrowSolutionSites, data.correctSprites);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
         MoreInformationController.Instance.SetMoreInformationIsActive(true);
     }
@@ -114,13 +120,28 @@ public class MixNMatchController : MonoBehaviour
         currentFollowUpObject = followObject;
     }
     #endregion
+    /// <summary>
+    /// Gets called if user pressed button and found the correct mesh
+    /// </summary>
     public void InitFoundMatchEvent()
     {
-        if(!data.solvedPuzzle)
+        
+        if (!data.solvedPuzzle)
         {
+            // User solved the different task puzzles
             Debug.Log("Found match");
             data.solvedPuzzle = true;
             foundMatchEvent.Invoke();
+        }
+    }
+
+    public void InitForwardArrowsEvent()
+    {
+        if (data.solvedPuzzle)
+        {
+            // User just alligned the forward arrows and pressed the button
+            Debug.Log("Skip to next task");
+            forwardArrowsEvent.Invoke();
         }
     }
 

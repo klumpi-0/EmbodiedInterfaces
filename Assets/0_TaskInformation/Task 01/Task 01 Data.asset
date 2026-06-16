@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277bd86ee6139c2459b3c2fba706c275, type: 3}
+  m_Name: Task 01 Data
+  m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
+  namePhase: Task01
+  numberPhase: 1
+  correctSprites:
+  - {fileID: 21300000, guid: b139e8136d2a1094b867fbf36581f8d6, type: 3}
+  - {fileID: 21300000, guid: b139e8136d2a1094b867fbf36581f8d6, type: 3}
+  - {fileID: 21300000, guid: b139e8136d2a1094b867fbf36581f8d6, type: 3}
+  lowSprites:
+  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
+  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  - {fileID: 21300000, guid: 92414c5c60f8b814fa3c2cfccd3493ed, type: 3}
+  middleSprites:
+  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
+  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  - {fileID: 21300000, guid: 92414c5c60f8b814fa3c2cfccd3493ed, type: 3}
+  highSprites:
+  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
+  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  - {fileID: 21300000, guid: 92414c5c60f8b814fa3c2cfccd3493ed, type: 3}
+  correctSolutionSites: 010000000100000002000000
+  arrowSolutionSites: 000000000000000000000000
+  solvedPuzzle: 1
+  plantedPlant: 0
+  grabbablePrefab: {fileID: 3613802500611775873, guid: cb775a27da8be9b49855d5a68b105f68, type: 3}
+  groundFlowerPrefab: {fileID: 3613802500611775873, guid: fd150042d1197954cb956cad219b0d94, type: 3}
+  shrinkChanceGround: 1
+  introClip: {fileID: 0}
+  finishedPuzzleClip: {fileID: 8300000, guid: ce3454ac8f46bfd4db81f9ea52b0ee1d, type: 3}
+  morInfo_01Clip: {fileID: 0}
+  morInfo_02Clip: {fileID: 0}
+  morInfo_03Clip: {fileID: 0}
+  finishedText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  highInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  middleInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  lowInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

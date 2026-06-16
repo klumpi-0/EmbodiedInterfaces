@@ -23,6 +23,7 @@ public class CreateMixNMatchFill : MonoBehaviour
     {
         this.puzzleData = data;
         puzzleData.correctSolutionSites = CreateCorrectSolution();
+        puzzleData.arrowSolutionSites = CalculateArrowSolutions(puzzleData.correctSolutionSites);
         solution = puzzleData.correctSolutionSites;
         Sprite[] cubeLow = CreateRow(
             puzzleData.correctSprites[0],
@@ -76,6 +77,16 @@ public class CreateMixNMatchFill : MonoBehaviour
             result[i] = shuffledDiversions[diversionIndex++];
         }
 
+        return result;
+    }
+
+    private int[] CalculateArrowSolutions(int[] correctSolution)
+    {
+        int[] result = new int[3];
+        for (int i = 0;i < correctSolution.Length;i++)
+        {
+            result[i] = (correctSolution[i] + 2) % 4;
+        }
         return result;
     }
 }

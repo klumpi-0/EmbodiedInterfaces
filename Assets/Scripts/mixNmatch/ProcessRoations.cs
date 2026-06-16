@@ -18,6 +18,7 @@ public class ProcessRoations : MonoBehaviour
     [Tooltip("Based on this number, the calcualtion in the script will calculate stuff dynamicly")]
     [SerializeField] private int numberSides = 4;
     [SerializeField] private int[] targetRotation;
+    [SerializeField] private int[] targetArrowRotation;
 
     [Header("Events")]
     public UnityEvent<int> newFrontSideLowEvent;
@@ -88,10 +89,11 @@ public class ProcessRoations : MonoBehaviour
         float smallestAngle = float.MaxValue;
         for(int i = 0; i < rotationSteps.Length; i++)
         {
-            if(Mathf.Abs(currentRot - rotationSteps[i]) < smallestAngle)
+            float angleDifference = Mathf.Abs(Mathf.DeltaAngle(currentRot, rotationSteps[i]));
+            if(angleDifference < smallestAngle)
             {
                 nearestSide = i;
-                smallestAngle = Mathf.Abs(currentRot - rotationSteps[i]);
+                smallestAngle = angleDifference;
             }
         }
         return nearestSide;
@@ -104,6 +106,10 @@ public class ProcessRoations : MonoBehaviour
         if(frontFacingSides.SequenceEqual(targetRotation))
         {
             MixNMatchController.Instance.InitFoundMatchEvent();
+        }
+        if (frontFacingSides.SequenceEqual(targetArrowRotation))
+        {
+            MixNMatchController.Instance.InitForwardArrowsEvent();
         }
     }
 
@@ -186,5 +192,10 @@ public class ProcessRoations : MonoBehaviour
     public void SetTargetRotation(int[] newTargetRotation)
     {
         targetRotation = newTargetRotation;
+    }
+
+    public void SetTargetRotationArrows(int[] newTargetRotation)
+    {
+        targetArrowRotation = newTargetRotation;
     }
 }
