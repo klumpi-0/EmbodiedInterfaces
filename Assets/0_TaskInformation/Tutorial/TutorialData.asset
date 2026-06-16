@@ -30,7 +30,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
   - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
   - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
-  correctSolutionSites: 000000000000000002000000
+  correctSolutionSites: 010000000100000002000000
   solvedPuzzle: 1
   plantedPlant: 0
   grabbablePrefab: {fileID: 3613802500611775873, guid: cb775a27da8be9b49855d5a68b105f68, type: 3}
@@ -41,7 +41,19 @@ MonoBehaviour:
   morInfo_01Clip: {fileID: 0}
   morInfo_02Clip: {fileID: 0}
   morInfo_03Clip: {fileID: 0}
-  finishedText: 
-  highInfoText: 
-  middleInfoText: 
-  lowInfoText: 
+  finishedText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  highInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  middleInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  lowInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
+    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
+    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.

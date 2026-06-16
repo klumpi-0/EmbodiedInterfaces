@@ -60,6 +60,7 @@ public class MixNMatchController : MonoBehaviour
         {
             this.data.solvedPuzzle = false;
             this.data.plantedPlant = false;
+            MoreInformationController.Instance.SetMoreInformationIsActive(false);
         }
         (lowSprites, middleSprites, highSprites, solution) = CreateMixNMatchFill.Instance.CreateNewFill(this.data);
         processRotation?.SetTargetRotation(data.correctSolutionSites);
@@ -79,6 +80,7 @@ public class MixNMatchController : MonoBehaviour
     {
         SetImagesOnMixNMatch.Instance.ApplySingleImageToAllSides(data.correctSprites);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
+        MoreInformationController.Instance.SetMoreInformationIsActive(true);
     }
 
     #region Bubble Stuff

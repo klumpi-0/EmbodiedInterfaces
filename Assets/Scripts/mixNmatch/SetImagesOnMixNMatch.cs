@@ -67,8 +67,8 @@ public class SetImagesOnMixNMatch : MonoBehaviour
     public void ApplySingleImageToAllSides(Sprite[] sprites)
     {
         SetAllSides(lowImages, sprites[0]);
-        SetAllSides(lowImages, sprites[1]);
-        SetAllSides(lowImages, sprites[2]);
+        SetAllSides(middleImages, sprites[1]);
+        SetAllSides(highImages, sprites[2]);
     }
 
     private void SetAllSides(Image[] images, Sprite sprite)

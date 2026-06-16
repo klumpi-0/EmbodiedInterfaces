@@ -5,6 +5,8 @@ public class MoreInformationController : MonoBehaviour
 {
     public static MoreInformationController Instance;
 
+    [SerializeField] private bool moreInformationIsActive;
+
     [Header("References")]
     [SerializeField] private TextMeshProUGUI[] lowCubeTexts;
     [SerializeField] private TextMeshProUGUI[] middleCubeTexts;
@@ -28,7 +30,7 @@ public class MoreInformationController : MonoBehaviour
         ProcessRoations.Instance.newFrontSideLowEvent.AddListener(EnableTextLow);
         ProcessRoations.Instance.newFrontSideMiddleEvent.AddListener(EnableTextMiddle);
         ProcessRoations.Instance.newFrontSideHighEvent.AddListener(EnableTextHigh);
-        ProcessRoations.Instance.leftFrontFacingSideEvent.AddListener(DisableTextOnCube);
+        ProcessRoations.Instance.leftFrontFacingSideEvent.AddListener(DisableAllText);
     }
 
     public void SetAndUpdateNewText(string lowText, string middleText, string highText)
@@ -51,18 +53,21 @@ public class MoreInformationController : MonoBehaviour
 
     private void EnableTextLow(int numberSide)
     {
+        if (!moreInformationIsActive) { return; }
         lowCubeTexts[numberSide].gameObject.SetActive(true);
     }
     private void EnableTextMiddle(int numberSide)
     {
+        if (!moreInformationIsActive) { return; }
         middleCubeTexts[numberSide].gameObject.SetActive(true);
     }
     private void EnableTextHigh(int numberSide)
     {
+        if (!moreInformationIsActive) { return; }
         highCubeTexts[numberSide].gameObject.SetActive(true);
     }
 
-    private void DisableAllTextOnCube(TextMeshProUGUI[] cubeTexts)
+    private void DisableTextOnOneCube(TextMeshProUGUI[] cubeTexts)
     {
         foreach (var text in cubeTexts)
         {
@@ -74,9 +79,21 @@ public class MoreInformationController : MonoBehaviour
     {
         switch (cubeNumber) 
         {
-            case 0: DisableAllTextOnCube(lowCubeTexts); break;
-            case 1: DisableAllTextOnCube(middleCubeTexts); break;
-            case 2: DisableAllTextOnCube(highCubeTexts); break;
+            case 0: DisableTextOnOneCube(lowCubeTexts); break;
+            case 1: DisableTextOnOneCube(middleCubeTexts); break;
+            case 2: DisableTextOnOneCube(highCubeTexts); break;
         }
+    }
+
+    private void DisableAllText(int randomInt)
+    {
+        DisableTextOnOneCube(lowCubeTexts);
+        DisableTextOnOneCube(middleCubeTexts);
+        DisableTextOnOneCube(highCubeTexts);
+    }
+
+    public void SetMoreInformationIsActive(bool isActive)
+    {
+        moreInformationIsActive = isActive;
     }
 }
