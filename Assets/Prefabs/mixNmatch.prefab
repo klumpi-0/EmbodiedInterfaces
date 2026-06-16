@@ -2537,6 +2537,7 @@ Transform:
   - {fileID: 4289846103691101805}
   - {fileID: 117490889701611405}
   - {fileID: 1380827853881724575}
+  - {fileID: 3062126832359638252}
   m_Father: {fileID: 9218423871546051903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3132987366482505408
@@ -10651,12 +10652,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SetRotationDigitalTwin
   debugRotation: 0
+  useSerialPort: 0
   lowRotation: 0
   middleRotation: 0
   highRotation: 0
   lowCube: {fileID: 684266456272082130}
   middleCube: {fileID: 2382597932715146497}
   highCube: {fileID: 810396222463187983}
+  buttonIsPressed: 0
+  wrapper: {fileID: 0}
 --- !u!1 &7259099238167292786
 GameObject:
   m_ObjectHideFlags: 0
@@ -11006,6 +11010,52 @@ Transform:
   - {fileID: 5808351081217791557}
   m_Father: {fileID: 1696044640412556659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7809025612592345837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3062126832359638252}
+  - component: {fileID: 5110716531323830961}
+  m_Layer: 0
+  m_Name: SerialDataHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3062126832359638252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809025612592345837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5229863400265520879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5110716531323830961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809025612592345837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96afc08dbda86114c8e8ab1b52137b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SerialDataHandler
+  portName: COM3
+  baudRate: 115200
 --- !u!1 &7938501252278691388
 GameObject:
   m_ObjectHideFlags: 0
