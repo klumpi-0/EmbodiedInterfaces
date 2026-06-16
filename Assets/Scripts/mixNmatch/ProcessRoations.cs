@@ -47,12 +47,17 @@ public class ProcessRoations : MonoBehaviour
         rotationSteps = CalculateRoationSteps();
     }
 
+    private void Start()
+    {
+        SetRotationDigitalTwin.Instance.buttonPressedEvent.AddListener(CheckForTargetRotation);
+    }
+
     // Update is called once per frame
     void Update()
     {
         (rotLow, rotMiddle, rotHigh) = GetVirtuallRotation.Instance.GetVirtuallRotations();
         UpdateFrontFacingSides();
-        CheckForTargetRotation();
+        //CheckForTargetRotation();
         CheckIfEventsNeedInvoked();
         // Get last rotations
         (lastRotLow, lastRotMiddle, lastRotHigh) = GetVirtuallRotation.Instance.GetVirtuallRotations();
