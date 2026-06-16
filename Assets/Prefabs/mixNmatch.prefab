@@ -10660,7 +10660,7 @@ MonoBehaviour:
   middleCube: {fileID: 2382597932715146497}
   highCube: {fileID: 810396222463187983}
   buttonIsPressed: 0
-  wrapper: {fileID: 0}
+  wrapper: {fileID: 1989637291862457696}
 --- !u!1 &7259099238167292786
 GameObject:
   m_ObjectHideFlags: 0
@@ -11843,6 +11843,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+--- !u!114 &1989637291862457696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+  m_PrefabInstance: {fileID: 8344372831542775717}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1989637292224462883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7516989854395125638, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}

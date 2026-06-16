@@ -20,7 +20,7 @@ public class SetRotationDigitalTwin : MonoBehaviour
 
     [Header("Button")]
     [SerializeField] private bool buttonIsPressed;
-    public UnityEvent buttonPressedEvent {  get; private set; }
+    public UnityEvent buttonPressedEvent = new UnityEvent();
     [SerializeField] private InteractableUnityEventWrapper wrapper;
 
     private void Awake()
@@ -34,12 +34,17 @@ public class SetRotationDigitalTwin : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         wrapper.WhenSelect.AddListener(ActivateButtonPressedEvent);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            wrapper.WhenSelect.Invoke();
+        }
         if (debugRotation)
         {
             SetRoationForCube(lowCube, lowRotation);
