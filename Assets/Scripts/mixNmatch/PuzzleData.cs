@@ -39,6 +39,7 @@ public class PuzzleData : ScriptableObject
     [Header("AudioClips")]
     public AudioClip introClip;
     public AudioClip finishedPuzzleClip;
+    public AudioClip afterPlantAudio;
     public AudioClip morInfo_01Clip;
     public AudioClip morInfo_02Clip;
     public AudioClip morInfo_03Clip;

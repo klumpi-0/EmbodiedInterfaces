@@ -38,7 +38,7 @@ MonoBehaviour:
   groundFlowerPrefab: {fileID: 7797516570994283050, guid: 4eff2ec3efb85524fa3c396aa71aca3c, type: 3}
   shrinkChanceGround: 1
   introClip: {fileID: 8300000, guid: c5f0494963b172644a1f86ed60627a33, type: 3}
-  finishedPuzzleClip: {fileID: 8300000, guid: ce3454ac8f46bfd4db81f9ea52b0ee1d, type: 3}
+  finishedPuzzleClip: {fileID: 8300000, guid: aaa63bafaa0b6db4c92b455aa6776cf5, type: 3}
   morInfo_01Clip: {fileID: 0}
   morInfo_02Clip: {fileID: 0}
   morInfo_03Clip: {fileID: 0}
