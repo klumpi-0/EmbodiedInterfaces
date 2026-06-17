@@ -2498,6 +2498,10 @@ MonoBehaviour:
   moreInfo_01: {fileID: 0}
   moreInfo_02: {fileID: 0}
   moreInfo_03: {fileID: 0}
+  wrongFeedbackClips:
+  - {fileID: 8300000, guid: 078450a1a14382e4d9ab4e1b59613499, type: 3}
+  - {fileID: 8300000, guid: 66d878f13855cc245b7e0e128b899401, type: 3}
+  - {fileID: 8300000, guid: 340df8154a33016409363755f6c38e55, type: 3}
 --- !u!1 &3101853244964721313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3440,6 +3444,7 @@ MonoBehaviour:
   - {fileID: 4963665105614291350}
   - {fileID: 891934654526700422}
   - {fileID: 7222944172460525207}
+  arrowSprite: {fileID: 21300000, guid: ac5333f4f99649c4b84330738e5fae07, type: 3}
 --- !u!1 &3905293215749896810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3625,6 +3630,7 @@ MonoBehaviour:
   frontFacingSides: 000000000000000000000000
   numberSides: 4
   targetRotation: 
+  targetArrowRotation: 
   newFrontSideLowEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -9296,7 +9302,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  wrongFeedbackEvent:
+    m_PersistentCalls:
+      m_Calls: []
   plantedPlantEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  forwardArrowsEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &5092757880020530253
@@ -9980,6 +9992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df31df3562b3e8a40904b493e45745ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreInformationController
+  moreInformationIsActive: 0
   lowCubeTexts:
   - {fileID: 2135419646757825624}
   - {fileID: 7312013929662750368}
@@ -10660,6 +10673,9 @@ MonoBehaviour:
   middleCube: {fileID: 2382597932715146497}
   highCube: {fileID: 810396222463187983}
   buttonIsPressed: 0
+  buttonPressedEvent:
+    m_PersistentCalls:
+      m_Calls: []
   wrapper: {fileID: 1989637291862457696}
 --- !u!1 &7259099238167292786
 GameObject:

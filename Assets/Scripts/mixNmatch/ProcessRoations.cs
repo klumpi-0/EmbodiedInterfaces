@@ -107,6 +107,10 @@ public class ProcessRoations : MonoBehaviour
         {
             MixNMatchController.Instance.InitFoundMatchEvent();
         }
+        else if(!frontFacingSides.SequenceEqual(targetRotation) && !MixNMatchController.Instance.data.solvedPuzzle)
+        {
+            MixNMatchController.Instance.InitWrongFeedbackEvent();
+        }
         if (frontFacingSides.SequenceEqual(targetArrowRotation))
         {
             MixNMatchController.Instance.InitForwardArrowsEvent();

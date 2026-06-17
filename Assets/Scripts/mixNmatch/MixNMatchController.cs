@@ -8,7 +8,7 @@ public class MixNMatchController : MonoBehaviour
     public static MixNMatchController Instance;
 
     [Header("Settings")]
-    [SerializeField] private PuzzleData data;
+    public PuzzleData data;
     [SerializeField] private Sprite[] lowSprites;
     [SerializeField] private Sprite[] middleSprites;
     [SerializeField] private Sprite[] highSprites;
@@ -23,6 +23,8 @@ public class MixNMatchController : MonoBehaviour
     [Header("Events")]
     [Tooltip("Gets Invoked when user locks in correct solution for mNm puzzle")]
     public UnityEvent foundMatchEvent;
+    [Tooltip("Gets invoked if user needs to get wrong feedback")]
+    public UnityEvent wrongFeedbackEvent;
     [Tooltip("Gets invoked when user planted plant into final position")]
     public UnityEvent plantedPlantEvent;
     [Tooltip("Gets invoked when user locked in the forward arrows")]
@@ -70,6 +72,7 @@ public class MixNMatchController : MonoBehaviour
         ProcessRoations.Instance?.SetTargetRotation(solution);
         ProcessRoations.Instance.SetTargetRotationArrows(data.arrowSolutionSites);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
+        MNM_AudioController.Instance.PlayIntroClip();
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
         MoreInformationController.Instance.DisableAllText(1);
@@ -125,7 +128,6 @@ public class MixNMatchController : MonoBehaviour
     /// </summary>
     public void InitFoundMatchEvent()
     {
-        
         if (!data.solvedPuzzle)
         {
             // User solved the different task puzzles
@@ -143,6 +145,11 @@ public class MixNMatchController : MonoBehaviour
             Debug.Log("Skip to next task");
             forwardArrowsEvent.Invoke();
         }
+    }
+
+    public void InitWrongFeedbackEvent()
+    {
+        wrongFeedbackEvent.Invoke();
     }
 
     public void ForceFoundMatchEvent()
