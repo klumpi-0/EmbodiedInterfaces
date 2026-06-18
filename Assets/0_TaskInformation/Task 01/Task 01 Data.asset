@@ -30,15 +30,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
   - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
   - {fileID: 21300000, guid: 92414c5c60f8b814fa3c2cfccd3493ed, type: 3}
-  correctSolutionSites: 010000000100000002000000
-  arrowSolutionSites: 000000000000000000000000
-  solvedPuzzle: 1
+  correctSolutionSites: 000000000000000001000000
+  arrowSolutionSites: 020000000200000003000000
+  solvedPuzzle: 0
   plantedPlant: 0
   grabbablePrefab: {fileID: 3613802500611775873, guid: 9eb33793fc976154d9736715d94f6b39, type: 3}
   groundFlowerPrefab: {fileID: 7797516570994283050, guid: 4eff2ec3efb85524fa3c396aa71aca3c, type: 3}
-  shrinkChanceGround: 1
+  shrinkChanceGround: 0.8
   introClip: {fileID: 8300000, guid: c5f0494963b172644a1f86ed60627a33, type: 3}
   finishedPuzzleClip: {fileID: 8300000, guid: aaa63bafaa0b6db4c92b455aa6776cf5, type: 3}
+  afterPlantAudio: {fileID: 0}
   morInfo_01Clip: {fileID: 0}
   morInfo_02Clip: {fileID: 0}
   morInfo_03Clip: {fileID: 0}
