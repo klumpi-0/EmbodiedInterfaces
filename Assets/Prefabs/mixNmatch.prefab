@@ -9993,6 +9993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoreInformationController
   moreInformationIsActive: 0
+  arrowPositions: 
   lowCubeTexts:
   - {fileID: 2135419646757825624}
   - {fileID: 7312013929662750368}
@@ -10011,6 +10012,7 @@ MonoBehaviour:
   lowText: 
   middleText: 
   highText: 
+  arrowText: Weiter
 --- !u!1 &6170735635878799214
 GameObject:
   m_ObjectHideFlags: 0

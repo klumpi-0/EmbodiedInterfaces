@@ -74,7 +74,7 @@ public class MixNMatchController : MonoBehaviour
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
         MNM_AudioController.Instance.PlayIntroClip();
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
-        MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
+        MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText, data.arrowSolutionSites);
         MoreInformationController.Instance.DisableAllText(1);
     }
 
@@ -88,7 +88,7 @@ public class MixNMatchController : MonoBehaviour
 
         //SetImagesOnMixNMatch.Instance.ApplySingleImageToAllSides(data.correctSprites);
         SetImagesOnMixNMatch.Instance.SetupMoreInformationImages(data.arrowSolutionSites, data.correctSprites);
-        MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText);
+        MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText, data.arrowSolutionSites);
         MoreInformationController.Instance.SetMoreInformationIsActive(true);
     }
 
