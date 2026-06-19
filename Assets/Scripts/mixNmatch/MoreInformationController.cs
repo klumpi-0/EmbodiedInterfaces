@@ -64,16 +64,28 @@ public class MoreInformationController : MonoBehaviour
     {
         if (!moreInformationIsActive) { return; }
         lowCubeTexts[numberSide].gameObject.SetActive(true);
+        if(numberSide != arrowPositions[0])
+        {
+            MNM_AudioController.Instance.PlayMoreInfoClip(0);
+        }
     }
     private void EnableTextMiddle(int numberSide)
     {
         if (!moreInformationIsActive) { return; }
         middleCubeTexts[numberSide].gameObject.SetActive(true);
+        if (numberSide != arrowPositions[1])
+        {
+            MNM_AudioController.Instance.PlayMoreInfoClip(1);
+        }
     }
     private void EnableTextHigh(int numberSide)
     {
         if (!moreInformationIsActive) { return; }
         highCubeTexts[numberSide].gameObject.SetActive(true);
+        if (numberSide != arrowPositions[2])
+        {
+            MNM_AudioController.Instance.PlayMoreInfoClip(2);
+        }
     }
 
     private void DisableTextOnOneCube(TextMeshProUGUI[] cubeTexts)

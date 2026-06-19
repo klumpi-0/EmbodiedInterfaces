@@ -71,7 +71,7 @@ public class MixNMatchController : MonoBehaviour
         imageSetter?.ApplyImages(lowSprites, middleSprites, highSprites);
         ProcessRoations.Instance?.SetTargetRotation(solution);
         ProcessRoations.Instance.SetTargetRotationArrows(data.arrowSolutionSites);
-        MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
+        MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.afterPlantAudio, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
         MNM_AudioController.Instance.PlayIntroClip();
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText, data.arrowSolutionSites);

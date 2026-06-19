@@ -13,7 +13,7 @@ public class MNM_AudioController : MonoBehaviour
     [SerializeField] private AudioClip introText_clip;
     [SerializeField] private AudioClip finishSound_clip;
     [SerializeField] private AudioClip finishText_clip;
-
+    [SerializeField] private AudioClip afterPlantAudio_clip;
     [SerializeField] private AudioClip moreInfo_01;
     [SerializeField] private AudioClip moreInfo_02;
     [SerializeField] private AudioClip moreInfo_03;
@@ -33,12 +33,14 @@ public class MNM_AudioController : MonoBehaviour
     {
         mnm_Controller.foundMatchEvent.AddListener(PlayFinishSound);
         MixNMatchController.Instance.wrongFeedbackEvent.AddListener(PlayRandomWrongFeedback);
+        MixNMatchController.Instance.plantedPlantEvent.AddListener(PlayAfterPlantAudio);
     }
 
-    public void SetAudioFiles(AudioClip intro, AudioClip finish, AudioClip more_01, AudioClip more_02, AudioClip more_03)
+    public void SetAudioFiles(AudioClip intro, AudioClip finish, AudioClip afterPlant, AudioClip more_01, AudioClip more_02, AudioClip more_03)
     {
         introText_clip = intro;
         finishText_clip = finish;
+        afterPlantAudio_clip = afterPlant;
         moreInfo_01 = more_01;
         moreInfo_02 = more_02;
         moreInfo_03 = more_03;
@@ -69,13 +71,17 @@ public class MNM_AudioController : MonoBehaviour
         PlayAudioClip(introText_clip);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="cubeNumber">0 = low, 1 = middle, 2 = high</param>
     public void PlayMoreInfoClip(int cubeNumber)
     {
         switch (cubeNumber)
         {
-            case 1: PlayAudioClip(moreInfo_01); break;
-            case 2: PlayAudioClip(moreInfo_02); break;
-            case 3: PlayAudioClip(moreInfo_03); break;
+            case 0: PlayAudioClip(moreInfo_01); break;
+            case 1: PlayAudioClip(moreInfo_02); break;
+            case 2: PlayAudioClip(moreInfo_03); break;
         }
     }
 
@@ -83,5 +89,10 @@ public class MNM_AudioController : MonoBehaviour
     {
         int rand = Random.Range(0, wrongFeedbackClips.Length);
         PlayAudioClip(wrongFeedbackClips[rand]);
+    }
+
+    private void PlayAfterPlantAudio()
+    {
+        PlayAudioClip(afterPlantAudio_clip);
     }
 }
