@@ -122,6 +122,10 @@ public class FlowerWaveSpawner : MonoBehaviour
                 Destroy(flower);
             }
         }
+        else
+        {
+            flower.GetComponent<SpawnedObject>().ActivateSpecialThing();
+        }
     }
 
     private IEnumerator ScaleOverTime(Transform t, Vector3 from, Vector3 to, float duration)
