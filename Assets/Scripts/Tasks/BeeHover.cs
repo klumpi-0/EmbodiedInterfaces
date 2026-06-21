@@ -3,6 +3,8 @@ using UnityEngine;
 public class BeeHover : SpawnedObject
 {
     [SerializeField] private ParticleSystem beeParticleSystem;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip beeClip;
 
     public override void ActivateSpecialThing()
     {
@@ -25,5 +27,8 @@ public class BeeHover : SpawnedObject
     private void ActivateParticleSystem()
     {
         beeParticleSystem.Play();
+        audioSource.clip = beeClip;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 }

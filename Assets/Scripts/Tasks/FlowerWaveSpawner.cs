@@ -124,7 +124,12 @@ public class FlowerWaveSpawner : MonoBehaviour
         }
         else
         {
-            flower.GetComponent<SpawnedObject>().ActivateSpecialThing();
+            var spawnedObject = flower.GetComponent<SpawnedObject>();
+            if (spawnedObject != null)
+            {
+                spawnedObject.ActivateSpecialThing();
+            }
+            //flower.GetComponent<SpawnedObject>().ActivateSpecialThing();
         }
     }
 
