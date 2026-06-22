@@ -792,6 +792,7 @@ MonoBehaviour:
   puzzleDatas:
   - {fileID: 11400000, guid: f8daaed9a40eec54792cfed211212cf1, type: 2}
   - {fileID: 11400000, guid: 9406891b82ac1f8458c521f4755f1bb6, type: 2}
+  - {fileID: 11400000, guid: 229e663831a0e9744aa6466032ce8d0b, type: 2}
 --- !u!1 &640590635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,12 +2466,12 @@ MonoBehaviour:
   flowerPrefabs:
   - {fileID: 4809857706931833784, guid: fe0901a4c5c7e624d9a28c1f47e24125, type: 3}
   origin: {fileID: 1810253779}
-  maxRadius: 5
+  maxRadius: 60
   waveSpeed: 10
-  totalFlowers: 200
-  stayRatio: 0.7
+  totalFlowers: 10000
+  stayRatio: 1
   growDuration: 1
-  shrinkChance: 0.3
+  shrinkChance: 0.9
   shrinkDelay: 2
   startTime: 0
   maxTime: 5

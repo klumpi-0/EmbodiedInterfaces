@@ -17,7 +17,8 @@ public class FlowerWaveSpawner : MonoBehaviour
     public float waveSpeed = 5f;
 
     [Header("Spawn Settings")]
-    public int totalFlowers = 500;
+    public int totalFlowers;
+    [Obsolete]
     [Range(0f, 1f)] public float stayRatio = 0.3f; // Anteil, der stehen bleibt
 
     [Header("Scale Animation")]
@@ -37,54 +38,77 @@ public class FlowerWaveSpawner : MonoBehaviour
         }
     }
 
-    public void StartWave()
+    private void Update()
     {
-        StartCoroutine(SpawnWave());
-        //StartCoroutine(SpawnWaveTime());
+        if(Input.GetKeyUp(KeyCode.B))
+        {
+            StartWaveInputKeyboard();
+        }
+    }
+
+    public void StartWaveInputKeyboard()
+    {
+        //SpawnWave();
+        StartCoroutine(SpawnWaveTime());
     }
 
     public void StartWave(GameObject flower, float shrinkChance)
     {
         flowerPrefabs[0] = flower;
         this.shrinkChance = shrinkChance;
-        StartCoroutine(SpawnWave());
-    }
-
-    private IEnumerator SpawnWave()
-    {
-        List<GameObject> spawned = new List<GameObject>();
-
-        for (int i = 0; i < totalFlowers; i++)
-        {
-            Vector2 randomCircle = Random.insideUnitCircle * maxRadius;
-
-            Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
-
-            GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
-            GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
-
-            flower.transform.localScale = Vector3.zero;
-            spawned.Add(flower);
-
-            float distance = Vector3.Distance(origin.position, pos);
-            float delay = distance / waveSpeed;
-
-            StartCoroutine(AnimateFlower(flower, delay));
-
-            yield return null; // leicht verteilt spawnen (optional)
-        }
+        //StartCoroutine(SpawnWave());
+        StartCoroutine(SpawnWaveTime());
     }
 
     private IEnumerator SpawnWaveTime()
     {
+        startTime = Time.time;
+        int spawned = 0;
+        while(spawned < totalFlowers)
+        {
+            float currentProgess = Mathf.InverseLerp(startTime, startTime + maxTime, Time.time);
+
+            int targetSpawnCount = Mathf.FloorToInt(currentProgess * totalFlowers);
+            while(spawned < targetSpawnCount)
+            {
+                SpawnFlower(currentProgess);
+                spawned++;
+            }
+            yield return null;
+        }
+    }
+
+    private void SpawnFlower(float currentProgress)
+    {
+        Vector2 randomCircle = Random.insideUnitCircle.normalized * currentProgress * maxRadius;
+        Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
+        GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
+        GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
+
+        flower.transform.localScale = Vector3.zero;
+        //spawned.Add(flower);
+
+        float distance = Vector3.Distance(origin.position, pos);
+        //float delay = distance / waveSpeed;
+        float delay = 0f;
+
+        StartCoroutine(AnimateFlower(flower, delay));
+
+    }
+
+    private void SpawnWave()
+    {
         List<GameObject> spawned = new List<GameObject>();
         startTime = Time.time;
+
         for (int i = 0; i < totalFlowers; i++)
         {
-            float currentProgess = Mathf.InverseLerp(startTime, startTime + maxTime, Time.deltaTime);
-            Vector2 randomCircle = Random.insideUnitCircle.normalized * maxRadius * currentProgess;
-            Debug.Log($"Random Circle x:{randomCircle.x}, y:{randomCircle.y}");
+            //Vector2 randomCircle = Random.insideUnitCircle * maxRadius;
+            float currentProgess = Mathf.InverseLerp(startTime, startTime + maxTime, Time.time);
+            Vector2 randomCircle = Random.insideUnitCircle.normalized * currentProgess * maxRadius;
+
             Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
+            Debug.Log($"Start position [{pos.x}. {pos.z}], Progress: {currentProgess}");
 
             GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
             GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
@@ -93,13 +117,41 @@ public class FlowerWaveSpawner : MonoBehaviour
             spawned.Add(flower);
 
             float distance = Vector3.Distance(origin.position, pos);
-            float delay = distance / waveSpeed;
+            //float delay = distance / waveSpeed;
+            float delay = 0f;
 
-            StartCoroutine(AnimateFlower(flower, 0));
+            StartCoroutine(AnimateFlower(flower, delay));
 
-            yield return null; // leicht verteilt spawnen (optional)
+            //yield return null; // leicht verteilt spawnen (optional)
         }
     }
+
+    //[Obsolete]
+    //private IEnumerator SpawnWaveTime()
+    //{
+    //    List<GameObject> spawned = new List<GameObject>();
+    //    startTime = Time.time;
+    //    for (int i = 0; i < totalFlowers; i++)
+    //    {
+    //        float currentProgess = Mathf.InverseLerp(startTime, startTime + maxTime, Time.deltaTime);
+    //        Vector2 randomCircle = Random.insideUnitCircle.normalized * maxRadius * currentProgess;
+    //        Debug.Log($"Random Circle x:{randomCircle.x}, y:{randomCircle.y}");
+    //        Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
+
+    //        GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
+    //        GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
+
+    //        flower.transform.localScale = Vector3.zero;
+    //        spawned.Add(flower);
+
+    //        float distance = Vector3.Distance(origin.position, pos);
+    //        float delay = distance / waveSpeed;
+
+    //        StartCoroutine(AnimateFlower(flower, 0));
+
+    //        yield return null; // leicht verteilt spawnen (optional)
+    //    }
+    //}
 
     private IEnumerator AnimateFlower(GameObject flower, float delay)
     {
@@ -129,7 +181,6 @@ public class FlowerWaveSpawner : MonoBehaviour
             {
                 spawnedObject.ActivateSpecialThing();
             }
-            //flower.GetComponent<SpawnedObject>().ActivateSpecialThing();
         }
     }
 

@@ -28,6 +28,7 @@ public class BeeHover : SpawnedObject
     {
         beeParticleSystem.Play();
         audioSource.clip = beeClip;
+        audioSource.volume = 0.1f;
         audioSource.loop = true;
         audioSource.Play();
     }
