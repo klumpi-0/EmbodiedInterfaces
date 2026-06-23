@@ -6,6 +6,9 @@ public class BeeHover : SpawnedObject
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip beeClip;
     [SerializeField]
+    [Range(0f, 1f)] private float chanceForParticles;
+
+    [SerializeField]
     [Range(0f, 1f)] private float chanceForAudio;
     [SerializeField]
     [Range(0f, 1f)] private float volume;
@@ -13,7 +16,6 @@ public class BeeHover : SpawnedObject
 
     public override void ActivateSpecialThing()
     {
-        ActivateParticleSystem();
         //if (!ExistingObjectWitBeeSourcetag())
         //{
         //    CreateBeeSoundObject();
@@ -21,6 +23,14 @@ public class BeeHover : SpawnedObject
         if(Random.Range(0f, 1f) < chanceForAudio)
         {
             ActivateAudio();
+        }
+        if(Random.Range(0f, 1f) < chanceForParticles)
+        {
+            ActivateParticleSystem();
+        }
+        else
+        {
+            RemoveParticleSystem();
         }
     }
 
@@ -39,6 +49,11 @@ public class BeeHover : SpawnedObject
     private void ActivateParticleSystem()
     {
         beeParticleSystem.Play();
+    }
+
+    private void RemoveParticleSystem()
+    {
+        Destroy(beeParticleSystem);
     }
 
     private void ActivateAudio()

@@ -47,15 +47,11 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  middleInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  lowInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  highInfoText: "Die Bl\xFCten enthalten 1\u20133 % \xE4therisches \xD6l, dessen
+    Hauptbestandteile Linalylacetat und Linalool sind."
+  middleInfoText: "Als Halbstrauch verholzen beim Lavendel die unteren Triebe mit
+    der Zeit, w\xE4hrend der obere Teil krautig bleibt und \xE4therische \xD6le auch
+    in St\xE4ngeln, Bl\xE4ttern und Bl\xFCtenkelchen gebildet werden."
+  lowInfoText: "Die Pfahlwurzel des Lavendels reicht tief ins Erdreich und macht
+    die Pflanze zwar extrem trockenresistent, jedoch anf\xE4llig f\xFCr Wurzelf\xE4ule
+    bei zu viel Wasser."
