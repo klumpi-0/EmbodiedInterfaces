@@ -533,11 +533,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 53142153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &278765659 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4855741768469559158, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
-  m_PrefabInstance: {fileID: 3283563068774719430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,6 +2465,7 @@ MonoBehaviour:
   waveSpeed: 10
   totalFlowers: 10000
   stayRatio: 1
+  offsetPlants: 0.1
   growDuration: 1
   shrinkChance: 0.9
   shrinkDelay: 2
@@ -2913,17 +2909,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
-      propertyPath: moveObject
-      value: 
-      objectReference: {fileID: 278765659}
-    - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: leftController
       value: 
       objectReference: {fileID: 741132984}
-    - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
-      propertyPath: offsetVector.y
-      value: -0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: rightController
       value: 
@@ -3299,10 +3287,6 @@ PrefabInstance:
     - target: {fileID: 7205659048408024834, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
       value: SetRotationDigitalTwin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7809025612592345837, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8832176813927502181, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalScale.x

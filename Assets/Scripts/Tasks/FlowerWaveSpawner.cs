@@ -14,12 +14,17 @@ public class FlowerWaveSpawner : MonoBehaviour
     [Header("Wave Settings")]
     public Transform origin;
     public float maxRadius = 10f;
+    [Obsolete]
     public float waveSpeed = 5f;
 
     [Header("Spawn Settings")]
     public int totalFlowers;
     [Obsolete]
     [Range(0f, 1f)] public float stayRatio = 0.3f; // Anteil, der stehen bleibt
+
+    [SerializeField]
+    [Tooltip("Is used to create a little offest in the plants")]
+    [Range(0f, 1f)] private float offsetPlants;
 
     [Header("Scale Animation")]
     public float growDuration = 1f;
@@ -80,7 +85,7 @@ public class FlowerWaveSpawner : MonoBehaviour
 
     private void SpawnFlower(float currentProgress)
     {
-        Vector2 randomCircle = Random.insideUnitCircle.normalized * currentProgress * maxRadius;
+        Vector2 randomCircle = Random.insideUnitCircle.normalized * currentProgress * maxRadius + (Random.insideUnitCircle.normalized * Random.Range(-offsetPlants, offsetPlants));
         Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
         GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
         GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
