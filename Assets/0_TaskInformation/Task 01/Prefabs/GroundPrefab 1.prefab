@@ -44,10 +44,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 77997fb10841e104ab5998e9e959eb61, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -733,7 +733,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1
+    maxNumParticles: 2
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -5014,7 +5014,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeeHover
   beeParticleSystem: {fileID: 7966369759178621889}
   audioSource: {fileID: 3017353836973564895}
-  beeClip: {fileID: 8300000, guid: 77997fb10841e104ab5998e9e959eb61, type: 3}
+  beeClip: {fileID: 8300000, guid: 7334e3204d2975f4e9b6615d5d97dafa, type: 3}
+  chanceForAudio: 0.01
+  volume: 0.1
+  soundObject: {fileID: 1920144754704791943, guid: 71b0d03d5f0cef842a9f619ae2027b36, type: 3}
 --- !u!1001 &138901443552947484
 PrefabInstance:
   m_ObjectHideFlags: 0

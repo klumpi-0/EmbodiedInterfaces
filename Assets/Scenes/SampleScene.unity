@@ -3300,6 +3300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetRotationDigitalTwin
       objectReference: {fileID: 0}
+    - target: {fileID: 7809025612592345837, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8832176813927502181, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.005
