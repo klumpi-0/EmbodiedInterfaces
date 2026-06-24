@@ -10,6 +10,7 @@ public class MNM_AudioController : MonoBehaviour
     [SerializeField] private MixNMatchController mnm_Controller;
 
     [Header("Audios")]
+    [SerializeField] private AudioClip lastPlayedAudioClip;
     [SerializeField] private AudioClip introText_clip;
     [SerializeField] private AudioClip finishSound_clip;
     [SerializeField] private AudioClip finishText_clip;
@@ -60,9 +61,10 @@ public class MNM_AudioController : MonoBehaviour
         PlayAudioClip(finishText_clip);
     }
 
-    private void PlayAudioClip(AudioClip clip)
+    public void PlayAudioClip(AudioClip clip)
     {
         mnm_audioSource.clip = clip;
+        lastPlayedAudioClip = clip;
         mnm_audioSource.Play();
     }
 
@@ -94,5 +96,16 @@ public class MNM_AudioController : MonoBehaviour
     private void PlayAfterPlantAudio()
     {
         PlayAudioClip(afterPlantAudio_clip);
+    }
+
+    public void PlayAudioClipDelayed(AudioClip clip, float delay)
+    {
+       StartCoroutine(PlayAudioDelayedEnum(clip, delay));
+    }
+
+    private IEnumerator PlayAudioDelayedEnum(AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlayAudioClip(clip);
     }
 }
