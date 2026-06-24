@@ -3011,6 +3011,10 @@ PrefabInstance:
       propertyPath: rightController
       value: 
       objectReference: {fileID: 101200449}
+    - target: {fileID: 405144131833536645, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 449288827885291984, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.604
@@ -3099,6 +3103,14 @@ PrefabInstance:
       propertyPath: currentPuzzle
       value: 
       objectReference: {fileID: 11400000, guid: 77fdd21dfa01dcc438c3622371a84c45, type: 2}
+    - target: {fileID: 3420585046902387848, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 3420585046902387848, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.418
+      objectReference: {fileID: 0}
     - target: {fileID: 3879575441439388221, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
       value: SetImages
@@ -3179,6 +3191,14 @@ PrefabInstance:
       propertyPath: finishSound_clip
       value: 
       objectReference: {fileID: 8300000, guid: 1d63cdeac00df4649848103f51e538fc, type: 3}
+    - target: {fileID: 6712669762436165486, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3968
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712669762436165486, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.228
+      objectReference: {fileID: 0}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: newFrontSideLowEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
@@ -3379,9 +3399,41 @@ PrefabInstance:
       propertyPath: leftFrontFacingSideEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7081574112273961165, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2014
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081574112273961165, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.451
+      objectReference: {fileID: 0}
     - target: {fileID: 7205659048408024834, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_Name
       value: SetRotationDigitalTwin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436493350036731378, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.356
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436493350036731378, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491798221526613018, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491798221526613018, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491798221526613018, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491798221526613018, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.099
       objectReference: {fileID: 0}
     - target: {fileID: 8832176813927502181, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalScale.x
