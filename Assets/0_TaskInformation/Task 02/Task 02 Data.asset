@@ -37,8 +37,8 @@ MonoBehaviour:
   grabbablePrefab: {fileID: 3613802500611775873, guid: 51a13e2a93f211d48a74370a001645d1, type: 3}
   groundFlowerPrefab: {fileID: 7797516570994283050, guid: ea9846e7697deaf45a64fc8b56edae2c, type: 3}
   shrinkChanceGround: 0.8
-  introClip: {fileID: 8300000, guid: c5f0494963b172644a1f86ed60627a33, type: 3}
-  finishedPuzzleClip: {fileID: 8300000, guid: aaa63bafaa0b6db4c92b455aa6776cf5, type: 3}
+  introClip: {fileID: 8300000, guid: 6214207c56f94e248a0f1f83176141ab, type: 3}
+  finishedPuzzleClip: {fileID: 0}
   afterPlantAudio: {fileID: 0}
   morInfo_01Clip: {fileID: 0}
   morInfo_02Clip: {fileID: 0}

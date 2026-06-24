@@ -37,12 +37,12 @@ MonoBehaviour:
   grabbablePrefab: {fileID: 3613802500611775873, guid: 9eb33793fc976154d9736715d94f6b39, type: 3}
   groundFlowerPrefab: {fileID: 7797516570994283050, guid: 3fc3146bd505ca047ba8d4219ff96a35, type: 3}
   shrinkChanceGround: 0.8
-  introClip: {fileID: 8300000, guid: c5f0494963b172644a1f86ed60627a33, type: 3}
-  finishedPuzzleClip: {fileID: 8300000, guid: aaa63bafaa0b6db4c92b455aa6776cf5, type: 3}
-  afterPlantAudio: {fileID: 0}
-  morInfo_01Clip: {fileID: 0}
-  morInfo_02Clip: {fileID: 0}
-  morInfo_03Clip: {fileID: 0}
+  introClip: {fileID: 8300000, guid: a6c96ec32d2c6ee4a9629ba4a783e213, type: 3}
+  finishedPuzzleClip: {fileID: 8300000, guid: a58ccdebaf406a04f919158d0cf4132b, type: 3}
+  afterPlantAudio: {fileID: 8300000, guid: 8ef55a897e6b2d047bce3c8eadac8f97, type: 3}
+  morInfo_01Clip: {fileID: 8300000, guid: 5f3444ba593b4734190a6718edafde71, type: 3}
+  morInfo_02Clip: {fileID: 8300000, guid: 2edbe4c0a3ce2a344951156fb6b9d29a, type: 3}
+  morInfo_03Clip: {fileID: 8300000, guid: 48a056b2a8e3bb74ca679c644eaf573c, type: 3}
   finishedText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
