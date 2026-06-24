@@ -1,4 +1,5 @@
 using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 using UnityEngine;
 
 public class PlantInBubbleLogic : MonoBehaviour
@@ -77,6 +78,7 @@ public class PlantInBubbleLogic : MonoBehaviour
             {
                 var delayTime = visuals.ActivateStateMoveToFinal();
                 MixNMatchController.Instance.InitPlantedEvent(delayTime);
+                HinderGrabbableMoving();
             }
         }
     }
@@ -88,7 +90,16 @@ public class PlantInBubbleLogic : MonoBehaviour
         {
             var delayTime = visuals.ActivateStateMoveToFinal();
             MixNMatchController.Instance.InitPlantedEvent(delayTime);
+
         }
+    }
+
+    private void HinderGrabbableMoving()
+    {
+        flowerGrabbable.enabled = false;
+        var freeTransform = flowerGrabbable.gameObject.GetComponent<GrabFreeTransformer>();
+        freeTransform.enabled = false;
+        flowerGrabbable.gameObject.GetComponentInChildren<HandGrabInteractable>().enabled = false;
     }
 
 }
