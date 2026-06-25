@@ -40,7 +40,7 @@ public class CubeController : MonoBehaviour
             Debug.LogError($"Serial Port connection failed: {e.Message}");
         }
 
-        // Ensure the text starts completely hidden when the game begins
+        // Ensure the bodyText starts completely hidden when the game begins
         if (leafStatusText != null)
         {
             leafStatusText.gameObject.SetActive(false);
@@ -92,19 +92,19 @@ public class CubeController : MonoBehaviour
                     {
                         if (isRotationLocked)
                         {
-                            // 1. Unhide the text
+                            // 1. Unhide the bodyText
                             leafStatusText.gameObject.SetActive(true);
 
                             // 2. Calculate which side it is locked on
                             int activeSideIndex = (Mathf.RoundToInt(targetRotationY / 90f) % 4 + 4) % 4;
                             int activeLeaf = leafNumberMapping[activeSideIndex];
 
-                            // 3. Update the text
+                            // 3. Update the bodyText
                             leafStatusText.text = $"Leaf {activeLeaf} is chosen.";
                         }
                         else
                         {
-                            // Hide the text completely while unlocked and rotating
+                            // Hide the bodyText completely while unlocked and rotating
                             leafStatusText.gameObject.SetActive(false);
                         }
                     }
