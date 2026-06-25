@@ -26,8 +26,9 @@ public class SmoothMover : MonoBehaviour
         endRot = Quaternion.Euler(targetRotation_);
         duration = duration_;
         curveStrength = curveStrength_;
+        atFinalTransformEvent.RemoveAllListeners(); 
+        atFinalTransformEvent.AddListener(DestroyMyself);
         StartCoroutine(InvokeDelayed(duration));
-        Destroy(this, duration);
     }
 
     public void Init(Transform targetTransform_, float duration_, float curveStrength_ = 1f)
@@ -37,8 +38,9 @@ public class SmoothMover : MonoBehaviour
         endRot = targetTransform_.rotation;
         duration = duration_;
         curveStrength = curveStrength_;
+        atFinalTransformEvent.RemoveAllListeners(); 
+        atFinalTransformEvent.AddListener(DestroyMyself);
         StartCoroutine(InvokeDelayed(duration));
-        Destroy(this, duration);
     }
 
     void OnEnable()
@@ -99,4 +101,9 @@ public class SmoothMover : MonoBehaviour
     public float GetDuration() {  return duration; }
     public void SetDuration(float duration_) { duration = duration_; }
     public void SetCurve(float curve) { curveStrength = curve; }
+
+    private void DestroyMyself()
+    {
+        Destroy(this);
+    }
 }

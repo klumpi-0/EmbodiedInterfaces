@@ -6,7 +6,7 @@ public class FloraController : MonoBehaviour
     public static FloraController Instance;
 
     [Header("References")]
-    [SerializeField] private GameObject floraMoveObject;
+    public GameObject floraMoveObject;
     [Header("Events")]
     public UnityEvent startedMovingEvent;
     public UnityEvent finishedMovingEvent;
@@ -17,6 +17,7 @@ public class FloraController : MonoBehaviour
     [SerializeField] private GameObject debugTarget;
     [SerializeField] private AudioClip debugClip;
 
+    public bool isMoving;
     private void Awake()
     {
         if(Instance  == null)
@@ -29,6 +30,8 @@ public class FloraController : MonoBehaviour
     void Start()
     {
         floraMoveObject.transform.position = Vector3.zero;
+        startedMovingEvent.AddListener(SetIsMovingTrue);
+        finishedMovingEvent.AddListener(SetIsMovingFalse);
     }
 
     // Update is called once per frame
@@ -78,5 +81,11 @@ public class FloraController : MonoBehaviour
     {
         offsetVector = offset;
     }
-    
+
+    private void SetIsMovingTrue()
+    {
+        isMoving = true;
+    }
+
+    private void SetIsMovingFalse() { isMoving = false; }
 }

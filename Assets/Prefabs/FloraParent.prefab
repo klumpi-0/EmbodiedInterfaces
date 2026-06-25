@@ -1,5 +1,61 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &288474734424743686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8047625248703658645}
+  - component: {fileID: 577011381850664226}
+  m_Layer: 0
+  m_Name: FloraViewportGuard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8047625248703658645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288474734424743686}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 13.1227865, y: 0.65400004, z: -22.200573}
+  m_LocalScale: {x: 7.1428576, y: 7.1428576, z: 7.1428576}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6719080011867257703}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &577011381850664226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288474734424743686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f03a3b6e3dbb344a6f45d12af523c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloraViewportGuard
+  xrCamera: {fileID: 0}
+  floraMoveObject: {fileID: 3247305593888848683}
+  visibilityThreshold: 0.8
+  edgePadding: 0.4
+  cornerDepth: 2
+  snapDuration: 3
+  snapCurveStrength: 2
+  returnDuration: 2
+  returnCurveStrength: 2
+  showGizmos: 1
+  isVisible: 0
+  currentState: 0
 --- !u!1 &571321156764425770
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,6 +800,7 @@ Transform:
   - {fileID: 1213821386245820634}
   - {fileID: 6451727429136921783}
   - {fileID: 4049216281777161266}
+  - {fileID: 8047625248703658645}
   m_Father: {fileID: 5885754619031512741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5125844459696195115
@@ -1018,8 +1075,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8098169881513260187, guid: 72b743da913faa640a546416ee7c8b79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8566641089960736885}
   m_SourcePrefab: {fileID: 3150474306388093854, guid: 72b743da913faa640a546416ee7c8b79, type: 3}
+--- !u!1 &6628982185944319346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8098169881513260187, guid: 72b743da913faa640a546416ee7c8b79, type: 3}
+  m_PrefabInstance: {fileID: 6080815294915808791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8566641089960736885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628982185944319346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864bae650294d274d938f58386092af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LookAtCamera
+  rotateTransform: {fileID: 0}
+  flipFrontFacingSide: 0
 --- !u!4 &8915916067126936581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3447742079981357586, guid: 72b743da913faa640a546416ee7c8b79, type: 3}
