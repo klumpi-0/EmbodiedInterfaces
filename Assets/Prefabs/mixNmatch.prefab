@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 9ab0e4d8-29ec-4dea-a60f-1977e828f500
+  instanceId: cd27242c-1081-4f41-a609-eec2b2473a33
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: a5282a05-02cc-4d48-80f3-d5823ffcb6c3
+  instanceId: 81a071ab-f635-4d9c-b727-a3247ac0a0d8
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -1160,7 +1160,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6072577778887335502}
+  - {fileID: 560246940011421381}
   - {fileID: 7281620117253234943}
+  - {fileID: 3465682243056461449}
   m_Father: {fileID: 9218423871546051903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1228211316989530583
@@ -1986,7 +1988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 531d4891-d758-4d07-a4e8-be305c454d1c
+  instanceId: d47678c4-5e08-4686-a396-ff3a6180b3ba
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -2832,7 +2834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: d42bda68-3c68-41a2-9e9e-de16ce634b81
+  instanceId: 4dcf1b35-4491-45cc-9942-ea77599c4060
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -3867,7 +3869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6072577778887335502}
   m_Layer: 0
-  m_Name: w
+  m_Name: PlantBubble_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9595,7 +9597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: ebc90106-5c46-473a-8d82-0b8376516251
+  instanceId: 313a44e5-a375-4e41-8b8b-9a0bf5c5c44b
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -10915,6 +10917,37 @@ Transform:
   - {fileID: 184445176215898594}
   m_Father: {fileID: 6406492196365287537}
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
+--- !u!1 &7268562220135779033
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 560246940011421381}
+  m_Layer: 0
+  m_Name: PlantBubble_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &560246940011421381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7268562220135779033}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.000003889202, z: -0, w: -1}
+  m_LocalPosition: {x: -0.268, y: 0.11435509, z: 0.324}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4508034804057862230}
+  m_LocalEulerAnglesHint: {x: 0, y: 360, z: 0}
 --- !u!1 &7413306088178280940
 GameObject:
   m_ObjectHideFlags: 0
@@ -10997,7 +11030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
   blockId: f8766c17-aaf8-4b55-9431-de8deea83842
-  instanceId: 9ceadc65-e07f-45de-ab23-9981f2d2b855
+  instanceId: 7391a8b9-dcda-43aa-b72e-3da0c4311aa1
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: f8338144-8280-4ff6-9455-ae2bb9c20fe8
@@ -11607,6 +11640,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8604490741540208910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3465682243056461449}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3465682243056461449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8604490741540208910}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.022, y: 0.918, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4508034804057862230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8803615266884684022
 GameObject:
   m_ObjectHideFlags: 0

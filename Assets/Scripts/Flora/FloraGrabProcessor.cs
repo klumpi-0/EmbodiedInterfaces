@@ -20,7 +20,8 @@ public class FloraGrabProcessor : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        zoneHandler.onEnterZone.AddListener(EnterZoneChanges);
+        zoneHandler.onExitZone.AddListener(SetStartBubbleMaterial);
     }
 
     // Update is called once per frame
@@ -33,6 +34,12 @@ public class FloraGrabProcessor : MonoBehaviour
     {
         SetColor(Color.white);
         SetPower(10);
+    }
+
+    private void EnterZoneChanges()
+    {
+        SetColor(Color.peachPuff);
+        SetPower(1f);
     }
 
     private void SetColor(Color color)

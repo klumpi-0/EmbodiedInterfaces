@@ -1,101 +1,93 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Oculus.Interaction;
-using Oculus.Interaction.Input;
+using Oculus.Interaction.HandGrab;
 
-namespace Oculus.Interaction
+public class InteractableZoneHandler : MonoBehaviour
 {
-    public class InteractableZoneHandler : PointableElement
+    [Header("Zone Settings")]
+    [SerializeField] private float zoneRadius = 0.15f;
+    [SerializeField] private bool showGizmo = true;
+
+    [Header("Events")]
+    public UnityEvent onEnterZone;
+    public UnityEvent onExitZone;
+    public UnityEvent onPinch;
+    public UnityEvent onRelease;
+
+    private HandGrabInteractable _interactable;
+    private bool _isInZone = false;
+    private bool _isSelected = false;
+
+    private void Awake()
     {
-        [Header("Zone Settings")]
-        [SerializeField] private float zoneRadius = 0.15f;
-        [SerializeField] private bool showGizmo = true;
-
-        [Header("Events")]
-        public UnityEvent onEnterZone;
-        public UnityEvent onExitZone;
-        public UnityEvent onPinch;
-        public UnityEvent onRelease;
-
-        private bool _isInZone = false;
-        private bool _isSelected = false;
-
-        public override void ProcessPointerEvent(PointerEvent evt)
+        _interactable = GetComponent<HandGrabInteractable>();
+        if (_interactable == null)
         {
-            switch (evt.Type)
-            {
-                case PointerEventType.Hover:
-                    if (!_isInZone)
-                    {
-                        _isInZone = true;
-                        onEnterZone?.Invoke();
-                    }
-                    break;
-
-                case PointerEventType.Unhover:
-                    if (_isInZone)
-                    {
-                        _isInZone = false;
-                        onExitZone?.Invoke();
-                    }
-                    break;
-
-                case PointerEventType.Select:
-                    _isSelected = true;
-                    onPinch?.Invoke();
-                    break;
-
-                case PointerEventType.Unselect:
-                    _isSelected = false;
-                    onRelease?.Invoke();
-                    break;
-
-                case PointerEventType.Cancel:
-                    if (_isSelected)
-                    {
-                        _isSelected = false;
-                        onRelease?.Invoke();
-                    }
-                    if (_isInZone)
-                    {
-                        _isInZone = false;
-                        onExitZone?.Invoke();
-                    }
-                    break;
-            }
-
-            base.ProcessPointerEvent(evt);
+            Debug.LogError("[InteractableZoneHandler] Kein HandGrabInteractable gefunden!", this);
+            return;
         }
+    }
 
-        private void Awake()
+    private void OnEnable()
+    {
+        if (_interactable == null) return;
+        _interactable.WhenPointerEventRaised += HandlePointerEvent;
+    }
+
+    private void OnDisable()
+    {
+        if (_interactable == null) return;
+        _interactable.WhenPointerEventRaised -= HandlePointerEvent;
+    }
+
+    private void HandlePointerEvent(PointerEvent evt)
+    {
+        switch (evt.Type)
         {
-            GameObject handRefObject = GameObject.FindWithTag("HandRef");
-            if (handRefObject == null) return;
+            case PointerEventType.Hover:
+                if (!_isInZone)
+                {
+                    _isInZone = true;
+                    onEnterZone?.Invoke();
+                }
+                break;
 
-            var handRefsReference = handRefObject.GetComponents<HandRef>();
-            var handRefs = GetComponents<HandRef>();
+            case PointerEventType.Unhover:
+                if (_isInZone)
+                {
+                    _isInZone = false;
+                    onExitZone?.Invoke();
+                }
+                break;
 
-            for (int i = 0; i < handRefs.Length && i < handRefsReference.Length; i++)
-            {
-                if (handRefs[i].Hand == null)
-                    handRefs[i].InjectHand(handRefsReference[i].Hand);
-            }
+            case PointerEventType.Select:
+                _isSelected = true;
+                onPinch?.Invoke();
+                break;
+
+            case PointerEventType.Unselect:
+                _isSelected = false;
+                onRelease?.Invoke();
+                break;
+
+            case PointerEventType.Cancel:
+                if (_isSelected) { _isSelected = false; onRelease?.Invoke(); }
+                if (_isInZone) { _isInZone = false; onExitZone?.Invoke(); }
+                break;
         }
+    }
 
-        // Zonengröße als Sphere-Collider synchron halten
-        private void OnValidate()
-        {
-            var col = GetComponent<SphereCollider>();
-            if (col != null)
-                col.radius = zoneRadius;
-        }
+    private void OnValidate()
+    {
+        var col = GetComponent<SphereCollider>();
+        if (col != null) col.radius = zoneRadius;
+    }
 
-        // Zone im Editor sichtbar machen
-        private void OnDrawGizmosSelected()
-        {
-            if (!showGizmo) return;
-            Gizmos.color = _isInZone ? Color.green : new Color(0f, 1f, 1f, 0.4f);
-            Gizmos.DrawWireSphere(transform.position, zoneRadius);
-        }
+    private void OnDrawGizmosSelected()
+    {
+        if (!showGizmo) return;
+        Gizmos.color = _isInZone ? Color.green : new Color(0f, 1f, 1f, 0.4f);
+        Gizmos.DrawWireSphere(transform.position, zoneRadius);
     }
 }

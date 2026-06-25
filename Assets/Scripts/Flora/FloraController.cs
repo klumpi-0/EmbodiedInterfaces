@@ -7,7 +7,6 @@ public class FloraController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject floraMoveObject;
-    [SerializeField] private AudioSource floraSource;
     [Header("Events")]
     public UnityEvent startedMovingEvent;
     public UnityEvent finishedMovingEvent;
