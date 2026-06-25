@@ -2352,68 +2352,6 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 
     _installationVariants: []
---- !u!1 &1549707641 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3042963130732524494, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
-  m_PrefabInstance: {fileID: 2259622640675854331}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1549707644 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3070505973326582836, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
-  m_PrefabInstance: {fileID: 2259622640675854331}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549707641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acae68738cf312547aa1878694dec647, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Oculus.Interaction.InteractableZoneHandler
---- !u!114 &1549707645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549707641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.PointableUnityEventWrapper
-  _pointable: {fileID: 1549707644}
-  _whenRelease:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenHover:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1549707641}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenUnselect:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenMove:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenCancel:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1668646411
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,10 +3129,7 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 1832071705840207955, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3042963130732524494, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1549707645}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
 --- !u!82 &2259622640675854332 stripped
 AudioSource:

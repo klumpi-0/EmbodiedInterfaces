@@ -108,4 +108,9 @@ public class MNM_AudioController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         PlayAudioClip(clip);
     }
+
+    public void ReplayLastAudio()
+    {
+        PlayAudioClip(lastPlayedAudioClip);
+    }
 }
