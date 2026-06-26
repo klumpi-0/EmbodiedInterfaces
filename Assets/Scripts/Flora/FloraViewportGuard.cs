@@ -31,6 +31,9 @@ public class FloraViewportGuard : MonoBehaviour
     private float _animationTimer = 0f;
     private float _animationDuration = 0f;
 
+    private Vector3[] corners;
+    [SerializeField] GameObject[] cubes;
+
     private void Start()
     {
         if (xrCamera == null)
@@ -91,6 +94,7 @@ public class FloraViewportGuard : MonoBehaviour
                     UpdateCornerPosition();
                 break;
         }
+        //PlaceCubesAtConres();
     }
 
     private bool IsOutOfView(Vector3 viewportPos)
@@ -155,7 +159,7 @@ public class FloraViewportGuard : MonoBehaviour
     {
         if (!showGizmos || xrCamera == null) return;
 
-        Vector3[] corners = new Vector3[]
+        corners = new Vector3[]
         {
             xrCamera.ViewportToWorldPoint(new Vector3(edgePadding,      edgePadding,      cornerDepth)),
             xrCamera.ViewportToWorldPoint(new Vector3(1f - edgePadding, edgePadding,      cornerDepth)),
@@ -170,5 +174,13 @@ public class FloraViewportGuard : MonoBehaviour
         Gizmos.color = Color.yellow;
         if (floraMoveObject != null)
             Gizmos.DrawSphere(GetNearestCornerWorldPos(), 0.05f);
+    }
+
+    private void PlaceCubesAtConres()
+    {
+        for(int i = 0; i < corners.Length; i++)
+        {
+            cubes[i].transform.position = corners[i];
+        }
     }
 }
