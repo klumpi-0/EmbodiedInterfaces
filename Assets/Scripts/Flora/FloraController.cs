@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -88,6 +89,8 @@ public class FloraController : MonoBehaviour
         }
     }
 
+    #region Move Methods
+
     public void MoveFlora(Vector3 targetPos, Vector3 targetRot, float duration = 2f, bool useOffset = false, FloraStates? stateAfterMove = null)
     {
         startedMovingEvent.Invoke();
@@ -121,6 +124,18 @@ public class FloraController : MonoBehaviour
         MoveFlora(target, duration, useOffset, stateAfterMove);
     }
 
+    public void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, float duration = 2f, bool useOffset = false)
+    {
+        if((targets.Length != statesAfterMove.Length) || statesAfterMove.Length != clips.Length) { return; }
+        StartCoroutine(MoveMultipleCoroutine(targets, clips, statesAfterMove, duration));
+    }
+
+    private IEnumerator MoveMultipleCoroutine(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, float duration = 2f, bool useOffset = false)
+    {
+        yield return new WaitForSeconds(duration);
+    }
+
+    #endregion
     private void ChangedState(FloraStates newState)
     {
         ResetAllStates();

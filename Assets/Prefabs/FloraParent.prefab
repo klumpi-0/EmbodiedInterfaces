@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloraController
   floraMoveObject: {fileID: 3247305593888848683}
-  textField: {fileID: 0}
+  textField: {fileID: 2803173633926896875}
   startedMovingEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -230,6 +230,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  startAngle: 0
   timeBetweenRepetitions: 2
   shouldRepeatAnimation: 0
   onSpinStart:
@@ -1182,6 +1183,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+--- !u!114 &2803173633926896875 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8774067505960276266, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+  m_PrefabInstance: {fileID: 6855992083065032129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e658dd15d33f2f24cb52c98124dc9cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InfoBoxController
 --- !u!224 &5199594717663658756 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
