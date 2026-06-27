@@ -43,7 +43,7 @@ public class FloraController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            FloraButtonPress.Instance.TriggerPress(repeatAnimation: true);
+            FloraSpinAnimation.Instance.TriggerSpin();
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
