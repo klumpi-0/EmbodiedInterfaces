@@ -1134,9 +1134,77 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4022626132135925509, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.32
+      objectReference: {fileID: 0}
     - target: {fileID: 5637870995548291879, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_Name
       value: UI_TextFeld
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862717424449558128, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30.333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862717424449558128, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 31.333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7385186484278012284, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.1800003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571393474592967127, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_text
+      value: '1
+
+        2
+
+        3
+
+        4
+
+        5
+
+        6
+
+        7
+
+        8
+
+        9
+
+        10
+
+        11'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774067505960276266, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: initialBody
+      value: '1
+
+        2
+
+        3
+
+        4
+
+        5
+
+        6
+
+        7
+
+        8
+
+        9
+
+        10
+
+        11'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8818875340593187359, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: _height
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

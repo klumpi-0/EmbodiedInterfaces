@@ -1657,7 +1657,7 @@ Transform:
   m_GameObject: {fileID: 945010325}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2.219, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3788,7 +3788,13 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 1832071705840207955, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4938162413126929811, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6521990539254106586, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
 --- !u!82 &2259622640675854332 stripped
 AudioSource:

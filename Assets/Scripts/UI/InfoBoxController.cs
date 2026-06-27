@@ -1,17 +1,17 @@
-using UnityEngine;
-using TMPro;
 using Oculus.Interaction;
+using TMPro;
+using UnityEngine;
 
 /// <summary>
-/// Controls the InfoBox UI element:
-/// - Sets header and body text via public methods or Inspector
-/// - Auto-resizes the RoundedBox background based on text content
+/// Controls the InfoBox UI element.
+/// The box grows symmetrically (up AND down) around its center pivot.
+/// Text block is always centered inside the box.
 /// </summary>
 [ExecuteAlways]
 public class InfoBoxController : MonoBehaviour
 {
     [Header("References")]
-    [Tooltip("The GameObject with the RoundedBoxProperties script (background quad)")]
+    [Tooltip("The RoundedBoxProperties script on the background quad")]
     [SerializeField] private RoundedBoxProperties roundedBox;
 
     [Tooltip("TextMeshPro component for the header")]
@@ -21,39 +21,23 @@ public class InfoBoxController : MonoBehaviour
     [SerializeField] private TextMeshPro bodyText;
 
     [Header("Layout Settings")]
-    [Tooltip("Padding on left and right sides (in world units)")]
     [SerializeField] private float paddingHorizontal = 5f;
-
-    [Tooltip("Padding on top and bottom (in world units)")]
     [SerializeField] private float paddingVertical = 5f;
-
-    [Tooltip("Space between header and body text (in world units)")]
     [SerializeField] private float spacingBetweenTexts = 2f;
-
-    [Tooltip("Minimum width of the background box")]
     [SerializeField] private float minWidth = 30f;
-
-    [Tooltip("Minimum height of the background box")]
     [SerializeField] private float minHeight = 20f;
 
-    [Header("Initial Content (optional)")]
+    [Header("Initial Content")]
     [SerializeField] private string initialHeader = "Header";
-    [SerializeField] [TextArea] private string initialBody = "Your text goes here.";
+    [SerializeField][TextArea] private string initialBody = "Your text goes here.";
 
     // ---------------------------------------------------------------
 
-    private void Start()
-    {
-        // Apply initial content if set in the Inspector
-        if (!string.IsNullOrEmpty(initialHeader) || !string.IsNullOrEmpty(initialBody))
-            SetTexts(initialHeader, initialBody);
-    }
+    private void Start() => SetTexts(initialHeader, initialBody);
 
 #if UNITY_EDITOR
-    // Live preview in Editor without entering Play Mode
     private void OnValidate()
     {
-        // Small delay so TMP has time to rebuild its mesh
         UnityEditor.EditorApplication.delayCall += () =>
         {
             if (this == null) return;
@@ -66,89 +50,83 @@ public class InfoBoxController : MonoBehaviour
     // Public API
     // ---------------------------------------------------------------
 
-    /// <summary>Sets both texts and immediately resizes the background.</summary>
     public void SetTexts(string header, string body)
     {
-        SetHeader(header);
-        SetBody(body);
-        // Resize happens inside SetBody (last call), but call explicitly to be safe
-        ResizeBackground();
+        if (headerText != null) { headerText.text = header; headerText.ForceMeshUpdate(); }
+        if (bodyText != null) { bodyText.text = body; bodyText.ForceMeshUpdate(); }
+        Rebuild();
     }
 
-    /// <summary>Sets only the header text and resizes.</summary>
     public void SetHeader(string header)
     {
-        if (headerText == null) return;
-        headerText.text = header;
-        headerText.ForceMeshUpdate();
-        ResizeBackground();
+        if (headerText != null) { headerText.text = header; headerText.ForceMeshUpdate(); }
+        Rebuild();
     }
 
-    /// <summary>Sets only the body text and resizes.</summary>
     public void SetBody(string body)
     {
-        if (bodyText == null) return;
-        bodyText.text = body;
-        bodyText.ForceMeshUpdate();
-        ResizeBackground();
+        if (bodyText != null) { bodyText.text = body; bodyText.ForceMeshUpdate(); }
+        Rebuild();
     }
 
     // ---------------------------------------------------------------
-    // Core resize logic
+    // Core layout — everything is calculated relative to box center
     // ---------------------------------------------------------------
 
-    private void ResizeBackground()
+    private void Rebuild()
     {
         if (roundedBox == null) return;
 
-        // --- Measure preferred sizes reported by TMP ---
-        float headerW = 0f, headerH = 0f;
-        float bodyW   = 0f, bodyH   = 0f;
+        // --- 1. Measure each text block ---
+        Vector2 headerSize = headerText != null
+            ? headerText.GetPreferredValues(float.PositiveInfinity, float.PositiveInfinity)
+            : Vector2.zero;
+
+        Vector2 bodySize = bodyText != null
+            ? bodyText.GetPreferredValues(float.PositiveInfinity, float.PositiveInfinity)
+            : Vector2.zero;
+
+        // --- 2. Total content block ---
+        bool hasHeader = headerText != null && !string.IsNullOrEmpty(headerText.text);
+        bool hasBody = bodyText != null && !string.IsNullOrEmpty(bodyText.text);
+
+        float gap = (hasHeader && hasBody) ? spacingBetweenTexts : 0f;
+        float contentHeight = headerSize.y + gap + bodySize.y;
+        float contentWidth = Mathf.Max(headerSize.x, bodySize.x);
+
+        // --- 3. Box size ---
+        float boxWidth = Mathf.Max(contentWidth + paddingHorizontal * 2f, minWidth);
+        float boxHeight = Mathf.Max(contentHeight + paddingVertical * 2f, minHeight);
+
+        roundedBox.Width = boxWidth;
+        roundedBox.Height = boxHeight;
+
+        // --- 4. Position texts so the whole block is vertically centered ---
+        // Box pivot is at center (0,0). Content block is centered around 0.
+        //
+        //  +------------ +boxHeight/2 (top) ------------+
+        //  |  paddingVertical                            |
+        //  |  [header rect center at blockTop - h/2]    |
+        //  |  [gap]                                      |
+        //  |  [body rect center at ...]                  |
+        //  |  paddingVertical                            |
+        //  +------------ -boxHeight/2 (bottom) ----------+
+
+        float blockTop = contentHeight * 0.5f;  // in local space, content starts here
 
         if (headerText != null)
         {
-            headerW = headerText.GetPreferredValues().x;
-            headerH = headerText.GetPreferredValues().y;
+            Vector3 p = headerText.transform.localPosition;
+            p.y = blockTop - headerSize.y * 0.5f;
+            headerText.transform.localPosition = p;
         }
 
         if (bodyText != null)
         {
-            bodyW = bodyText.GetPreferredValues().x;
-            bodyH = bodyText.GetPreferredValues().y;
-        }
-
-        // --- Calculate required box dimensions ---
-        float requiredWidth  = Mathf.Max(headerW, bodyW) + paddingHorizontal * 2f;
-        float requiredHeight = headerH + spacingBetweenTexts + bodyH + paddingVertical * 2f;
-
-        float finalWidth  = Mathf.Max(requiredWidth,  minWidth);
-        float finalHeight = Mathf.Max(requiredHeight, minHeight);
-
-        // --- Apply to RoundedBoxProperties ---
-        roundedBox.Width  = finalWidth;
-        roundedBox.Height = finalHeight;
-
-        // Reposition text elements relative to box center
-        RepositionTexts(finalWidth, finalHeight, headerH, bodyH);
-    }
-
-    private void RepositionTexts(float boxWidth, float boxHeight, float headerH, float bodyH)
-    {
-        // Origin = center of the box
-        float topEdge = boxHeight * 0.5f - paddingVertical;
-
-        if (headerText != null)
-        {
-            Vector3 pos = headerText.transform.localPosition;
-            pos.y = topEdge - headerH * 0.5f;
-            headerText.transform.localPosition = pos;
-        }
-
-        if (bodyText != null)
-        {
-            Vector3 pos = bodyText.transform.localPosition;
-            pos.y = topEdge - headerH - spacingBetweenTexts - bodyH * 0.5f;
-            bodyText.transform.localPosition = pos;
+            float bodyCenter = blockTop - headerSize.y - gap - bodySize.y * 0.5f;
+            Vector3 p = bodyText.transform.localPosition;
+            p.y = bodyCenter;
+            bodyText.transform.localPosition = p;
         }
     }
 }
