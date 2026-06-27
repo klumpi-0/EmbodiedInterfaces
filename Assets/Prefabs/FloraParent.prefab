@@ -144,8 +144,8 @@ MonoBehaviour:
   offsetVector: {x: 0.3, y: 0, z: 0}
   debugTarget: {fileID: 0}
   debugClip: {fileID: 0}
-  buttonTarget: {fileID: 0}
   mixNmatchTarget: {fileID: 0}
+  buttonTarget: {fileID: 0}
   restTarget: {fileID: 0}
   plantBubbleTargets: []
   isMoving: 0

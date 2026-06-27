@@ -29,8 +29,8 @@ public class FloraController : MonoBehaviour
     [SerializeField] private AudioClip debugClip;
 
     [Header("MoveTargets")]
-    [SerializeField] private Transform buttonTarget;
     [SerializeField] private Transform mixNmatchTarget;
+    [SerializeField] private Transform buttonTarget;
     [SerializeField] private Transform restTarget;
     [SerializeField] private Transform[] plantBubbleTargets;
  
@@ -67,6 +67,7 @@ public class FloraController : MonoBehaviour
         finishedMovingEvent.AddListener(SetIsMovingFalse);
         // Listeners for App Progress Events
         MixNMatchController.Instance.setNewPuzzleEvent.AddListener(MoveFloraToMixNMatch);
+        MixNMatchController.Instance.foundMatchEvent.AddListener(MoveFloraToPlantBubble);
 
     }
 
@@ -164,6 +165,16 @@ public class FloraController : MonoBehaviour
     private void MoveFloraToMixNMatch()
     {
         MoveFloraAndPlayClip(mixNmatchTarget, MNM_AudioController.Instance.introText_clip, playClipDelayed:true, stateAfterMove:FloraStates.Spinning);
+    }
+
+    private void MoveFloraToButton()
+    {
+
+    }
+
+    private void MoveFloraToPlantBubble()
+    {
+        MoveFloraAndPlayClip(plantBubbleTargets[MixNMatchController.Instance.data.numberPhase], MNM_AudioController.Instance.afterPlantAudio_clip, playClipDelayed: true);
     }
     #endregion
 }
