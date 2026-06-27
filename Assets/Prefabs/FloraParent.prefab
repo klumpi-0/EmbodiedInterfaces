@@ -56,6 +56,7 @@ MonoBehaviour:
   showGizmos: 1
   isVisible: 0
   currentState: 0
+  cubes: []
 --- !u!1 &571321156764425770
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +143,7 @@ MonoBehaviour:
   offsetVector: {x: 0.3, y: 0, z: 0}
   debugTarget: {fileID: 0}
   debugClip: {fileID: 0}
+  isMoving: 0
 --- !u!1 &2941756874893584074
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +608,67 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &6871073602301929535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1749125368118863161}
+  - component: {fileID: 4801720961040940925}
+  m_Layer: 0
+  m_Name: FloraButtonPress
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749125368118863161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871073602301929535}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6719080011867257703}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4801720961040940925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6871073602301929535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d814a429b5deb6f49bb5e64e5d13acff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloraButtonPress
+  floraTransform: {fileID: 8915916067126936581}
+  pressDownDistance: 0.24
+  pressForwardDistance: 0.04
+  pressDownDuration: 0.2
+  pressUpDuration: 0.35
+  holdDuration: 0.08
+  timeBetweenRepetitions: 1
+  shouldRepeatAnimation: 0
+  onPressStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onPressBottom:
+    m_PersistentCalls:
+      m_Calls: []
+  onPressFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7021844028829943863
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +864,7 @@ Transform:
   - {fileID: 6451727429136921783}
   - {fileID: 4049216281777161266}
   - {fileID: 8047625248703658645}
+  - {fileID: 1749125368118863161}
   m_Father: {fileID: 5885754619031512741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5125844459696195115

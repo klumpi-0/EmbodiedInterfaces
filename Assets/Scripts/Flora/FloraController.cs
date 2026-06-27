@@ -41,6 +41,14 @@ public class FloraController : MonoBehaviour
         {
             MoveFloraAndPlayClip(debugTarget.transform, debugClip, playClipDelayed:true);
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            FloraButtonPress.Instance.TriggerPress(repeatAnimation: true);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            FloraButtonPress.Instance.StopRepeatAnimationPlaying();
+        }
     }
 
     public void MoveFlora(Vector3 targetPos, Vector3 targetRot, float duration = 2f, bool useOffset = false)
