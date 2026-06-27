@@ -17,6 +17,7 @@ public class FloraController : MonoBehaviour
 
     [Header("References")]
     public GameObject floraMoveObject;
+    [SerializeField] private InfoBoxController textField;
     [Header("Events")]
     public UnityEvent startedMovingEvent;
     public UnityEvent finishedMovingEvent;
@@ -27,6 +28,12 @@ public class FloraController : MonoBehaviour
     [SerializeField] private GameObject debugTarget;
     [SerializeField] private AudioClip debugClip;
 
+    [Header("MoveTargets")]
+    [SerializeField] private Transform buttonTarget;
+    [SerializeField] private Transform mixNmatchTarget;
+    [SerializeField] private Transform restTarget;
+    [SerializeField] private Transform[] plantBubbleTargets;
+ 
     [Header("State Stuff")]
     public Action<FloraStates> OnStateChangeAction;
     private FloraStates floraState;
@@ -58,6 +65,9 @@ public class FloraController : MonoBehaviour
         floraMoveObject.transform.position = Vector3.zero;
         startedMovingEvent.AddListener(SetIsMovingTrue);
         finishedMovingEvent.AddListener(SetIsMovingFalse);
+        // Listeners for App Progress Events
+        MixNMatchController.Instance.setNewPuzzleEvent.AddListener(MoveFloraToMixNMatch);
+
     }
 
     // Update is called once per frame
@@ -150,8 +160,10 @@ public class FloraController : MonoBehaviour
 
     private void SetIsMovingFalse() { isMoving = false; }
 
-    private void SetFloraState(FloraStates newState)
+    #region MoveCommands
+    private void MoveFloraToMixNMatch()
     {
-        FloraState = newState;
+        MoveFloraAndPlayClip(mixNmatchTarget, MNM_AudioController.Instance.introText_clip, playClipDelayed:true, stateAfterMove:FloraStates.Spinning);
     }
+    #endregion
 }

@@ -21,6 +21,8 @@ public class MixNMatchController : MonoBehaviour
     [SerializeField] private GameObject[] plantBubbles;
 
     [Header("Events")]
+    [Tooltip("Gets invoked when new puzzle is loaded")]
+    public UnityEvent setNewPuzzleEvent;
     [Tooltip("Gets Invoked when user locks in correct solution for mNm puzzle")]
     public UnityEvent foundMatchEvent;
     [Tooltip("Gets invoked if user needs to get wrong feedback")]
@@ -43,7 +45,6 @@ public class MixNMatchController : MonoBehaviour
     void Start()
     {
         foundMatchEvent.AddListener(ActivatePlantBubble);
-
         plantedPlantEvent.AddListener(SetBubbleFinished);
         plantedPlantEvent.AddListener(StartFlowerWaveGround);
         plantedPlantEvent.AddListener(SetupFollowUpInformation);
@@ -72,10 +73,11 @@ public class MixNMatchController : MonoBehaviour
         ProcessRoations.Instance?.SetTargetRotation(solution);
         ProcessRoations.Instance.SetTargetRotationArrows(data.arrowSolutionSites);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.afterPlantAudio, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
-        MNM_AudioController.Instance.PlayIntroClip();
+        //MNM_AudioController.Instance.PlayIntroClip();
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText, data.arrowSolutionSites);
         MoreInformationController.Instance.DisableAllText(1);
+        setNewPuzzleEvent.Invoke();
     }
 
     private void StartFlowerWaveGround()

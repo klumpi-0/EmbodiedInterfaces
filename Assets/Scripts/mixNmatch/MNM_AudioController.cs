@@ -10,14 +10,14 @@ public class MNM_AudioController : MonoBehaviour
     [SerializeField] private MixNMatchController mnm_Controller;
 
     [Header("Audios")]
-    [SerializeField] private AudioClip lastPlayedAudioClip;
-    [SerializeField] private AudioClip introText_clip;
-    [SerializeField] private AudioClip finishSound_clip;
-    [SerializeField] private AudioClip finishText_clip;
-    [SerializeField] private AudioClip afterPlantAudio_clip;
-    [SerializeField] private AudioClip moreInfo_01;
-    [SerializeField] private AudioClip moreInfo_02;
-    [SerializeField] private AudioClip moreInfo_03;
+    public AudioClip lastPlayedAudioClip { get; private set; }
+    public AudioClip introText_clip { get; private set; }
+    public AudioClip finishSound_clip { get; private set; }
+    public AudioClip finishText_clip { get; private set; }
+    public AudioClip afterPlantAudio_clip { get; private set; }
+    public AudioClip moreInfo_01 { get; private set; }
+    public AudioClip moreInfo_02 { get; private set; }
+    public AudioClip moreInfo_03 { get; private set; }
 
     [SerializeField] private AudioClip[] wrongFeedbackClips;
 

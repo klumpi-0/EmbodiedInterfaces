@@ -105,7 +105,10 @@ public class MoreInformationController : MonoBehaviour
             case 2: DisableTextOnOneCube(highCubeTexts); break;
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="randomInt">Is never used just put anything into it</param>
     public void DisableAllText(int randomInt)
     {
         DisableTextOnOneCube(lowCubeTexts);
