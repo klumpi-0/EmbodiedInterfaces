@@ -13,6 +13,7 @@ public class FloraSpinAnimation : MonoBehaviour
     [SerializeField] private int spinCount = 1;                  // Wie viele Umdrehungen
     [SerializeField] private float riseHeight = 0.12f;           // Wie hoch während der Drehung
     [SerializeField] private AnimationCurve riseCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 0f); // Berg-Kurve
+    [SerializeField] private float startAngle;
 
     [Header("Repetition Settings")]
     [SerializeField] private float timeBetweenRepetitions;
@@ -66,6 +67,10 @@ public class FloraSpinAnimation : MonoBehaviour
     {
         _isAnimating = true;
         onSpinStart?.Invoke();
+        //startAngle = floraTransform.eulerAngles.y;
+        _startLocalPos = floraTransform.localPosition;
+        _startLocalRot = floraTransform.localRotation;
+
 
         float totalDegrees = 360f * spinCount;
         float elapsed = 0f;
