@@ -2,22 +2,12 @@ using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// Controls the InfoBox UI element.
-/// The box grows symmetrically (up AND down) around its center pivot.
-/// Text block is always centered inside the box.
-/// </summary>
 [ExecuteAlways]
 public class InfoBoxController : MonoBehaviour
 {
     [Header("References")]
-    [Tooltip("The RoundedBoxProperties script on the background quad")]
     [SerializeField] private RoundedBoxProperties roundedBox;
-
-    [Tooltip("TextMeshPro component for the header")]
     [SerializeField] private TextMeshPro headerText;
-
-    [Tooltip("TextMeshPro component for the body text")]
     [SerializeField] private TextMeshPro bodyText;
 
     [Header("Layout Settings")]
@@ -26,6 +16,10 @@ public class InfoBoxController : MonoBehaviour
     [SerializeField] private float spacingBetweenTexts = 2f;
     [SerializeField] private float minWidth = 30f;
     [SerializeField] private float minHeight = 20f;
+
+    [Tooltip("Fixed content width in world units. Text wraps at this width. " +
+             "Box width = this + 2 * paddingHorizontal.")]
+    [SerializeField] private float contentWidth = 40f;
 
     [Header("Initial Content")]
     [SerializeField] private string initialHeader = "Header";
@@ -70,49 +64,36 @@ public class InfoBoxController : MonoBehaviour
     }
 
     // ---------------------------------------------------------------
-    // Core layout — everything is calculated relative to box center
+    // Layout
     // ---------------------------------------------------------------
 
     private void Rebuild()
     {
         if (roundedBox == null) return;
 
-        // --- 1. Measure each text block ---
+        // Measure with a fixed wrap width so TMP respects line breaks
         Vector2 headerSize = headerText != null
-            ? headerText.GetPreferredValues(float.PositiveInfinity, float.PositiveInfinity)
+            ? headerText.GetPreferredValues(contentWidth, float.PositiveInfinity)
             : Vector2.zero;
 
         Vector2 bodySize = bodyText != null
-            ? bodyText.GetPreferredValues(float.PositiveInfinity, float.PositiveInfinity)
+            ? bodyText.GetPreferredValues(contentWidth, float.PositiveInfinity)
             : Vector2.zero;
 
-        // --- 2. Total content block ---
         bool hasHeader = headerText != null && !string.IsNullOrEmpty(headerText.text);
         bool hasBody = bodyText != null && !string.IsNullOrEmpty(bodyText.text);
-
         float gap = (hasHeader && hasBody) ? spacingBetweenTexts : 0f;
         float contentHeight = headerSize.y + gap + bodySize.y;
-        float contentWidth = Mathf.Max(headerSize.x, bodySize.x);
 
-        // --- 3. Box size ---
+        // Box dimensions
         float boxWidth = Mathf.Max(contentWidth + paddingHorizontal * 2f, minWidth);
         float boxHeight = Mathf.Max(contentHeight + paddingVertical * 2f, minHeight);
 
         roundedBox.Width = boxWidth;
         roundedBox.Height = boxHeight;
 
-        // --- 4. Position texts so the whole block is vertically centered ---
-        // Box pivot is at center (0,0). Content block is centered around 0.
-        //
-        //  +------------ +boxHeight/2 (top) ------------+
-        //  |  paddingVertical                            |
-        //  |  [header rect center at blockTop - h/2]    |
-        //  |  [gap]                                      |
-        //  |  [body rect center at ...]                  |
-        //  |  paddingVertical                            |
-        //  +------------ -boxHeight/2 (bottom) ----------+
-
-        float blockTop = contentHeight * 0.5f;  // in local space, content starts here
+        // Center the whole text block vertically inside the box
+        float blockTop = contentHeight * 0.5f;
 
         if (headerText != null)
         {
@@ -123,9 +104,8 @@ public class InfoBoxController : MonoBehaviour
 
         if (bodyText != null)
         {
-            float bodyCenter = blockTop - headerSize.y - gap - bodySize.y * 0.5f;
             Vector3 p = bodyText.transform.localPosition;
-            p.y = bodyCenter;
+            p.y = blockTop - headerSize.y - gap - bodySize.y * 0.5f;
             bodyText.transform.localPosition = p;
         }
     }

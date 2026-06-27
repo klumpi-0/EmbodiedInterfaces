@@ -205,6 +205,15 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.7049474
+      value: 0.33428824
+      inSlope: 0.026446905
+      outSlope: 0.026446905
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09232948
+    - serializedVersion: 3
       time: 1
       value: 0
       inSlope: 0
@@ -216,6 +225,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  timeBetweenRepetitions: 2
+  shouldRepeatAnimation: 0
   onSpinStart:
     m_PersistentCalls:
       m_Calls: []
@@ -1025,6 +1036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LookAtCamera
   rotateTransform: {fileID: 0}
   flipFrontFacingSide: 0
+  onlyRotateYAxis: 1
 --- !u!4 &8915916067126936581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3447742079981357586, guid: 72b743da913faa640a546416ee7c8b79, type: 3}
@@ -1038,6 +1050,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5885754619031512741}
     m_Modifications:
+    - target: {fileID: 1357335325122830467, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_text
+      value: Flora
+      objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1071,18 +1087,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1112,7 +1116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.58
+      value: -5.82
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1136,7 +1140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4022626132135925509, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 10.32
+      value: 5.2349997
       objectReference: {fileID: 0}
     - target: {fileID: 5637870995548291879, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_Name
@@ -1144,67 +1148,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6862717424449558128, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 30.333334
+      value: 40.333332
       objectReference: {fileID: 0}
     - target: {fileID: 6862717424449558128, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 31.333334
+      value: 23.163334
       objectReference: {fileID: 0}
     - target: {fileID: 7385186484278012284, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3.1800003
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 7571393474592967127, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_text
-      value: '1
-
-        2
-
-        3
-
-        4
-
-        5
-
-        6
-
-        7
-
-        8
-
-        9
-
-        10
-
-        11'
+      value: "Hallo, ich bin Flora.\nIch helfe dir durch diese Anwendung. Wenn du
+        nochmal h\xF6ren m\xF6chtest was ich gesagt habe greife mich einfach mit
+        Daumen und Zeigfinger."
       objectReference: {fileID: 0}
-    - target: {fileID: 8774067505960276266, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
-      propertyPath: initialBody
-      value: '1
-
-        2
-
-        3
-
-        4
-
-        5
-
-        6
-
-        7
-
-        8
-
-        9
-
-        10
-
-        11'
+    - target: {fileID: 8818875340593187359, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: _width
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8818875340593187359, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: _height
-      value: 31
+      value: 22.83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

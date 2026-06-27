@@ -49,7 +49,7 @@ public class FloraViewportGuard : MonoBehaviour
     private void Update()
     {
         if (floraMoveObject == null) return;
-        if(FloraController.Instance.isMoving) { return; }
+        if(FloraController.Instance.GetIsMoving()) { return; }
         // Timer selbst runterzählen statt auf Callback warten
         if (_state == GuardState.Snapping || _state == GuardState.Returning)
         {

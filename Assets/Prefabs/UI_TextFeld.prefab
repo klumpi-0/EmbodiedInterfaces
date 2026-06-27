@@ -106,29 +106,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '12
-
-    32
-
-    43
-
-    4
-
-    35
-
-    5
-
-    4
-
-    6
-
-    576
-
-    78
-
-    7
-
-    8'
+  m_text: "Hallo, ich bin Flora.\nIch helfe dir durch diese Anwendung. Wenn du nochmal
+    h\xF6ren m\xF6chtest was ich gesagt habe greife mich einfach mit Daumen und Zeigfinger."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fa7e73cef5f3f34f8c0c7b1514a9de8, type: 2}
   m_sharedMaterial: {fileID: 2249051884302068091, guid: 8fa7e73cef5f3f34f8c0c7b1514a9de8, type: 2}
@@ -237,7 +216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11.165}
+  m_AnchoredPosition: {x: 0, y: 5.2349997}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4401759302879440231
@@ -309,7 +288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Header
+  m_text: Flora
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8fa7e73cef5f3f34f8c0c7b1514a9de8, type: 2}
   m_sharedMaterial: {fileID: 2249051884302068091, guid: 8fa7e73cef5f3f34f8c0c7b1514a9de8, type: 2}
@@ -410,7 +389,7 @@ RectTransform:
   m_GameObject: {fileID: 5637870995548291879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6862717424449558128}
@@ -439,34 +418,15 @@ MonoBehaviour:
   headerText: {fileID: 1357335325122830467}
   bodyText: {fileID: 7571393474592967127}
   paddingHorizontal: 5
-  paddingVertical: 3
+  paddingVertical: 4
   spacingBetweenTexts: 2
   minWidth: 30
   minHeight: 10
-  initialHeader: Header
-  initialBody: '12
-
-    32
-
-    43
-
-    4
-
-    35
-
-    5
-
-    4
-
-    6
-
-    576
-
-    78
-
-    7
-
-    8'
+  contentWidth: 30
+  initialHeader: Flora
+  initialBody: "Hallo, ich bin Flora.\nIch helfe dir durch diese Anwendung. Wenn
+    du nochmal h\xF6ren m\xF6chtest was ich gesagt habe greife mich einfach mit Daumen
+    und Zeigfinger."
 --- !u!1001 &7808196263354959094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,11 +441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602922219624484585, guid: e4ad715cce9e3874eb2e80017680dc03, type: 3}
       propertyPath: _width
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1602922219624484585, guid: e4ad715cce9e3874eb2e80017680dc03, type: 3}
       propertyPath: _height
-      value: 32.69
+      value: 22.83
       objectReference: {fileID: 0}
     - target: {fileID: 3702253575229739654, guid: e4ad715cce9e3874eb2e80017680dc03, type: 3}
       propertyPath: m_Pivot.x
@@ -521,11 +481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3702253575229739654, guid: e4ad715cce9e3874eb2e80017680dc03, type: 3}
       propertyPath: m_LocalScale.x
-      value: 30.333334
+      value: 40.333332
       objectReference: {fileID: 0}
     - target: {fileID: 3702253575229739654, guid: e4ad715cce9e3874eb2e80017680dc03, type: 3}
       propertyPath: m_LocalScale.y
-      value: 33.02333
+      value: 23.163334
       objectReference: {fileID: 0}
     - target: {fileID: 3702253575229739654, guid: e4ad715cce9e3874eb2e80017680dc03, type: 3}
       propertyPath: m_LocalPosition.x

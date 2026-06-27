@@ -14,6 +14,11 @@ public class FloraSpinAnimation : MonoBehaviour
     [SerializeField] private float riseHeight = 0.12f;           // Wie hoch während der Drehung
     [SerializeField] private AnimationCurve riseCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 0f); // Berg-Kurve
 
+    [Header("Repetition Settings")]
+    [SerializeField] private float timeBetweenRepetitions;
+    [SerializeField] private bool shouldRepeatAnimation;
+
+
     [Header("Events")]
     public UnityEvent onSpinStart;
     public UnityEvent onSpinFinished;
@@ -49,9 +54,11 @@ public class FloraSpinAnimation : MonoBehaviour
         }
     }
 
-    public void TriggerSpin()
+    public void TriggerSpin(bool resetStartPos = true, bool repeatAnimation = false)
     {
         if (_isAnimating) return;
+        if (repeatAnimation) { onSpinFinished.AddListener(RestartAnimation); shouldRepeatAnimation = true; }
+        else { onSpinFinished.RemoveListener(RestartAnimation); shouldRepeatAnimation = false; }
         StartCoroutine(SpinRoutine());
     }
 
@@ -100,6 +107,21 @@ public class FloraSpinAnimation : MonoBehaviour
             _startLocalPos = floraTransform.localPosition;
             _startLocalRot = floraTransform.localRotation;
         }
+    }
+    private void RestartAnimation()
+    {
+        StartCoroutine(RestartCoroutine());
+    }
+
+    private System.Collections.IEnumerator RestartCoroutine()
+    {
+        yield return new WaitForSeconds(timeBetweenRepetitions);
+        if (shouldRepeatAnimation) { TriggerSpin(repeatAnimation: true); }
+    }
+
+    public void StopRepeatAnimationPlaying()
+    {
+        shouldRepeatAnimation = false;
     }
 
 #if UNITY_EDITOR
