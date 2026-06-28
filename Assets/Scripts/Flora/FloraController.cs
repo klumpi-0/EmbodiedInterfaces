@@ -136,6 +136,7 @@ public class FloraController : MonoBehaviour
     }
 
     #endregion
+
     private void ChangedState(FloraStates newState)
     {
         ResetAllStates();
@@ -145,6 +146,8 @@ public class FloraController : MonoBehaviour
                 FloraSpinAnimation.Instance.TriggerSpin(repeatAnimation:true); break;
             case FloraStates.Pushing:
                 FloraButtonPress.Instance.TriggerPress(repeatAnimation:true); break;
+            case 0:
+                break;
         }
     }
 
