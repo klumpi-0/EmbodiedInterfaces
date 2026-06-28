@@ -59,16 +59,23 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  intro_transforms:
-  - {fileID: 0}
-  intro_clips: []
-  intro_states: 
-  plant_transforms: []
-  plant_clips: []
-  plant_states: 
-  moreInfo_transforms: []
-  moreInfo_clips: []
-  moreInfo_states: 
-  weiter_transforms: []
-  weiter_clips: []
-  weiter_states: 
+  intro_transforms: 040000000600000005000000
+  intro_clips:
+  - {fileID: 8300000, guid: 863651b128716ba4a803e747aafaf675, type: 3}
+  - {fileID: 8300000, guid: f4a23fa9221541f449acb501cff9ff46, type: 3}
+  - {fileID: 8300000, guid: ff8e2e5afb83bc146b3b50e39340bde6, type: 3}
+  intro_states: 000000000300000004000000
+  plant_transforms: 0700000000000000
+  plant_clips:
+  - {fileID: 8300000, guid: 33bc1a48ca5fef3489fa532a74f75b8d, type: 3}
+  - {fileID: 8300000, guid: eceed2f73fbcaea49a1453b4105e9bb3, type: 3}
+  plant_states: 0000000000000000
+  moreInfo_transforms: 06000000
+  moreInfo_clips:
+  - {fileID: 8300000, guid: 3a3fbf406aec95f43a1ff00732da6343, type: 3}
+  moreInfo_states: 00000000
+  weiter_transforms: 0600000005000000
+  weiter_clips:
+  - {fileID: 8300000, guid: 50682be373fc2214f9c324edc74a6d4b, type: 3}
+  - {fileID: 8300000, guid: 6ae8b270e84650a4ca6cece7d5604a67, type: 3}
+  weiter_states: 0300000004000000

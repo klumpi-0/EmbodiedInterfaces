@@ -1971,6 +1971,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestChangeImage
   puzzleData: {fileID: 11400000, guid: f8daaed9a40eec54792cfed211212cf1, type: 2}
+--- !u!4 &1160474277 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8765037257687285410, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+  m_PrefabInstance: {fileID: 3283563068774719430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1168738732
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,6 +3165,11 @@ Transform:
   - {fileID: 9431164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1899898782 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4508034804057862230, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+  m_PrefabInstance: {fileID: 3283563068774719430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1910743430
 GameObject:
   m_ObjectHideFlags: 0
@@ -3628,6 +3638,46 @@ PrefabInstance:
       propertyPath: plantBubble_4
       value: 
       objectReference: {fileID: 3283563068774719432}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: targetsParent
+      value: 
+      objectReference: {fileID: 1899898782}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: targets.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1763856873}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 412176463}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3283563068774719433}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3283563068774719432}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1810960448}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2082768424}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[6]'
+      value: 
+      objectReference: {fileID: 3283563068774719431}
+    - target: {fileID: 3205226570336301437, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: 'targets.Array.data[7]'
+      value: 
+      objectReference: {fileID: 1160474277}
     - target: {fileID: 3247305593888848683, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
       propertyPath: m_Name
       value: FloraParent

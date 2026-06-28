@@ -44,13 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb89ed62834c424f8b78a7f7a262a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTargets
-  plantBubble_1: {fileID: 0}
-  plantBubble_2: {fileID: 0}
-  plantBubble_3: {fileID: 0}
-  plantBubble_4: {fileID: 0}
-  start_Right: {fileID: 0}
-  button: {fileID: 0}
-  mNmTarget: {fileID: 0}
+  targetsParent: {fileID: 0}
+  targets: []
 --- !u!1 &288474734424743686
 GameObject:
   m_ObjectHideFlags: 0
