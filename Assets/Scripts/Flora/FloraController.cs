@@ -22,6 +22,7 @@ public class FloraController : MonoBehaviour
     [Header("Events")]
     public UnityEvent startedMovingEvent;
     public UnityEvent finishedMovingEvent;
+    public UnityEvent finishedMovingAndTalkingEvent;
     [Header("Settings")]
     [SerializeField] private Vector3 offsetVector;
 
@@ -132,7 +133,12 @@ public class FloraController : MonoBehaviour
 
     private IEnumerator MoveMultipleCoroutine(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, float duration = 2f, bool useOffset = false)
     {
-        yield return new WaitForSeconds(duration);
+        for(int i = 0; i < clips.Length; i++)
+        {
+            MoveFloraAndPlayClip(targets[i], clips[i], duration:duration, playClipDelayed:true, stateAfterMove: statesAfterMove[i]);
+            yield return new WaitForSeconds(duration + clips[i].length);
+            finishedMovingAndTalkingEvent.Invoke();
+        }
     }
 
     #endregion
