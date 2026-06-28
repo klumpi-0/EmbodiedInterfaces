@@ -80,7 +80,7 @@ public class FloraController : MonoBehaviour
         MixNMatchController.Instance.setNewPuzzleEvent.AddListener(PlayIntro);
         MixNMatchController.Instance.foundMatchEvent.AddListener(PlayPlanting);
         MixNMatchController.Instance.plantedPlantEvent.AddListener(PlayMoreInformation);
-        MixNMatchController.Instance.AllInformationReceivedEvent.AddListener(PlayWeiter);
+        MixNMatchController.Instance.allInformationReceivedEvent.AddListener(PlayWeiter);
     }
 
     // Update is called once per frame

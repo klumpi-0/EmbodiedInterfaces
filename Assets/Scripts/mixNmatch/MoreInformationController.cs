@@ -47,7 +47,7 @@ public class MoreInformationController : MonoBehaviour
     {
         if(lowInformationReceived && middleInformationReceived && highInformationReceived == true)
         {
-            MixNMatchController.Instance.AllInformationReceivedEvent.Invoke();
+            MixNMatchController.Instance.InitAllInformationReceivedEvent();
         }
     }
 

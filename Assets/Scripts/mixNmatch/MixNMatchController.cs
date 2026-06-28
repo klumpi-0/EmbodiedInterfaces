@@ -30,7 +30,7 @@ public class MixNMatchController : MonoBehaviour
     [Tooltip("Gets invoked when user planted plant into final position")]
     public UnityEvent plantedPlantEvent;
     [Tooltip("Gets invoked as soon as user consumed all possible information")]
-    public UnityEvent AllInformationReceivedEvent;
+    public UnityEvent allInformationReceivedEvent;
     [Tooltip("Gets invoked when user locked in the forward arrows")]
     public UnityEvent forwardArrowsEvent;
 
@@ -164,6 +164,12 @@ public class MixNMatchController : MonoBehaviour
     public void InitPlantedEvent(float delay)
     {
         StartCoroutine(CoroutinePlantEvent(delay));
+    }
+
+    public void InitAllInformationReceivedEvent()
+    {
+        Debug.Log("All Info received");
+        allInformationReceivedEvent.Invoke();
     }
 
     private IEnumerator CoroutinePlantEvent(float delay)

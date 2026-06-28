@@ -25,7 +25,7 @@ public class ProgressFieldController : MonoBehaviour
     void Start()
     {
         image.preserveAspect = true;
-        ChangedProgress(0);
+        MixNMatchController.Instance.setNewPuzzleEvent.AddListener(SetProgressToZero);
     }
 
     // Update is called once per frame
@@ -67,5 +67,10 @@ public class ProgressFieldController : MonoBehaviour
     private void SetIcon(Sprite icon)
     {
         image.sprite = icon ;
+    }
+
+    private void SetProgressToZero()
+    {
+        ChangedProgress(0);
     }
 }
