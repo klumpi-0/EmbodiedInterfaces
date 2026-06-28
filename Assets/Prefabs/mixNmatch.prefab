@@ -2548,7 +2548,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MNM_AudioController
   mnm_audioSource: {fileID: 6690267149301420165}
+  spot_audioSource: {fileID: 6690267149301420165}
   mnm_Controller: {fileID: 6146088518293136126}
+  finishSound_clip: {fileID: 8300000, guid: 1d63cdeac00df4649848103f51e538fc, type: 3}
   wrongFeedbackClips:
   - {fileID: 8300000, guid: 078450a1a14382e4d9ab4e1b59613499, type: 3}
   - {fileID: 8300000, guid: 66d878f13855cc245b7e0e128b899401, type: 3}
@@ -9397,7 +9399,7 @@ MonoBehaviour:
   plantedPlantEvent:
     m_PersistentCalls:
       m_Calls: []
-  AllInformationReceivedEvent:
+  allInformationReceivedEvent:
     m_PersistentCalls:
       m_Calls: []
   forwardArrowsEvent:

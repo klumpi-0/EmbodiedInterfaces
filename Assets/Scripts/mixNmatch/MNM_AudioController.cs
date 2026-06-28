@@ -7,12 +7,13 @@ public class MNM_AudioController : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private AudioSource mnm_audioSource;
+    [SerializeField] private AudioSource spot_audioSource;
     [SerializeField] private MixNMatchController mnm_Controller;
 
     [Header("Audios")]
     public AudioClip lastPlayedAudioClip { get; private set; }
     public AudioClip introText_clip { get; private set; }
-    public AudioClip finishSound_clip { get; private set; }
+    [SerializeField] private AudioClip finishSound_clip;
     public AudioClip finishText_clip { get; private set; }
     public AudioClip afterPlantAudio_clip { get; private set; }
     public AudioClip moreInfo_01 { get; private set; }
@@ -34,7 +35,7 @@ public class MNM_AudioController : MonoBehaviour
     {
         mnm_Controller.foundMatchEvent.AddListener(PlayFinishSound);
         MixNMatchController.Instance.wrongFeedbackEvent.AddListener(PlayRandomWrongFeedback);
-        MixNMatchController.Instance.plantedPlantEvent.AddListener(PlayAfterPlantAudio);
+        //MixNMatchController.Instance.plantedPlantEvent.AddListener(PlayAfterPlantAudio);
     }
 
     public void SetAudioFiles(AudioClip intro, AudioClip finish, AudioClip afterPlant, AudioClip more_01, AudioClip more_02, AudioClip more_03)
@@ -52,13 +53,8 @@ public class MNM_AudioController : MonoBehaviour
     /// </summary>
     public void PlayFinishSound()
     {
-        StartCoroutine(PlayFinishedAudioCoroutine());
-    }
-    public IEnumerator PlayFinishedAudioCoroutine()
-    {
-        PlayAudioClip(finishSound_clip);
-        yield return new WaitForSeconds(finishSound_clip.length);
-        PlayAudioClip(finishText_clip);
+        spot_audioSource.clip = finishSound_clip;
+        spot_audioSource.Play();
     }
 
     public void PlayAudioClip(AudioClip clip)

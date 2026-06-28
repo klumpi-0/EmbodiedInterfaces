@@ -4231,10 +4231,6 @@ PrefabInstance:
       propertyPath: mnm_audioSource
       value: 
       objectReference: {fileID: 2259622640675854332}
-    - target: {fileID: 6196769681250537705, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
-      propertyPath: finishSound_clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1d63cdeac00df4649848103f51e538fc, type: 3}
     - target: {fileID: 6932526857509868272, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: newFrontSideLowEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
