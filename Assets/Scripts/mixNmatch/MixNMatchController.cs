@@ -29,6 +29,8 @@ public class MixNMatchController : MonoBehaviour
     public UnityEvent wrongFeedbackEvent;
     [Tooltip("Gets invoked when user planted plant into final position")]
     public UnityEvent plantedPlantEvent;
+    [Tooltip("Gets invoked as soon as user consumed all possible information")]
+    public UnityEvent AllInformationReceivedEvent;
     [Tooltip("Gets invoked when user locked in the forward arrows")]
     public UnityEvent forwardArrowsEvent;
 
@@ -73,10 +75,10 @@ public class MixNMatchController : MonoBehaviour
         ProcessRoations.Instance?.SetTargetRotation(solution);
         ProcessRoations.Instance.SetTargetRotationArrows(data.arrowSolutionSites);
         MNM_AudioController.Instance?.SetAudioFiles(data.introClip, data.finishedPuzzleClip, data.afterPlantAudio, data.morInfo_01Clip, data.morInfo_02Clip, data.morInfo_03Clip);
-        //MNM_AudioController.Instance.PlayIntroClip();
         FollowTaskController.Instance?.SetCurrentFollowTask(data.grabbablePrefab);
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText, data.arrowSolutionSites);
         MoreInformationController.Instance.DisableAllText(1);
+        MoreInformationController.Instance.SetAllInformationReceivedFalse();
         setNewPuzzleEvent.Invoke();
     }
 

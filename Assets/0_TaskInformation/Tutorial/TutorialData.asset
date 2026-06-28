@@ -59,3 +59,16 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  intro_transforms:
+  - {fileID: 0}
+  intro_clips: []
+  intro_states: 
+  plant_transforms: []
+  plant_clips: []
+  plant_states: 
+  moreInfo_transforms: []
+  moreInfo_clips: []
+  moreInfo_states: 
+  weiter_transforms: []
+  weiter_clips: []
+  weiter_states: 

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum ProgressMNM
 {
@@ -49,4 +50,44 @@ public class PuzzleData : ScriptableObject
     public string highInfoText;
     public string middleInfoText;
     public string lowInfoText;
+
+    [Header("Intro")]
+    public int[] intro_transforms;
+    public AudioClip[] intro_clips;
+    public FloraStates[] intro_states;
+
+    [Header("Plant")]
+    public int[] plant_transforms;
+    public AudioClip[] plant_clips;
+    public FloraStates[] plant_states;
+
+    [Header("MoreInformationen")]
+    public int[] moreInfo_transforms;
+    public AudioClip[] moreInfo_clips;
+    public FloraStates[] moreInfo_states;
+
+    [Header("Weiter")]
+    public int[] weiter_transforms;
+    public AudioClip[] weiter_clips;
+    public FloraStates[] weiter_states;
+
+    public (Transform[], AudioClip[], FloraStates[]) GetIntroValues()
+    {
+        return (SceneTargets.Instance.GetTargets(intro_transforms), intro_clips, intro_states);
+    }
+
+    public (Transform[], AudioClip[], FloraStates[]) GetPlantValues()
+    {
+        return (SceneTargets.Instance.GetTargets(plant_transforms), plant_clips, plant_states);
+    }
+
+    public (Transform[], AudioClip[], FloraStates[]) GetMoreInformationValues()
+    {
+        return (SceneTargets.Instance.GetTargets(moreInfo_transforms), moreInfo_clips, moreInfo_states);
+    }
+
+    public (Transform[], AudioClip[], FloraStates[]) GetWeiterValues()
+    {
+        return (SceneTargets.Instance.GetTargets(weiter_transforms), weiter_clips, weiter_states);
+    }
 }

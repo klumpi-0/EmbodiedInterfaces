@@ -1,5 +1,7 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MoreInformationController : MonoBehaviour
 {
@@ -19,6 +21,12 @@ public class MoreInformationController : MonoBehaviour
     [SerializeField] private string highText;
     [SerializeField] private string arrowText;
 
+    [Header("All Information received")]
+    [SerializeField] private bool lowInformationReceived;
+    [SerializeField] private bool middleInformationReceived;
+    [SerializeField] private bool highInformationReceived;
+
+
     private void Awake()
     {
         if(Instance == null)
@@ -33,6 +41,14 @@ public class MoreInformationController : MonoBehaviour
         ProcessRoations.Instance.newFrontSideMiddleEvent.AddListener(EnableTextMiddle);
         ProcessRoations.Instance.newFrontSideHighEvent.AddListener(EnableTextHigh);
         ProcessRoations.Instance.leftFrontFacingSideEvent.AddListener(DisableAllText);
+    }
+
+    private void Update()
+    {
+        if(lowInformationReceived && middleInformationReceived && highInformationReceived == true)
+        {
+            MixNMatchController.Instance.AllInformationReceivedEvent.Invoke();
+        }
     }
 
     public void SetAndUpdateNewText(string lowText, string middleText, string highText, int[] newArrowPositions)
@@ -67,6 +83,7 @@ public class MoreInformationController : MonoBehaviour
         if(numberSide != arrowPositions[0])
         {
             MNM_AudioController.Instance.PlayMoreInfoClip(0);
+            SetInformationReceivedDelayed(0, MNM_AudioController.Instance.moreInfo_01.length);
         }
     }
     private void EnableTextMiddle(int numberSide)
@@ -76,6 +93,7 @@ public class MoreInformationController : MonoBehaviour
         if (numberSide != arrowPositions[1])
         {
             MNM_AudioController.Instance.PlayMoreInfoClip(1);
+            SetInformationReceivedDelayed(1, MNM_AudioController.Instance.moreInfo_02.length);
         }
     }
     private void EnableTextHigh(int numberSide)
@@ -85,6 +103,7 @@ public class MoreInformationController : MonoBehaviour
         if (numberSide != arrowPositions[2])
         {
             MNM_AudioController.Instance.PlayMoreInfoClip(2);
+            SetInformationReceivedDelayed(2, MNM_AudioController.Instance.moreInfo_03.length);
         }
     }
 
@@ -94,6 +113,29 @@ public class MoreInformationController : MonoBehaviour
         {
             text.gameObject.SetActive(false);
         }
+    }
+
+    private void SetInformationReceivedDelayed(int whichCube, float delay)
+    {
+        StartCoroutine(SetInformationReceivedDelayedCoroutine(whichCube, delay));
+    }
+
+    private IEnumerator SetInformationReceivedDelayedCoroutine(int whichCube, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        switch(whichCube)
+        {
+            case 0:lowInformationReceived = true; break;
+            case 1:middleInformationReceived = true;break;
+            case 2:highInformationReceived = true; break;
+        }
+    }
+
+    public void SetAllInformationReceivedFalse()
+    {
+        lowInformationReceived = false;
+        middleInformationReceived = false;
+        highInformationReceived = false;
     }
 
     private void DisableTextOnCube(int cubeNumber)
