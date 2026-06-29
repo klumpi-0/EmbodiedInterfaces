@@ -38,6 +38,7 @@ public class FloraController : MonoBehaviour
     [SerializeField] private Transform[] lastTransforms;
     [SerializeField] private AudioClip[] lastClips;
     [SerializeField] private FloraStates[] lastStates;
+    [SerializeField] private Coroutine moveRoutine;
 
     [Header("MoveTargets")]
     [SerializeField] private Transform mixNmatchTarget;
@@ -139,7 +140,15 @@ public class FloraController : MonoBehaviour
     private void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, float duration = 2f, bool useOffset = false)
     {
         if((targets.Length != statesAfterMove.Length) || statesAfterMove.Length != clips.Length) { Debug.LogError("Not all array same length"); return; }
-        StartCoroutine(MoveMultipleCoroutine(targets, clips, statesAfterMove, duration));
+        
+        if(moveRoutine != null)
+        {
+            StopCoroutine(moveRoutine);
+            moveRoutine = null;
+            Debug.Log("Stopped Routine");
+        }
+
+        moveRoutine = StartCoroutine(MoveMultipleCoroutine(targets, clips, statesAfterMove, duration));
     }
     public void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates[] states, float duration = 2f)
     {
@@ -158,6 +167,7 @@ public class FloraController : MonoBehaviour
             yield return new WaitForSeconds(duration + clips[i].length);
         }
         finishedMultipleEvent.Invoke();
+        moveRoutine = null;
     }
 
     public void ReplayLastFloraAnimation()
