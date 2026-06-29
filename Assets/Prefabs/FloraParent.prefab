@@ -534,7 +534,7 @@ Transform:
   - {fileID: 6719080011867257703}
   - {fileID: 6786913029826850729}
   - {fileID: 5526522471638082014}
-  - {fileID: 5199594717663658756}
+  - {fileID: 5639094014601381524}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3339382489149490786
@@ -582,7 +582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CanvasSwitchSides
   floraTransform: {fileID: 5885754619031512741}
-  canvasObject: {fileID: 0}
+  referenceTransform: {fileID: 0}
+  canvasTransform: {fileID: 5639094014601381524}
 --- !u!1 &4097057463931662409
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +630,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloraGrabProcessor
   zoneHandler: {fileID: 3070505973326582836}
   meshRenderer: {fileID: 2240900018339225576}
+--- !u!1 &5996562046802700955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5639094014601381524}
+  m_Layer: 0
+  m_Name: ParentTextField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5639094014601381524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996562046802700955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5199594717663658756}
+  m_Father: {fileID: 5885754619031512741}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6293950719410402458
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,7 +1008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88610d6514362234aad264acf4eba152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloraHovering
-  targetTransform: {fileID: 8915916067126936581}
+  targetTransform: {fileID: 6786913029826850729}
   intervallHovering: 1
   hoverAmplitude: 0.05
   intervallScaling: 2
@@ -1110,7 +1143,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 5885754619031512741}
+    m_TransformParent: {fileID: 5639094014601381524}
     m_Modifications:
     - target: {fileID: 1357335325122830467, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_text
@@ -1149,6 +1182,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1166,7 +1211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1174,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1661207731256446661, guid: 3e0fe90d9d6a7964895d54839fe2c7b1, type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -6,11 +6,12 @@ using UnityEngine;
 public class CanvasSwitchSides : MonoBehaviour
 {
     [SerializeField] private Transform floraTransform;
-    [SerializeField] private GameObject canvasObject;
+    [SerializeField] private Transform referenceTransform;
+    [SerializeField] private Transform canvasTransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,18 +22,25 @@ public class CanvasSwitchSides : MonoBehaviour
 
     private bool FloraIsOnRightSide()
     {
-        Vector3 viewPortPos = Camera.main.WorldToViewportPoint(floraTransform.position);
-        if(viewPortPos.x < 0.5f) { return false; }
-        else {  return true; }
+        Vector3 dirToTarget = (floraTransform.position - referenceTransform.position).normalized;
+        float dot = Vector3.Dot(referenceTransform.right, dirToTarget);
+        if (dot > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private void SwitchCanvasToSide(bool isRightSide)
     {
-        var pos = canvasObject.transform.position;
-        var newX = pos.x;
-        if (isRightSide) { newX = Mathf.Abs(newX); }
-        else { newX = Mathf.Abs(newX) * -1; }
-        pos.x = newX;
-        canvasObject.transform.position = pos;
+        canvasTransform.localEulerAngles = new Vector3(0, 180, 0);
+        if (!isRightSide)
+        {
+            canvasTransform.localEulerAngles = new Vector3(0, 0, 0);
+
+        }
     }
 }
