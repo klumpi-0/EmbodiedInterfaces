@@ -2932,11 +2932,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1910743431}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1694533072 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6786913029826850729, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
-  m_PrefabInstance: {fileID: 2259622640675854331}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1763856873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6072577778887335502, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
@@ -3804,10 +3799,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5460123072570039497, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
-      propertyPath: targetTransform
-      value: 
-      objectReference: {fileID: 1694533072}
     - target: {fileID: 5596215464263725929, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
       propertyPath: m_LocalScale.y
       value: 1

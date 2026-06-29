@@ -234,24 +234,28 @@ public class FloraController : MonoBehaviour
 
     private void PlayIntro()
     {
+        Debug.Log("Fora play Intro");
         var tmp = MixNMatchController.Instance.data.GetIntroValues();
         MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
     }
 
     private void PlayPlanting()
     {
+        Debug.Log("Fora play Planting");
         var tmp = MixNMatchController.Instance.data.GetPlantValues();
         MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
     }
 
     private void PlayMoreInformation()
     {
+        Debug.Log("Fora play Information");
         var tmp = MixNMatchController.Instance.data.GetMoreInformationValues();
         MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
     }
 
     private void PlayWeiter()
     {
+        Debug.Log("Fora play Weiter");
         var tmp = MixNMatchController.Instance.data.GetWeiterValues();
         MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
     }

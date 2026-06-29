@@ -25,6 +25,7 @@ public class MoreInformationController : MonoBehaviour
     [SerializeField] private bool lowInformationReceived;
     [SerializeField] private bool middleInformationReceived;
     [SerializeField] private bool highInformationReceived;
+    [SerializeField] private bool firedEventInProcess;
 
 
     private void Awake()
@@ -45,8 +46,9 @@ public class MoreInformationController : MonoBehaviour
 
     private void Update()
     {
-        if(lowInformationReceived && middleInformationReceived && highInformationReceived == true)
+        if(lowInformationReceived && middleInformationReceived && highInformationReceived && !firedEventInProcess)
         {
+            firedEventInProcess = true;
             MixNMatchController.Instance.InitAllInformationReceivedEvent();
         }
     }
@@ -136,6 +138,7 @@ public class MoreInformationController : MonoBehaviour
         lowInformationReceived = false;
         middleInformationReceived = false;
         highInformationReceived = false;
+        firedEventInProcess = false;
     }
 
     private void DisableTextOnCube(int cubeNumber)
