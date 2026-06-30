@@ -190,10 +190,13 @@ public class FloraController : MonoBehaviour
         switch(newState)
         {
             case FloraStates.Spinning:
-                FloraSpinAnimation.Instance.TriggerSpin(repeatAnimation:true); break;
+                FloraSpinAnimation.Instance.TriggerSpin(repeatAnimation:true);
+                break;
             case FloraStates.Pushing:
-                FloraButtonPress.Instance.TriggerPress(repeatAnimation:true); break;
+                FloraButtonPress.Instance.TriggerPress(repeatAnimation:true); 
+                break;
             case FloraStates.Waiting:
+                FloraHovering.Instance.SetFigureEightEnabled(true);
                 break;
         }
     }
@@ -202,6 +205,7 @@ public class FloraController : MonoBehaviour
     {
         FloraButtonPress.Instance.StopRepeatAnimationPlaying();
         FloraSpinAnimation.Instance.StopRepeatAnimationPlaying();
+        FloraHovering.Instance.SetFigureEightEnabled(false);
     }
 
     private void InvokeFinishedMovingEvent()

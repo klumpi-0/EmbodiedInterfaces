@@ -48,6 +48,7 @@ public class FloraButtonPress : MonoBehaviour
     {
         if (_isAnimating) return;
         if (resetStartPos) { UpdateStartPosition(); }
+        onPressFinished.RemoveListener(RestartAnimation);
         if (repeatAnimation) { onPressFinished.AddListener(RestartAnimation); shouldRepeatAnimation = true; }
         else { onPressFinished.RemoveListener(RestartAnimation); shouldRepeatAnimation = false; }
         StartCoroutine(PressRoutine());

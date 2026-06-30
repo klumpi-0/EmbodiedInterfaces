@@ -23,6 +23,7 @@ public class FloraGrabProcessor : MonoBehaviour
         zoneHandler.onEnterZone.AddListener(EnterZoneChanges);
         zoneHandler.onExitZone.AddListener(SetStartBubbleMaterial);
         zoneHandler.onPinch.AddListener(ReplayLastAudio);
+        SetStartBubbleMaterial();
     }
 
     // Update is called once per frame
@@ -55,6 +56,7 @@ public class FloraGrabProcessor : MonoBehaviour
 
     private void ReplayLastAudio()
     {
-        MNM_AudioController.Instance.ReplayLastAudio();
+        //MNM_AudioController.Instance.ReplayLastAudio();
+        FloraController.Instance.ReplayLastFloraAnimation();
     }
 }

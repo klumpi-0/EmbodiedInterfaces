@@ -1013,6 +1013,10 @@ MonoBehaviour:
   hoverAmplitude: 0.05
   intervallScaling: 2
   scaleAmplitude: 0.03
+  figureEightEnabled: 0
+  intervallFigureEight: 4
+  figureEightWidth: 0.05
+  figureEightDepth: 0.03
 --- !u!1 &9132563607723652521
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,6 +58,7 @@ public class FloraSpinAnimation : MonoBehaviour
     public void TriggerSpin(bool resetStartPos = true, bool repeatAnimation = false)
     {
         if (_isAnimating) return;
+        onSpinFinished.RemoveListener(RestartAnimation);
         if (repeatAnimation) { onSpinFinished.AddListener(RestartAnimation); shouldRepeatAnimation = true; }
         else { onSpinFinished.RemoveListener(RestartAnimation); shouldRepeatAnimation = false; }
         StartCoroutine(SpinRoutine());
