@@ -25,9 +25,14 @@ public class InfoBoxController : MonoBehaviour
     [SerializeField] private string initialHeader = "Header";
     [SerializeField][TextArea] private string initialBody = "Your text goes here.";
 
-    // ---------------------------------------------------------------
+    private bool _externallySet = false;
 
-    private void Start() => SetTexts(initialHeader, initialBody);
+    // ---------------------------------------------------------------
+    private void Start()
+    {
+        if (!_externallySet)
+            SetTexts(initialHeader, initialBody);
+    }
 
 #if UNITY_EDITOR
     private void OnValidate()
@@ -35,7 +40,8 @@ public class InfoBoxController : MonoBehaviour
         UnityEditor.EditorApplication.delayCall += () =>
         {
             if (this == null) return;
-            SetTexts(initialHeader, initialBody);
+            if (!_externallySet)
+                SetTexts(initialHeader, initialBody);
         };
     }
 #endif
@@ -43,9 +49,9 @@ public class InfoBoxController : MonoBehaviour
     // ---------------------------------------------------------------
     // Public API
     // ---------------------------------------------------------------
-
     public void SetTexts(string header, string body)
     {
+        _externallySet = true;
         if (headerText != null) { headerText.text = header; headerText.ForceMeshUpdate(); }
         if (bodyText != null) { bodyText.text = body; bodyText.ForceMeshUpdate(); }
         Rebuild();
@@ -53,16 +59,17 @@ public class InfoBoxController : MonoBehaviour
 
     public void SetHeader(string header)
     {
+        _externallySet = true;
         if (headerText != null) { headerText.text = header; headerText.ForceMeshUpdate(); }
         Rebuild();
     }
 
     public void SetBody(string body)
     {
+        _externallySet = true;
         if (bodyText != null) { bodyText.text = body; bodyText.ForceMeshUpdate(); }
         Rebuild();
     }
-
     // ---------------------------------------------------------------
     // Layout
     // ---------------------------------------------------------------

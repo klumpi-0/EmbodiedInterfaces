@@ -79,7 +79,7 @@ public class MixNMatchController : MonoBehaviour
         MoreInformationController.Instance.SetAndUpdateNewText(data.lowInfoText, data.middleInfoText, data.highInfoText, data.arrowSolutionSites);
         MoreInformationController.Instance.DisableAllText(1);
         MoreInformationController.Instance.SetAllInformationReceivedFalse();
-        setNewPuzzleEvent.Invoke();
+        setNewPuzzleEvent?.Invoke();
     }
 
     private void StartFlowerWaveGround()

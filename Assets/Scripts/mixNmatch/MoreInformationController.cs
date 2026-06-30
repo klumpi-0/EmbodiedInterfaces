@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class MoreInformationController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] lowCubeTexts;
     [SerializeField] private TextMeshProUGUI[] middleCubeTexts;
     [SerializeField] private TextMeshProUGUI[] highCubeTexts;
+    [SerializeField] private GameObject lowPos;
+    [SerializeField] private GameObject middlePos;
+    [SerializeField] private GameObject highPos;
 
     [Header("Text")]
     [SerializeField] private string lowText;
@@ -69,7 +73,7 @@ public class MoreInformationController : MonoBehaviour
         int index = 0;
         foreach(var element in guiElements)
         {
-            element.text = text;
+            element.text = "";
             if(index == arrowPos)
             {
                 element.text = arrowText;
@@ -84,8 +88,16 @@ public class MoreInformationController : MonoBehaviour
         lowCubeTexts[numberSide].gameObject.SetActive(true);
         if(numberSide != arrowPositions[0])
         {
-            MNM_AudioController.Instance.PlayMoreInfoClip(0);
-            SetInformationReceivedDelayed(0, MNM_AudioController.Instance.moreInfo_01.length);
+            //MNM_AudioController.Instance.PlayMoreInfoClip(0);
+            float delay = 2f;
+            SetInformationReceivedDelayed(0, MNM_AudioController.Instance.moreInfo_01.length + delay);
+            FloraController.Instance.MoveMultiple(
+                new Transform[] { lowPos.transform },
+                new AudioClip[] { MNM_AudioController.Instance.moreInfo_01 },
+                new FloraStates[] { FloraStates.Waiting },
+                new string[] { "Wurzel" },
+                new string[] { lowText },
+                duration: delay);
         }
     }
     private void EnableTextMiddle(int numberSide)
@@ -94,8 +106,16 @@ public class MoreInformationController : MonoBehaviour
         middleCubeTexts[numberSide].gameObject.SetActive(true);
         if (numberSide != arrowPositions[1])
         {
-            MNM_AudioController.Instance.PlayMoreInfoClip(1);
-            SetInformationReceivedDelayed(1, MNM_AudioController.Instance.moreInfo_02.length);
+            //MNM_AudioController.Instance.PlayMoreInfoClip(1);
+            float delay = 2f;
+            SetInformationReceivedDelayed(1, MNM_AudioController.Instance.moreInfo_02.length + delay);
+            FloraController.Instance.MoveMultiple(
+                new Transform[] { middlePos.transform },
+                new AudioClip[] { MNM_AudioController.Instance.moreInfo_02 },
+                new FloraStates[] { FloraStates.Waiting },
+                new string[] { "Stamm" },
+                new string[] { middleText },
+                duration: delay);
         }
     }
     private void EnableTextHigh(int numberSide)
@@ -104,8 +124,16 @@ public class MoreInformationController : MonoBehaviour
         highCubeTexts[numberSide].gameObject.SetActive(true);
         if (numberSide != arrowPositions[2])
         {
-            MNM_AudioController.Instance.PlayMoreInfoClip(2);
-            SetInformationReceivedDelayed(2, MNM_AudioController.Instance.moreInfo_03.length);
+            //MNM_AudioController.Instance.PlayMoreInfoClip(2);
+            float delay = 2f;
+            SetInformationReceivedDelayed(2, MNM_AudioController.Instance.moreInfo_03.length + delay);
+            FloraController.Instance.MoveMultiple(
+                new Transform[] { highPos.transform },
+                new AudioClip[] { MNM_AudioController.Instance.moreInfo_03 },
+                new FloraStates[] { FloraStates.Waiting },
+                new string[] { "Blüte" },
+                new string[] { highText },
+                duration: delay);
         }
     }
 

@@ -19,7 +19,7 @@ public class FloraController : MonoBehaviour
 
     [Header("References")]
     public GameObject floraMoveObject;
-    [SerializeField] private InfoBoxController textField;
+    [SerializeField] private InfoBoxController infoBox;
     [Header("Events")]
     public UnityEvent startedMovingEvent;
     public UnityEvent finishedMovingEvent;
@@ -36,6 +36,8 @@ public class FloraController : MonoBehaviour
 
     [Header("LastFloraInput")]
     [SerializeField] private Transform[] lastTransforms;
+    [SerializeField] private string[] last_header;
+    [SerializeField] private string[] last_text;
     [SerializeField] private AudioClip[] lastClips;
     [SerializeField] private FloraStates[] lastStates;
     [SerializeField] private Coroutine moveRoutine;
@@ -90,7 +92,7 @@ public class FloraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             //MoveFloraAndPlayClip(debugTarget.transform, debugClip, playClipDelayed:true, stateAfterMove:FloraStates.Spinning);
-            MoveMultiple(debugTargets, debugClips, debugStates);
+            //MoveMultiple(debugTargets, debugClips, debugStates);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -104,13 +106,14 @@ public class FloraController : MonoBehaviour
 
     #region Move Methods
 
-    public void MoveFlora(Vector3 targetPos, Vector3 targetRot, float duration = 2f, bool useOffset = false, FloraStates? stateAfterMove = null)
+    public void MoveFlora(Vector3 targetPos, Vector3 targetRot, float duration = 2f, string header="Header", string textBody="", bool useOffset = false, FloraStates? stateAfterMove = null)
     {
         startedMovingEvent.Invoke();
         SmoothMover mover = floraMoveObject.AddComponent<SmoothMover>();
         if (useOffset) { targetPos = targetPos + offsetVector; }
         mover.Init(targetPos, targetRot, duration);
         mover.atFinalTransformEvent.AddListener(InvokeFinishedMovingEvent);
+        infoBox.SetTexts(header, textBody);
         if (stateAfterMove.HasValue)
         {
             FloraStates targetState = stateAfterMove.Value;
@@ -118,26 +121,26 @@ public class FloraController : MonoBehaviour
         }
     }
 
-    public void MoveFlora(Transform target, float duration = 2f, bool useOffset = false, FloraStates? stateAfterMove = null)
+    public void MoveFlora(Transform target, float duration = 2f, string header = "Header", string textBody = "", bool useOffset = false, FloraStates? stateAfterMove = null)
     {
-        MoveFlora(target.position, target.rotation.eulerAngles, duration, useOffset, stateAfterMove);
+        MoveFlora(target.position, target.rotation.eulerAngles, duration,header, textBody, useOffset, stateAfterMove);
     }
 
-    public void MoveFloraAndPlayClip(Vector3 targetPos, Vector3 targetRot, AudioClip clip, float duration = 2f, bool useOffset = false, bool playClipDelayed = false, FloraStates? stateAfterMove = null)
-    {
-        if (playClipDelayed) { MNM_AudioController.Instance.PlayAudioClipDelayed(clip, duration); }
-        else { MNM_AudioController.Instance.PlayAudioClip(clip); }
-        MoveFlora(targetPos, targetRot, duration, useOffset, stateAfterMove);
-    }
-
-    public void MoveFloraAndPlayClip(Transform target, AudioClip clip, float duration = 2f, bool useOffset = false, bool playClipDelayed = false, FloraStates? stateAfterMove = null)
+    public void MoveFloraAndPlayClip(Vector3 targetPos, Vector3 targetRot, AudioClip clip, float duration = 2f, string header = "Header", string textBody = "", bool useOffset = false, bool playClipDelayed = false, FloraStates? stateAfterMove = null)
     {
         if (playClipDelayed) { MNM_AudioController.Instance.PlayAudioClipDelayed(clip, duration); }
         else { MNM_AudioController.Instance.PlayAudioClip(clip); }
-        MoveFlora(target, duration, useOffset, stateAfterMove);
+        MoveFlora(targetPos, targetRot, duration, header, textBody, useOffset, stateAfterMove);
     }
 
-    private void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, float duration = 2f, bool useOffset = false)
+    public void MoveFloraAndPlayClip(Transform target, AudioClip clip, float duration = 2f, string header = "Header", string textBody = "", bool useOffset = false, bool playClipDelayed = false, FloraStates? stateAfterMove = null)
+    {
+        if (playClipDelayed) { MNM_AudioController.Instance.PlayAudioClipDelayed(clip, duration); }
+        else { MNM_AudioController.Instance.PlayAudioClip(clip); }
+        MoveFlora(target, duration, header, textBody, useOffset, stateAfterMove);
+    }
+
+    private void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, string[] headers, string[] textBodys, float duration = 2f, bool useOffset = false)
     {
         if((targets.Length != statesAfterMove.Length) || statesAfterMove.Length != clips.Length) { Debug.LogError("Not all array same length"); return; }
         
@@ -148,22 +151,22 @@ public class FloraController : MonoBehaviour
             Debug.Log("Stopped Routine");
         }
 
-        moveRoutine = StartCoroutine(MoveMultipleCoroutine(targets, clips, statesAfterMove, duration));
+        moveRoutine = StartCoroutine(MoveMultipleCoroutine(targets, clips, statesAfterMove, headers, textBodys, duration));
     }
-    public void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates[] states, float duration = 2f)
+    public void MoveMultiple(Transform[] targets, AudioClip[] clips, FloraStates[] states, string[] headers, string[] textBodys, float duration = 2f)
     {
         // Konvertierung nur hier
         if ((targets.Length != states.Length) || states.Length != clips.Length) { Debug.LogError("Not all array same length"); return; }
-        SaveLastMultipleMovement(targets, clips, states);
+        SaveLastMultipleMovement(targets, clips, states, headers, textBodys);
         var nullableStates = Array.ConvertAll(states, s => (FloraStates?)s);
-        MoveMultiple(targets, clips, nullableStates, duration:duration);
+        MoveMultiple(targets, clips, nullableStates,headers,textBodys, duration:duration);
     }
 
-    private IEnumerator MoveMultipleCoroutine(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, float duration = 2f, bool useOffset = false)
+    private IEnumerator MoveMultipleCoroutine(Transform[] targets, AudioClip[] clips, FloraStates?[] statesAfterMove, string[] headers, string[] textBodys, float duration = 2f, bool useOffset = false)
     {
         for(int i = 0; i < clips.Length; i++)
         {
-            MoveFloraAndPlayClip(targets[i], clips[i], duration:duration, playClipDelayed:true, stateAfterMove: statesAfterMove[i]);
+            MoveFloraAndPlayClip(targets[i], clips[i], duration:duration, playClipDelayed:true, stateAfterMove: statesAfterMove[i], header: headers[i], textBody: textBodys[i]);
             yield return new WaitForSeconds(duration + clips[i].length);
         }
         finishedMultipleEvent.Invoke();
@@ -172,16 +175,18 @@ public class FloraController : MonoBehaviour
 
     public void ReplayLastFloraAnimation()
     {
-        MoveMultiple(lastTransforms, lastClips, lastStates);
+        MoveMultiple(lastTransforms, lastClips, lastStates, last_header, last_text);
     }
 
     #endregion
 
-    private void SaveLastMultipleMovement(Transform[] targets, AudioClip[] clips, FloraStates[] states)
+    private void SaveLastMultipleMovement(Transform[] targets, AudioClip[] clips, FloraStates[] states, string[] headers, string[] texts)
     {
         lastTransforms = targets;
         lastClips = clips;
         lastStates = states;
+        last_header = headers;
+        last_text = texts;
     }
 
     private void ChangedState(FloraStates newState)
@@ -240,28 +245,28 @@ public class FloraController : MonoBehaviour
     {
         Debug.Log("Fora play Intro");
         var tmp = MixNMatchController.Instance.data.GetIntroValues();
-        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
+        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4, tmp.Item5);
     }
 
     private void PlayPlanting()
     {
         Debug.Log("Fora play Planting");
         var tmp = MixNMatchController.Instance.data.GetPlantValues();
-        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
+        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4, tmp.Item5);
     }
 
     private void PlayMoreInformation()
     {
         Debug.Log("Fora play Information");
         var tmp = MixNMatchController.Instance.data.GetMoreInformationValues();
-        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
+        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4, tmp.Item5);
     }
 
     private void PlayWeiter()
     {
         Debug.Log("Fora play Weiter");
         var tmp = MixNMatchController.Instance.data.GetWeiterValues();
-        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3);
+        MoveMultiple(tmp.Item1, tmp.Item2, tmp.Item3, tmp.Item4, tmp.Item5);
     }
 
     private void MoveFloraToPlantBubble()
