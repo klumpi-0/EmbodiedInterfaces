@@ -27,5 +27,6 @@ public class AppProgressController : MonoBehaviour
     {
         if(progress + 1 >= puzzleDatas.Length) { return; }
         MixNMatchController.Instance.SetNewPuzzleData(puzzleDatas[progress + 1]);
+        progress = progress + 1;
     }
 }
