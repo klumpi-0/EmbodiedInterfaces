@@ -1020,8 +1020,9 @@ MonoBehaviour:
   progress: 0
   puzzleDatas:
   - {fileID: 11400000, guid: f8daaed9a40eec54792cfed211212cf1, type: 2}
-  - {fileID: 11400000, guid: 9406891b82ac1f8458c521f4755f1bb6, type: 2}
-  - {fileID: 11400000, guid: 229e663831a0e9744aa6466032ce8d0b, type: 2}
+  - {fileID: 11400000, guid: 1f980241c9548f3429ad36dc8256227b, type: 2}
+  - {fileID: 11400000, guid: 82071d04eff056648a893f50e90f93b2, type: 2}
+  - {fileID: 11400000, guid: 0c7951acbc4dc8242b3df1a09856fa51, type: 2}
 --- !u!1 &640590635
 GameObject:
   m_ObjectHideFlags: 0

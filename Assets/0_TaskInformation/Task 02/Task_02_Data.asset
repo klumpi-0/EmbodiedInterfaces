@@ -47,32 +47,20 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  middleInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  lowInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  intro_transforms: 040000000600000005000000
+  highInfoText: Info oben
+  middleInfoText: Info mitte
+  lowInfoText: "Info unten\t\n"
+  intro_transforms: 0600000005000000
   intro_header:
-  - Header ^1
-  - Header 2
-  - Herader 3
+  - Drehen
+  - "Drehen & Dr\xFCcken"
   intro_texts:
-  - Text 1
-  - Text2
-  - Text 3
+  - "\t"
+  - "\t"
   intro_clips:
-  - {fileID: 8300000, guid: 863651b128716ba4a803e747aafaf675, type: 3}
   - {fileID: 8300000, guid: f4a23fa9221541f449acb501cff9ff46, type: 3}
   - {fileID: 8300000, guid: ff8e2e5afb83bc146b3b50e39340bde6, type: 3}
-  intro_states: 000000000300000004000000
+  intro_states: 0300000004000000
   plant_transforms: 0700000000000000
   plant_header:
   - a

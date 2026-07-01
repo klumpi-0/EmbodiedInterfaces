@@ -30,8 +30,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
   - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
   - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
-  correctSolutionSites: 020000000000000001000000
-  arrowSolutionSites: 000000000200000003000000
+  correctSolutionSites: 000000000000000002000000
+  arrowSolutionSites: 020000000200000000000000
   solvedPuzzle: 0
   plantedPlant: 0
   grabbablePrefab: {fileID: 2310938113890387323, guid: 45be5c9b7d2f6a144a9919e8b143c62b, type: 3}
@@ -61,13 +61,16 @@ MonoBehaviour:
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
   intro_transforms: 040000000600000005000000
   intro_header:
-  - Header ^1
-  - Header 2
-  - Herader 3
+  - Flora
+  - Drehen
+  - "Dr\xFCcken"
   intro_texts:
-  - Text 1
-  - Text2
-  - Text 3
+  - 'Hi, ich bin Flora.
+
+    Greif mich um Dinge zu wiederholen.'
+  - "Drehe die W\xFCrfel so das die blauen Seiten zu dir zeigen."
+  - "Drehe die W\xFCrfel so das die blauen Seiten zu dir zeigen.\nDr\xFCcke danach
+    auf den Knopf unter mir."
   intro_clips:
   - {fileID: 8300000, guid: 863651b128716ba4a803e747aafaf675, type: 3}
   - {fileID: 8300000, guid: f4a23fa9221541f449acb501cff9ff46, type: 3}
@@ -75,30 +78,34 @@ MonoBehaviour:
   intro_states: 000000000300000004000000
   plant_transforms: 0700000000000000
   plant_header:
-  - a
-  - s
+  - Greifen
+  - Einpflanzen
   plant_texts:
-  - a
-  - s
+  - "Greife den blauen W\xFCrfel unter mir mit Daumen und Zeigefinger."
+  - "Greife den blauen W\xFCrfel unter mir mit Daumen und Zeigefinger.\nLasse ihn
+    hier los, damit pflanzt di ihn ein."
   plant_clips:
   - {fileID: 8300000, guid: 33bc1a48ca5fef3489fa532a74f75b8d, type: 3}
   - {fileID: 8300000, guid: eceed2f73fbcaea49a1453b4105e9bb3, type: 3}
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
-  - a
+  - Mehr Informationen
   moreInfo_texts:
-  - a
+  - "Drehe an den den W\xFCrfeln um mehr Informationen zu erhalten.\nSp\xE4ter dann
+    \xFCber die Pflanzen"
   moreInfo_clips:
   - {fileID: 8300000, guid: 3a3fbf406aec95f43a1ff00732da6343, type: 3}
   moreInfo_states: 03000000
   weiter_transforms: 0600000005000000
   weiter_header:
-  - d
-  - s
+  - Drehen
+  - "Dr\xFCcken"
   weiter_texts:
-  - a
-  - d
+  - "Drehe die W\xFCrfel weiter bis du Pfeile siehst."
+  - "Drehe die W\xFCrfel weiter bis du Pfeile siehst.\nDr\xFCcke dann auf den knopf
+    um in die n\xE4chste Phase zu gehen. \nDas Tutorial hast du damit gemeistert.
+    Jetzt kannst du dich in die Welt der Pflanzen st\xFCrzen."
   weiter_clips:
   - {fileID: 8300000, guid: 50682be373fc2214f9c324edc74a6d4b, type: 3}
   - {fileID: 8300000, guid: 6ae8b270e84650a4ca6cece7d5604a67, type: 3}
