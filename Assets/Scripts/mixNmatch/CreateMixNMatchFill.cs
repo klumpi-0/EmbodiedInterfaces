@@ -45,7 +45,7 @@ public class CreateMixNMatchFill : MonoBehaviour
 
     private int[] CreateCorrectSolution()
     {
-        return new int[3] { Random.Range(0, 3), Random.Range(0, 3), Random.Range(0, 3) };
+        return new int[3] { Random.Range(0, 4), Random.Range(0, 4), Random.Range(0, 4) };
     }
 
     private Sprite[] CreateRow(Sprite correctSprite, Sprite[] diversionSprites, int correctIndex)
