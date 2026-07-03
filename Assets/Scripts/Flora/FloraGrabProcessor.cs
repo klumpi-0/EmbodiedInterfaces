@@ -34,12 +34,14 @@ public class FloraGrabProcessor : MonoBehaviour
 
     private void SetStartBubbleMaterial()
     {
+        meshRenderer.gameObject.SetActive(false);
         SetColor(Color.white);
-        SetPower(10);
+        SetPower(1000);
     }
 
     private void EnterZoneChanges()
     {
+        meshRenderer.gameObject.SetActive(true);
         SetColor(Color.peachPuff);
         SetPower(1f);
     }
