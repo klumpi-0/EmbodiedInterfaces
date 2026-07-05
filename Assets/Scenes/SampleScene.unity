@@ -1932,6 +1932,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1090047591 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6786913029826850729, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+  m_PrefabInstance: {fileID: 2259622640675854331}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1121837102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,6 +3889,30 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1.15
       objectReference: {fileID: 0}
+    - target: {fileID: 6334760672531657642, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: swirl
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334760672531657642, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: density
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334760672531657642, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: direction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334760672531657642, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: particleSize
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6334760672531657642, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: sourceObject
+      value: 
+      objectReference: {fileID: 1090047591}
+    - target: {fileID: 6334760672531657642, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: sizeVariation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6451727429136921783, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4006,6 +4035,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8272118850021742611, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746263829852209817, guid: 4b59b5bd09336f1468ffe31a21bfa8cc, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
