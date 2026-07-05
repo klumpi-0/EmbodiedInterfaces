@@ -173,6 +173,7 @@ public class SerialDataHandler : MonoBehaviour
         string numberPart = degIndex >= 0 ? rest.Substring(0, degIndex).Trim() : rest;
 
         if (float.TryParse(numberPart, NumberStyles.Float, CultureInfo.InvariantCulture, out float angle))
+            Debug.Log($"Angle from line: {line} is: {angle}");
             return angle;
 
         Debug.LogWarning($"[SerialDataHandler] Konnte Winkel nicht parsen: \"{line}\"");

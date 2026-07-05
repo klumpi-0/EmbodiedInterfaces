@@ -15,6 +15,13 @@ public class SetRotationDigitalTwin : MonoBehaviour
     [SerializeField] private float middleRotation;
     [SerializeField] private float highRotation;
 
+    [Header("Offset")]
+    [SerializeField] private float lowOffset;
+    [SerializeField] private float middleOffset;
+    [SerializeField] private float highOffset;
+
+
+
     [Header("References")]
     [SerializeField] private GameObject lowCube;
     [SerializeField] private GameObject middleCube;
@@ -44,6 +51,10 @@ public class SetRotationDigitalTwin : MonoBehaviour
         {
             wrapper.WhenSelect.Invoke();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            initalOffset();
+        }
 
         if (debugRotation)
         {
@@ -60,6 +71,7 @@ public class SetRotationDigitalTwin : MonoBehaviour
                 return;
 
             SetRotationForCube(lowCube, SerialDataHandler.Instance.lowAngle);
+            lowRotation = SerialDataHandler.Instance.lowAngle;
             SetRotationForCube(middleCube, SerialDataHandler.Instance.middleAngle);
             SetRotationForCube(highCube, SerialDataHandler.Instance.highAngle);
 
@@ -110,12 +122,17 @@ public class SetRotationDigitalTwin : MonoBehaviour
             return;
 
         var angles = cube.transform.eulerAngles;
-        angles.y = newRotation;
+        angles.y = newRotation + lowOffset;
         cube.transform.eulerAngles = angles;
     }
 
     private void ActivateButtonPressedEvent()
     {
         buttonPressedEvent.Invoke();
+    }
+
+    private void initalOffset()
+    {
+        lowOffset = lowCube.transform.eulerAngles.y;
     }
 }
