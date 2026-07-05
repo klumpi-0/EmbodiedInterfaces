@@ -111,7 +111,7 @@ public class FloraController : MonoBehaviour
         startedMovingEvent.Invoke();
         SmoothMover mover = floraMoveObject.AddComponent<SmoothMover>();
         if (useOffset) { targetPos = targetPos + offsetVector; }
-        mover.Init(targetPos, targetRot, duration);
+        mover.Init(targetPos, targetRot, duration, drunkMovement_:true);
         mover.atFinalTransformEvent.AddListener(InvokeFinishedMovingEvent);
         infoBox.SetTexts(header, textBody);
         if (stateAfterMove.HasValue)
