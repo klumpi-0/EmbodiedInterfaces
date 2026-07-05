@@ -5,11 +5,39 @@ using System.IO.Ports;
 using System.Threading;
 using UnityEngine;
 
+/// <summary>
+/// Liest die (unveränderte) Arduino-Ausgabe ein. Diese verteilt sich pro Zyklus
+/// über mehrere Zeilen, z.B.:
+///
+///   Sensor 1 : 45.23 deg  (Weak Field)
+///   Sensor 2 : 12.10 deg
+///   Sensor 3 : No Magnet
+///   Physical Button: PRESSED
+///   ------------------------------
+///
+/// Das eigentliche Lesen (serial.ReadLine) läuft in einem Background-Thread,
+/// damit blockierende Reads NICHT den Unity-Hauptthread / die Framerate belasten.
+/// Im Thread wird NUR gelesen und in eine lock-free Queue geschrieben - kein
+/// Debug.Log, kein Parsing dort (das würde bei hoher Rate GC-Druck/Spikes erzeugen).
+///
+/// Im Hauptthread (Update) werden ALLE seit dem letzten Frame angekommenen
+/// Zeilen der Reihe nach verarbeitet (nicht nur die letzte!), weil die Werte
+/// über mehrere Zeilen verteilt sind. Erst wenn die Trennzeile ("------...")
+/// gelesen wird, gilt ein Block als vollständig und die Werte werden atomar
+/// in die öffentlichen Properties übernommen.
+/// </summary>
 public class SerialDataHandler : MonoBehaviour
 {
     public static SerialDataHandler Instance;
 
-    public float currentAngle { get; private set; }
+    // Öffentlich sichtbare, "committete" Werte (erst nach vollständigem Block gültig)
+    public float lowAngle { get; private set; }
+    public float middleAngle { get; private set; }
+    public float highAngle { get; private set; }
+
+    // Abwärtskompatibel zu vorher (zeigt auf den ersten Sensor)
+    public float currentAngle => lowAngle;
+
     public bool buttonPressed { get; private set; }
     private bool lastButtonPressed;
     public bool buttonPressedDown { get; private set; }
@@ -21,6 +49,14 @@ public class SerialDataHandler : MonoBehaviour
     private Thread serialThread;
     private volatile bool isRunning = false;
     private readonly ConcurrentQueue<string> dataQueue = new ConcurrentQueue<string>();
+
+    // Zwischenspeicher, während ein Block (Sensor1..3 + Button + Trennzeile) eintrudelt.
+    private float pendingLow;
+    private float pendingMiddle;
+    private float pendingHigh;
+    private bool pendingButtonPressed;
+
+    private const string SeparatorPrefix = "------";
 
     private void Awake()
     {
@@ -59,7 +95,7 @@ public class SerialDataHandler : MonoBehaviour
             }
             catch (TimeoutException)
             {
-                // Keine Daten – normal, weiter warten
+                // Keine Daten - normal, weiter warten.
             }
             catch (Exception e)
             {
@@ -73,42 +109,80 @@ public class SerialDataHandler : MonoBehaviour
     {
         lastButtonPressed = buttonPressed;
 
-        // Nur neueste Nachricht verarbeiten, Queue leeren
-        string latestData = null;
-        while (dataQueue.TryDequeue(out string data))
-            latestData = data;
-
-        if (latestData != null)
-            ProcessSerialData(latestData);
-
-        buttonPressedDown = CheckIfButtonPressedDownThisFrame();
-    }
-
-    private void ProcessSerialData(string data)
-    {
-        string[] parts = data.Trim().Split(',');
-        if (parts.Length != 2)
+        // WICHTIG: Hier alle Zeilen abarbeiten (nicht wie früher nur die letzte),
+        // da ein vollständiger Datensatz über mehrere Zeilen verteilt ist.
+        while (dataQueue.TryDequeue(out string line))
         {
-            Debug.LogWarning($"Ungültiges Datenformat: {data}");
-            return;
+            ProcessLine(line);
         }
 
-        if (float.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out float angle))
-            currentAngle = angle;
-
-        buttonPressed = parts[1].Trim() == "1";
+        buttonPressedDown = buttonPressed && buttonPressed != lastButtonPressed;
     }
 
-    private bool CheckIfButtonPressedDownThisFrame()
+    private void ProcessLine(string line)
     {
-        return buttonPressed && buttonPressed != lastButtonPressed;
+        if (string.IsNullOrWhiteSpace(line))
+            return;
+
+        line = line.Trim();
+
+        if (line.StartsWith("Sensor 1"))
+        {
+            pendingLow = ExtractAngle(line, pendingLow);
+        }
+        else if (line.StartsWith("Sensor 2"))
+        {
+            pendingMiddle = ExtractAngle(line, pendingMiddle);
+        }
+        else if (line.StartsWith("Sensor 3"))
+        {
+            pendingHigh = ExtractAngle(line, pendingHigh);
+        }
+        else if (line.StartsWith("Physical Button"))
+        {
+            pendingButtonPressed = line.EndsWith("PRESSED");
+        }
+        else if (line.StartsWith(SeparatorPrefix))
+        {
+            // Block vollständig -> alle gesammelten Werte atomar übernehmen.
+            lowAngle = pendingLow;
+            middleAngle = pendingMiddle;
+            highAngle = pendingHigh;
+            buttonPressed = pendingButtonPressed;
+        }
+        // Andere Zeilen (z.B. die einmalige Startup-Meldung) werden ignoriert.
+    }
+
+    /// <summary>
+    /// Parst z.B. "Sensor 1 : 45.23 deg  (Weak Field)" -> 45.23f.
+    /// Bei "No Magnet" oder einem Parse-Fehler wird der bisherige Wert
+    /// beibehalten, damit der digitale Zwilling nicht auf 0 springt.
+    /// </summary>
+    private float ExtractAngle(string line, float previousValue)
+    {
+        int colonIndex = line.IndexOf(':');
+        if (colonIndex < 0)
+            return previousValue;
+
+        string rest = line.Substring(colonIndex + 1).Trim();
+
+        if (rest.StartsWith("No Magnet"))
+            return previousValue;
+
+        int degIndex = rest.IndexOf("deg");
+        string numberPart = degIndex >= 0 ? rest.Substring(0, degIndex).Trim() : rest;
+
+        if (float.TryParse(numberPart, NumberStyles.Float, CultureInfo.InvariantCulture, out float angle))
+            return angle;
+
+        Debug.LogWarning($"[SerialDataHandler] Konnte Winkel nicht parsen: \"{line}\"");
+        return previousValue;
     }
 
     private void OnDestroy()
     {
         isRunning = false;
-        serialThread?.Join(500); // max 500ms warten
-
+        serialThread?.Join(500);
         if (serial != null && serial.IsOpen)
             serial.Close();
     }
