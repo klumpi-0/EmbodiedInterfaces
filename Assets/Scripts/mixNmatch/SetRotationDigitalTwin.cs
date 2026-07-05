@@ -29,6 +29,7 @@ public class SetRotationDigitalTwin : MonoBehaviour
 
     [Header("Button")]
     [SerializeField] private bool buttonIsPressed;
+    [SerializeField] private bool lastButtonIsPressed;
     public UnityEvent buttonPressedEvent = new UnityEvent();
     [SerializeField] private InteractableUnityEventWrapper wrapper;
 
@@ -53,7 +54,7 @@ public class SetRotationDigitalTwin : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            initalOffset();
+            InitalOffset();
         }
 
         if (debugRotation)
@@ -81,6 +82,7 @@ public class SetRotationDigitalTwin : MonoBehaviour
             {
                 ActivateButtonPressedEvent();
             }
+            lastButtonIsPressed = buttonIsPressed;
         }
     }
 
@@ -131,8 +133,16 @@ public class SetRotationDigitalTwin : MonoBehaviour
         buttonPressedEvent.Invoke();
     }
 
-    private void initalOffset()
+    private void InitalOffset()
     {
         lowOffset = lowCube.transform.eulerAngles.y;
+    }
+
+     private void InvokeButtonPressed()
+    {
+        if(!lastButtonIsPressed && buttonIsPressed)
+        {
+            ActivateButtonPressedEvent();
+        }
     }
 }
