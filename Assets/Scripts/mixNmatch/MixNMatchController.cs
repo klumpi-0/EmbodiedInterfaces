@@ -102,7 +102,8 @@ public class MixNMatchController : MonoBehaviour
         var currentBubble = plantBubbles[data.numberPhase];
         currentBubble.SetActive(true);
         var logic = currentBubble.GetComponent<PlantInBubbleLogic>();
-        logic.SetupPlantBubble(currentFollowUpObject, currentFollowUpObject.GetComponent<Grabbable>());
+        var grabbable = Helper.FindComponentInObjectOrChildren<Grabbable>(currentFollowUpObject);
+        logic.SetupPlantBubble(grabbable.gameObject, grabbable);
     }
 
 

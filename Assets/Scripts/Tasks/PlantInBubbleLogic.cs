@@ -24,6 +24,7 @@ public class PlantInBubbleLogic : MonoBehaviour
         flowerObject = flower;
         flowerGrabbable = grabbable;
         visuals.SetUpVisuals(flowerObject, targetTransformFlower);
+        OnEnable();
     }
 
     private void OnEnable()
