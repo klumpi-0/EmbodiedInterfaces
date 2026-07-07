@@ -47,46 +47,60 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: Info oben
-  middleInfoText: Info mitte
-  lowInfoText: "Info unten\t\n"
+  highInfoText: "Obwohl die eher unscheinbaren Bl\xFCten meist zugunsten der bunten
+    Bl\xE4tter entfernt werden, sind sie bei ihrem Erscheinen im Sp\xE4tsommer und
+    Herbst nektarreich und ziehen Bienen, Hummeln und Schmetterlinge an. Trotz ihrer
+    nicht-heimischen Herkunft aus den Tropen Afrikas und Asiens profitieren immerhin
+    29 Wildbienenarten von der Buntnessel als Nahrungsquelle."
+  middleInfoText: "Als Vertreter der Lippenbl\xFCtler besitzt die Buntnessel vierkantige,
+    weiche St\xE4ngel, deren Triebspitzen regelm\xE4\xDFig gestutzt werden, damit
+    die Pflanze buschig statt hoch und kahl w\xE4chst. Aus abgeschnittenen Kopfstecklingen
+    mit zwei bis drei Bl\xE4ttern lassen sich zudem leicht neue Pflanzen ziehen."
+  lowInfoText: "Die Buntnessel bildet ein dichtes, faseriges Wurzelwerk, das den
+    Topf schnell durchw\xE4chst, weshalb sie regelm\xE4\xDFig umgetopft werden sollte.
+    Selbst abgeschnittene Stecklinge bilden bereits nach kurzer Zeit im Wasserglas
+    neue Wurzeln, was die schnelle Vermehrungsf\xE4higkeit der Pflanze zeigt."
   intro_transforms: 0600000005000000
   intro_header:
-  - Drehen
-  - "Drehen & Dr\xFCcken"
+  - Blutnessel
+  - Blutnessel
   intro_texts:
-  - "\t"
-  - "\t"
+  - Suche die Blutnessel
+  - "Suche die Blutnessel.\nWenn du sie gefunden hast dr\xFCcke auf den Knopf."
   intro_clips:
   - {fileID: 8300000, guid: e36e23c9a0144a44e89b081aa139f658, type: 3}
   - {fileID: 8300000, guid: aedf874d5e34a2d4a8c6f7af0a0d8484, type: 3}
   intro_states: 0300000004000000
   plant_transforms: 0700000002000000
   plant_header:
-  - a
-  - s
+  - Blutnessel pflanzen
+  - Blutnessel pflanzen
   plant_texts:
-  - a
-  - s
+  - Greife die Blutnessel mit Daumen und Zeigefinger.
+  - 'Greife die Blutnessel mit Daumen und Zeigefinger.
+
+    Bewege sie in die gelbe
+    Blase und lasse sie dann los.'
   plant_clips:
   - {fileID: 8300000, guid: 434b6a48c3aa4654cb7656c7267cce34, type: 3}
   - {fileID: 8300000, guid: c601ba2ddc24d274983a54ac626691b4, type: 3}
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
-  - a
+  - Blutnessel Infos
   moreInfo_texts:
-  - a
+  - "Drehe an den W\xFCrfeln f\xFCr mehr Informationen \xFCber die Blutnessel."
   moreInfo_clips:
   - {fileID: 8300000, guid: 9e1f49d3fe0b0514195a9ac932dd823d, type: 3}
   moreInfo_states: 03000000
   weiter_transforms: 0600000005000000
   weiter_header:
-  - d
-  - s
+  - Fertig
+  - Fertig
   weiter_texts:
-  - a
-  - d
+  - "Drehe die W\xFCrfel auf weiter."
+  - "Drehe die W\xFCrfel auf weiter und dr\xFCcke den Knopf um zur n\xE4cshten Phase
+    zu kommen."
   weiter_clips:
   - {fileID: 8300000, guid: 26984601edb8db3449af23d3a5846674, type: 3}
   - {fileID: 8300000, guid: 63355de1ac2edff47a08e4fd9c4cf86a, type: 3}

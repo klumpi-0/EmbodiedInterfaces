@@ -47,18 +47,14 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  middleInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  lowInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  highInfoText: "Eine Bl\xFCte konnte bislang nicht beobachtet werden, dennoch gilt
+    der W\xFCrfel unter VR-Insekten als \xFCberraschend attraktiv \u2013 vermutlich
+    wegen seiner satten RGB-Werte (65, 105, 225)."
+  middleInfoText: "Statt eines St\xE4ngels besitzt der W\xFCrfel eine massive, monolithische
+    Struktur, die ihm ganzj\xE4hrige Standhaftigkeit verleiht."
+  lowInfoText: "Der W\xFCrfel verf\xFCgt \xFCber kein klassisches Wurzelsystem, daf\xFCr
+    aber \xFCber sechs identische Seitenfl\xE4chen, die ihm ungew\xF6hnlich viel
+    Standfestigkeit verleihen. "
   intro_transforms: 040000000600000005000000
   intro_header:
   - Flora

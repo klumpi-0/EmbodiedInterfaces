@@ -47,55 +47,60 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  middleInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  lowInfoText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-    nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-    voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-    kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+  highInfoText: "Die von Juli bis September erscheinenden, glockenf\xF6rmigen Bl\xFCten
+    sind reich an leicht zug\xE4nglichem Pollen und Nektar und werden vor allem von
+    Honigbienen, aber auch Hummeln und Schmetterlingen stark beflogen. Ungef\xFCllte
+    Sorten sind dabei deutlich insektenfreundlicher als gef\xFCllte Bl\xFCtenformen,
+    da Best\xE4uber bei gef\xFCllten Bl\xFCten kaum an Pollen und Nektar herankommen."
+  middleInfoText: "Der Strauch-Eibisch w\xE4chst trichterf\xF6rmig, eher langsam
+    und legt pro Jahr etwa 30 bis 40 Zentimeter an H\xF6he zu, wobei die Bl\xFCten
+    am einj\xE4hrigen, frischen Holz erscheinen. Ein j\xE4hrlicher Erziehungsschnitt
+    im April lenkt die Kraft der Pflanze gezielt in neue Bl\xFCtentriebe statt in
+    altes Holz."
+  lowInfoText: "Die Wurzeln des Hibiskus reichen tief ins Erdreich, erreichen aber
+    selbst bei \xE4lteren, mehrere Meter hohen Pflanzen nur in Ausnahmef\xE4llen
+    mehr als 1,5 Meter Tiefe. Da die Pflanze empfindlich auf Staun\xE4sse reagiert,
+    ist eine gute Drainage im Boden wichtig, damit die Wurzeln nicht im Wasser stehen."
   intro_transforms: 0600000005000000
   intro_header:
-  - Header ^1
-  - Header 2
-  - Herader 3
+  - Hibiscus
+  - Hibiscus
   intro_texts:
-  - Text 1
-  - Text2
-  - Text 3
+  - Baue den Hibiscus zusammen.
+  - "Baue den Hibiscus zusammen.\nWenn du meinst das es richtig ist, dr\xFCcke auf
+    den Knopf."
   intro_clips:
   - {fileID: 8300000, guid: e235b5b412793ba4ba93b190ceebf356, type: 3}
   - {fileID: 8300000, guid: 6ae65fdd9a0a3a94c87dafbdc2826ef3, type: 3}
   intro_states: 0300000004000000
   plant_transforms: 0700000003000000
   plant_header:
-  - a
-  - s
+  - Hibiscus pflanzen
+  - Hibiscus Pflanzen
   plant_texts:
-  - a
-  - s
+  - Greife den Hibsicus.
+  - 'Greife den Hibsicus.
+
+    Pflanze ihn in der gelben Blase ein.'
   plant_clips:
   - {fileID: 8300000, guid: 5efd134805d6d054ca7567bd52534bf6, type: 3}
   - {fileID: 8300000, guid: bd97046f3f79e8e408ef5f8941c929c7, type: 3}
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
-  - a
+  - Hibiscus Informationen
   moreInfo_texts:
-  - a
+  - "Drehe an den W\xFCrfeln um Infos \xFCber den Hibiscus zu erfahren."
   moreInfo_clips:
   - {fileID: 8300000, guid: 37de1f4f7c7753842b4626a61b6b47ba, type: 3}
   moreInfo_states: 03000000
   weiter_transforms: 04000000
   weiter_header:
-  - d
+  - Geschafft
   weiter_texts:
-  - a
+  - 'Du hast alles gelernt.
+
+    Jetzt kannst du die VR Brille abnehmen'
   weiter_clips:
   - {fileID: 8300000, guid: 747cc3b8b2dd6194fabd74c461d7514b, type: 3}
   weiter_states: 00000000

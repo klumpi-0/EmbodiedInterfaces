@@ -47,23 +47,27 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: "Die Bl\xFCten enthalten 1\u20133 % \xE4therisches \xD6l, dessen
-    Hauptbestandteile Linalylacetat und Linalool sind."
-  middleInfoText: "Als Halbstrauch verholzen beim Lavendel die unteren Triebe mit
-    der Zeit, w\xE4hrend der obere Teil krautig bleibt und \xE4therische \xD6le auch
-    in St\xE4ngeln, Bl\xE4ttern und Bl\xFCtenkelchen gebildet werden."
-  lowInfoText: "Die Pfahlwurzel des Lavendels reicht tief ins Erdreich und macht
-    die Pflanze zwar extrem trockenresistent, jedoch anf\xE4llig f\xFCr Wurzelf\xE4ule
-    bei zu viel Wasser."
+  highInfoText: "Die duftenden, sternf\xF6rmigen Bl\xFCten stehen dicht in Trauben
+    und werden stark von Bienen, Hummeln und Schwebfliegen angeflogen. Als einer
+    der ersten Nektar- und Pollenspender im M\xE4rz und April \xFCberbr\xFCckt die
+    Hyazinthe damit eine wichtige Nahrungsl\xFCcke f\xFCr Best\xE4uber im Vorfr\xFChling."
+  middleInfoText: "Die Hyazinthe besitzt keinen verholzten Stamm, sondern einen fleischigen
+    Bl\xFCtenst\xE4ngel, der direkt aus der Zwiebel w\xE4chst und die schweren Bl\xFCtentrauben
+    tr\xE4gt. Da dieser St\xE4ngel bei Wind und Regen leicht umknicken kann, wird
+    er im Garten oft zus\xE4tzlich gest\xFCtzt."
+  lowInfoText: "Die Hyazinthe ist ein sogenannter Geophyt und \xFCberdauert mit einer
+    fleischigen Zwiebel im Boden, aus der Wurzeln und Trieb jedes Jahr neu austreiben.
+    Diese Speicherzwiebel ben\xF6tigt einen lockeren, durchl\xE4ssigen Boden, da
+    Staun\xE4sse zu F\xE4ulnis f\xFChrt und die Pflanze sch\xE4digt."
   intro_transforms: 040000000600000005000000
   intro_header:
-  - Drehen
-  - "Dr\xFCcken"
-  - "Dr\xFCcken"
+  - Hyanzinthe
+  - Hyanzinthe
+  - Hyanzinthe
   intro_texts:
-  - Text 1
-  - Text2
-  - Text2
+  - Suche die Hyanzinthe.
+  - Suche die Hyanzinthe.
+  - "Suche die Hyanzinthe.\nWenn du sie gefunden hast, r\xFCcke auf den Knopf."
   intro_clips:
   - {fileID: 8300000, guid: 719f1059eea9fb944a4ac70535c1af4a, type: 3}
   - {fileID: 8300000, guid: 55ea1b01fd6974d498362a35eef6168e, type: 3}
@@ -71,30 +75,34 @@ MonoBehaviour:
   intro_states: 000000000300000004000000
   plant_transforms: 0700000001000000
   plant_header:
-  - a
-  - s
+  - Hyanzinthe pflanzen
+  - Hyanzinthe pflanzen
   plant_texts:
-  - a
-  - s
+  - Greife die Hyanzinthe mit Daumen und Zeigefinger.
+  - 'Greife die Hyanzinthe mit Daumen und Zeigefinger.
+
+    Bewege sie in die gelbe
+    Blase und lasse sie dann los.'
   plant_clips:
   - {fileID: 8300000, guid: 64a963cd5f1d7a44a8cdd1e33d48603a, type: 3}
   - {fileID: 8300000, guid: 1ec83ce0db8bc7d40890baf382a4d26a, type: 3}
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
-  - a
+  - Hyanzinthe Infos
   moreInfo_texts:
-  - a
+  - "Drehe an den W\xFCrfeln f\xFCr mehr Informationen \xFCber die Hyanzinthe."
   moreInfo_clips:
   - {fileID: 8300000, guid: 2d67cea84c8278249bbc8f41b53a9cff, type: 3}
   moreInfo_states: 03000000
   weiter_transforms: 0600000005000000
   weiter_header:
-  - d
-  - s
+  - Geschafft
+  - Geschafft
   weiter_texts:
-  - a
-  - d
+  - "Drehe die W\xFCrfel auf weiter."
+  - "Drehe die W\xFCrfel auf weiter und dr\xFCcke den Knopf um zur n\xE4cshten Phase
+    zu kommen."
   weiter_clips:
   - {fileID: 8300000, guid: 1c656cc0f479017408fb55bc8a2ff372, type: 3}
   - {fileID: 8300000, guid: fc15d8521773b7a49a90cb6ba45cd602, type: 3}
