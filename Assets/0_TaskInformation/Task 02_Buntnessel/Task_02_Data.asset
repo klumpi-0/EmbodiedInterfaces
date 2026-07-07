@@ -34,8 +34,8 @@ MonoBehaviour:
   arrowSolutionSites: 000000000200000003000000
   solvedPuzzle: 0
   plantedPlant: 0
-  grabbablePrefab: {fileID: 2310938113890387323, guid: 45be5c9b7d2f6a144a9919e8b143c62b, type: 3}
-  groundFlowerPrefab: {fileID: 7797516570994283050, guid: c185ada139f1d0247825491bac5acd71, type: 3}
+  grabbablePrefab: {fileID: 2310938113890387323, guid: 0fc6a27f282424b4eab62b3a8b42deb1, type: 3}
+  groundFlowerPrefab: {fileID: 7797516570994283050, guid: 99cf3a03900fdd44aba131d9b5c5cc8a, type: 3}
   shrinkChanceGround: 1
   introClip: {fileID: 8300000, guid: 8fc353c00e12f83488c14764acee045d, type: 3}
   finishedPuzzleClip: {fileID: 8300000, guid: 5ce1bdaf2015db94489fba684424d8dd, type: 3}

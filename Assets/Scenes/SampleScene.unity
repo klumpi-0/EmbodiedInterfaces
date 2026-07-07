@@ -4613,6 +4613,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 099c2f9e77a24b64dad8c1d4a644f80b, type: 2}
+    - target: {fileID: 6709563176031190046, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: useSerialPort
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6712669762436165486, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.775
