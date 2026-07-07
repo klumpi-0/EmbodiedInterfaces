@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277bd86ee6139c2459b3c2fba706c275, type: 3}
   m_Name: Task_01_Data
   m_EditorClassIdentifier: Assembly-CSharp::PuzzleData
-  namePhase: Lavendel
+  namePhase: Hyanzinthe
   numberPhase: 1
   correctSprites:
   - {fileID: 21300000, guid: f0bdaf29a9948cb448ca9cdcd3ec6bc9, type: 3}
@@ -40,9 +40,9 @@ MonoBehaviour:
   introClip: {fileID: 8300000, guid: 8fc353c00e12f83488c14764acee045d, type: 3}
   finishedPuzzleClip: {fileID: 8300000, guid: 5ce1bdaf2015db94489fba684424d8dd, type: 3}
   afterPlantAudio: {fileID: 8300000, guid: f678ef9a2f527de47a42d5b9d4f4f5d6, type: 3}
-  morInfo_01Clip: {fileID: 8300000, guid: 6e658d9bef279f34cbf5d96c84fa7744, type: 3}
-  morInfo_02Clip: {fileID: 8300000, guid: c688af1f8cd3a8443afe822bf9bc350d, type: 3}
-  morInfo_03Clip: {fileID: 8300000, guid: 76c87c9d350aaae439f454fed2d45c42, type: 3}
+  morInfo_01Clip: {fileID: 8300000, guid: c16fc2c6e74cb5841b539c9d5eecb7c0, type: 3}
+  morInfo_02Clip: {fileID: 8300000, guid: c16fc2c6e74cb5841b539c9d5eecb7c0, type: 3}
+  morInfo_03Clip: {fileID: 8300000, guid: 1e240b48cc3d99547a572dd2bc68e4f6, type: 3}
   finishedText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
@@ -55,17 +55,20 @@ MonoBehaviour:
   lowInfoText: "Die Pfahlwurzel des Lavendels reicht tief ins Erdreich und macht
     die Pflanze zwar extrem trockenresistent, jedoch anf\xE4llig f\xFCr Wurzelf\xE4ule
     bei zu viel Wasser."
-  intro_transforms: 0600000005000000
+  intro_transforms: 040000000600000005000000
   intro_header:
   - Drehen
+  - "Dr\xFCcken"
   - "Dr\xFCcken"
   intro_texts:
   - Text 1
   - Text2
+  - Text2
   intro_clips:
-  - {fileID: 8300000, guid: f4a23fa9221541f449acb501cff9ff46, type: 3}
-  - {fileID: 8300000, guid: ff8e2e5afb83bc146b3b50e39340bde6, type: 3}
-  intro_states: 0300000004000000
+  - {fileID: 8300000, guid: 719f1059eea9fb944a4ac70535c1af4a, type: 3}
+  - {fileID: 8300000, guid: 55ea1b01fd6974d498362a35eef6168e, type: 3}
+  - {fileID: 8300000, guid: d91a7b05361cd774c86f1b6886935ce4, type: 3}
+  intro_states: 000000000300000004000000
   plant_transforms: 0700000001000000
   plant_header:
   - a
@@ -74,8 +77,8 @@ MonoBehaviour:
   - a
   - s
   plant_clips:
-  - {fileID: 8300000, guid: 33bc1a48ca5fef3489fa532a74f75b8d, type: 3}
-  - {fileID: 8300000, guid: eceed2f73fbcaea49a1453b4105e9bb3, type: 3}
+  - {fileID: 8300000, guid: 64a963cd5f1d7a44a8cdd1e33d48603a, type: 3}
+  - {fileID: 8300000, guid: 1ec83ce0db8bc7d40890baf382a4d26a, type: 3}
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
@@ -83,7 +86,7 @@ MonoBehaviour:
   moreInfo_texts:
   - a
   moreInfo_clips:
-  - {fileID: 8300000, guid: 3a3fbf406aec95f43a1ff00732da6343, type: 3}
+  - {fileID: 8300000, guid: 2d67cea84c8278249bbc8f41b53a9cff, type: 3}
   moreInfo_states: 03000000
   weiter_transforms: 0600000005000000
   weiter_header:
@@ -93,6 +96,6 @@ MonoBehaviour:
   - a
   - d
   weiter_clips:
-  - {fileID: 8300000, guid: 50682be373fc2214f9c324edc74a6d4b, type: 3}
-  - {fileID: 8300000, guid: 6ae8b270e84650a4ca6cece7d5604a67, type: 3}
+  - {fileID: 8300000, guid: 1c656cc0f479017408fb55bc8a2ff372, type: 3}
+  - {fileID: 8300000, guid: fc15d8521773b7a49a90cb6ba45cd602, type: 3}
   weiter_states: 0300000004000000

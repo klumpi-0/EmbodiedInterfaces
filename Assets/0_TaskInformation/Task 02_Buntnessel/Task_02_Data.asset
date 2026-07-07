@@ -40,9 +40,9 @@ MonoBehaviour:
   introClip: {fileID: 8300000, guid: 8fc353c00e12f83488c14764acee045d, type: 3}
   finishedPuzzleClip: {fileID: 8300000, guid: 5ce1bdaf2015db94489fba684424d8dd, type: 3}
   afterPlantAudio: {fileID: 8300000, guid: f678ef9a2f527de47a42d5b9d4f4f5d6, type: 3}
-  morInfo_01Clip: {fileID: 8300000, guid: 6e658d9bef279f34cbf5d96c84fa7744, type: 3}
-  morInfo_02Clip: {fileID: 8300000, guid: c688af1f8cd3a8443afe822bf9bc350d, type: 3}
-  morInfo_03Clip: {fileID: 8300000, guid: 76c87c9d350aaae439f454fed2d45c42, type: 3}
+  morInfo_01Clip: {fileID: 8300000, guid: 98ce12b3dfb53824b969fb4462319f01, type: 3}
+  morInfo_02Clip: {fileID: 8300000, guid: d9a185234ef41924b9ee664bbcfc6f3c, type: 3}
+  morInfo_03Clip: {fileID: 8300000, guid: e2591cc9c03709e498e1fd334650ce5d, type: 3}
   finishedText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
@@ -58,10 +58,10 @@ MonoBehaviour:
   - "\t"
   - "\t"
   intro_clips:
-  - {fileID: 8300000, guid: f4a23fa9221541f449acb501cff9ff46, type: 3}
-  - {fileID: 8300000, guid: ff8e2e5afb83bc146b3b50e39340bde6, type: 3}
+  - {fileID: 8300000, guid: e36e23c9a0144a44e89b081aa139f658, type: 3}
+  - {fileID: 8300000, guid: aedf874d5e34a2d4a8c6f7af0a0d8484, type: 3}
   intro_states: 0300000004000000
-  plant_transforms: 0700000000000000
+  plant_transforms: 0700000002000000
   plant_header:
   - a
   - s
@@ -69,8 +69,8 @@ MonoBehaviour:
   - a
   - s
   plant_clips:
-  - {fileID: 8300000, guid: 33bc1a48ca5fef3489fa532a74f75b8d, type: 3}
-  - {fileID: 8300000, guid: eceed2f73fbcaea49a1453b4105e9bb3, type: 3}
+  - {fileID: 8300000, guid: 434b6a48c3aa4654cb7656c7267cce34, type: 3}
+  - {fileID: 8300000, guid: c601ba2ddc24d274983a54ac626691b4, type: 3}
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
@@ -78,7 +78,7 @@ MonoBehaviour:
   moreInfo_texts:
   - a
   moreInfo_clips:
-  - {fileID: 8300000, guid: 3a3fbf406aec95f43a1ff00732da6343, type: 3}
+  - {fileID: 8300000, guid: 9e1f49d3fe0b0514195a9ac932dd823d, type: 3}
   moreInfo_states: 03000000
   weiter_transforms: 0600000005000000
   weiter_header:
@@ -88,6 +88,6 @@ MonoBehaviour:
   - a
   - d
   weiter_clips:
-  - {fileID: 8300000, guid: 50682be373fc2214f9c324edc74a6d4b, type: 3}
-  - {fileID: 8300000, guid: 6ae8b270e84650a4ca6cece7d5604a67, type: 3}
+  - {fileID: 8300000, guid: 26984601edb8db3449af23d3a5846674, type: 3}
+  - {fileID: 8300000, guid: 63355de1ac2edff47a08e4fd9c4cf86a, type: 3}
   weiter_states: 0300000004000000
