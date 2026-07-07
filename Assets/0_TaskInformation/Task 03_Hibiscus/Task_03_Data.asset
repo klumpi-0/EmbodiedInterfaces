@@ -15,21 +15,21 @@ MonoBehaviour:
   namePhase: Hibiscus
   numberPhase: 3
   correctSprites:
-  - {fileID: 21300000, guid: 0e226b145a99e8048bf22c7f21cea0f9, type: 3}
-  - {fileID: 21300000, guid: 0e226b145a99e8048bf22c7f21cea0f9, type: 3}
-  - {fileID: 21300000, guid: 0e226b145a99e8048bf22c7f21cea0f9, type: 3}
+  - {fileID: 21300000, guid: 2bdec377c49c896488198853d3a839cb, type: 3}
+  - {fileID: 21300000, guid: 680dd2b650e6a0848a0af96a4e21f00f, type: 3}
+  - {fileID: 21300000, guid: 8a95499105f4d054fa2aa87fadd67ec6, type: 3}
   lowSprites:
-  - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
-  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
-  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  - {fileID: 21300000, guid: 1f9a0f96ecb7cec4599df78130c77a14, type: 3}
+  - {fileID: 21300000, guid: ba8f92c17b5ed5445b3757bed88c14f9, type: 3}
+  - {fileID: 21300000, guid: f323f85d86af348499754cd82c35177e, type: 3}
   middleSprites:
-  - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
-  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
-  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  - {fileID: 21300000, guid: e9f7a9de43ab80341b6aa6e176f3b0e3, type: 3}
+  - {fileID: 21300000, guid: 642d199e142754a41968e430010b6e6a, type: 3}
+  - {fileID: 21300000, guid: c433b3fa0c5b3024aa7434f7e25bcc9a, type: 3}
   highSprites:
-  - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
-  - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
-  - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
+  - {fileID: 21300000, guid: 83020b2e0bd5ade409f6838cc3107484, type: 3}
+  - {fileID: 21300000, guid: 143f79dcf7d9ba34ea65ba302b56df72, type: 3}
+  - {fileID: 21300000, guid: 3d2a768e9110e0e4da575aa8a0346843, type: 3}
   correctSolutionSites: 020000000000000001000000
   arrowSolutionSites: 000000000200000003000000
   solvedPuzzle: 0

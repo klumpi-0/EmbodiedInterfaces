@@ -15,9 +15,9 @@ MonoBehaviour:
   namePhase: Hyanzinthe
   numberPhase: 1
   correctSprites:
-  - {fileID: 21300000, guid: f0bdaf29a9948cb448ca9cdcd3ec6bc9, type: 3}
-  - {fileID: 21300000, guid: 68842e7cfe55359448065d3028c7916d, type: 3}
-  - {fileID: 21300000, guid: 78a9d112ceaf80a4a9ba1d570b7452f2, type: 3}
+  - {fileID: 21300000, guid: fb9ed9ff293b3f44aa93e8df41418bad, type: 3}
+  - {fileID: 21300000, guid: f11ec20986c2aa5459aba54583745ff0, type: 3}
+  - {fileID: 21300000, guid: 22047ecd76b829845862d8ed88e5c3e6, type: 3}
   lowSprites:
   - {fileID: 21300000, guid: 1f9a0f96ecb7cec4599df78130c77a14, type: 3}
   - {fileID: 21300000, guid: ba8f92c17b5ed5445b3757bed88c14f9, type: 3}
