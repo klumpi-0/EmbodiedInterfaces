@@ -20,8 +20,6 @@ public class SetRotationDigitalTwin : MonoBehaviour
     [SerializeField] private float middleOffset;
     [SerializeField] private float highOffset;
 
-
-
     [Header("References")]
     [SerializeField] private GameObject lowCube;
     [SerializeField] private GameObject middleCube;
@@ -52,16 +50,18 @@ public class SetRotationDigitalTwin : MonoBehaviour
         {
             wrapper.WhenSelect.Invoke();
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L) || OVRInput.Get(OVRInput.Button.Three))
         {
-            InitalOffset();
+            CalibrateOffsets();
         }
+
+        CheckIfInvokeButtonPressed();
 
         if (debugRotation)
         {
-            SetRotationForCube(lowCube, lowRotation);
-            SetRotationForCube(middleCube, middleRotation);
-            SetRotationForCube(highCube, highRotation);
+            SetRotationForCube(lowCube, lowRotation, lowOffset);
+            SetRotationForCube(middleCube, middleRotation, middleOffset);
+            SetRotationForCube(highCube, highRotation, highOffset);
         }
 
         if (useSerialPort)
@@ -71,10 +71,13 @@ public class SetRotationDigitalTwin : MonoBehaviour
             if (SerialDataHandler.Instance == null)
                 return;
 
-            SetRotationForCube(lowCube, SerialDataHandler.Instance.lowAngle);
             lowRotation = SerialDataHandler.Instance.lowAngle;
-            SetRotationForCube(middleCube, SerialDataHandler.Instance.middleAngle);
-            SetRotationForCube(highCube, SerialDataHandler.Instance.highAngle);
+            middleRotation = SerialDataHandler.Instance.middleAngle;
+            highRotation = SerialDataHandler.Instance.highAngle;
+
+            SetRotationForCube(lowCube, lowRotation, lowOffset);
+            SetRotationForCube(middleCube, middleRotation, middleOffset);
+            SetRotationForCube(highCube, highRotation, highOffset);
 
             buttonIsPressed = SerialDataHandler.Instance.buttonPressed;
 
@@ -104,13 +107,13 @@ public class SetRotationDigitalTwin : MonoBehaviour
         }
 
         if (float.TryParse(parts[0], NumberStyles.Float, CultureInfo.InvariantCulture, out float low))
-            SetRotationForCube(lowCube, low);
+            SetRotationForCube(lowCube, low, lowOffset);
 
         if (float.TryParse(parts[1], NumberStyles.Float, CultureInfo.InvariantCulture, out float middle))
-            SetRotationForCube(middleCube, middle);
+            SetRotationForCube(middleCube, middle, middleOffset);
 
         if (float.TryParse(parts[2], NumberStyles.Float, CultureInfo.InvariantCulture, out float high))
-            SetRotationForCube(highCube, high);
+            SetRotationForCube(highCube, high, highOffset);
 
         if (parts.Length >= 4 && parts[3].Trim() == "1")
         {
@@ -118,14 +121,47 @@ public class SetRotationDigitalTwin : MonoBehaviour
         }
     }
 
-    private void SetRotationForCube(GameObject cube, float newRotation)
+    private void SetRotationForCube(GameObject cube, float newRotation, float offset)
     {
         if (cube == null)
             return;
 
         var angles = cube.transform.eulerAngles;
-        angles.y = newRotation + lowOffset;
+        angles.y = NormalizeAngle(newRotation + offset);
         cube.transform.eulerAngles = angles;
+    }
+
+    /// <summary>
+    /// Kalibriert den Versatz zwischen Arduino-Rohwinkel und Unity-Rotation.
+    /// Aufruf genau in dem Moment, in dem die realen Bauteile von Hand korrekt
+    /// ausgerichtet ("nach vorne") gehalten werden. Danach zeigen die Cubes bei
+    /// diesem Rohwinkel exakt auf 0°, und alle weiteren Bewegungen sind relativ
+    /// dazu korrekt.
+    ///
+    /// Rechnung: offset = -aktuellerRohwinkel, denn dann gilt bei
+    /// SetRotationForCube: rohwinkel + offset = rohwinkel - rohwinkel = 0.
+    /// </summary>
+    public void CalibrateOffsets()
+    {
+        if (SerialDataHandler.Instance == null)
+        {
+            Debug.LogWarning("[SetRotationDigitalTwin] Kalibrierung nicht möglich: SerialDataHandler.Instance ist null.");
+            return;
+        }
+
+        lowOffset = -SerialDataHandler.Instance.lowAngle;
+        middleOffset = -SerialDataHandler.Instance.middleAngle;
+        highOffset = -SerialDataHandler.Instance.highAngle;
+
+        Debug.Log($"[SetRotationDigitalTwin] Kalibriert. Offsets: low={lowOffset:F2}, middle={middleOffset:F2}, high={highOffset:F2}");
+    }
+
+    private float NormalizeAngle(float angle)
+    {
+        angle %= 360f;
+        if (angle < 0f)
+            angle += 360f;
+        return angle;
     }
 
     private void ActivateButtonPressedEvent()
@@ -133,14 +169,9 @@ public class SetRotationDigitalTwin : MonoBehaviour
         buttonPressedEvent.Invoke();
     }
 
-    private void InitalOffset()
+    private void CheckIfInvokeButtonPressed()
     {
-        lowOffset = lowCube.transform.eulerAngles.y;
-    }
-
-     private void InvokeButtonPressed()
-    {
-        if(!lastButtonIsPressed && buttonIsPressed)
+        if (!lastButtonIsPressed && buttonIsPressed)
         {
             ActivateButtonPressedEvent();
         }
