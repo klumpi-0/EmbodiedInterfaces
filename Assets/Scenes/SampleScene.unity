@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: _centerEyeCamera
       value: 
       objectReference: {fileID: 135578294}
+    - target: {fileID: 3903482226883268838, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4148778239110795873, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_Name
       value: '[BuildingBlock] OVRInteractionComprehensive'
@@ -692,6 +696,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 53142153}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &201899605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2262507983076329306, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+  m_PrefabInstance: {fileID: 3283563068774719430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -4139,6 +4148,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: mnmObject
+      value: 
+      objectReference: {fileID: 201899605}
+    - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: leftController
       value: 
       objectReference: {fileID: 741132984}
@@ -4148,7 +4161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: offsetVector.z
-      value: -0.1
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 213340429428589855, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: rightController
@@ -4348,7 +4361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989637292224462883, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.223
+      value: 0.2276
       objectReference: {fileID: 0}
     - target: {fileID: 1989637292224462883, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4357,6 +4370,18 @@ PrefabInstance:
     - target: {fileID: 1989637292224462883, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989637292570814762, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989637292698558135, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989637292698558135, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0732
       objectReference: {fileID: 0}
     - target: {fileID: 2026241819379679032, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_IsActive
@@ -4732,7 +4757,7 @@ PrefabInstance:
       objectReference: {fileID: 1359510050}
     - target: {fileID: 6709563176031190046, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: useSerialPort
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6712669762436165486, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.x

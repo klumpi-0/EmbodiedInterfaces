@@ -20,13 +20,34 @@ public class RegestrateMixNMatch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(OVRInput.Get(OVRInput.Button.Two) && OVRInput.Get(OVRInput.Button.Four))
+        if (OVRInput.Get(OVRInput.Button.Two) && OVRInput.Get(OVRInput.Button.Four))
         {
-            MoveMNM();
-            RotateMixNMatch();
+            UpdateMoveObjectTransform();
         }
     }
 
+    private void UpdateMoveObjectTransform()
+    {
+        if (rightController == null || leftController == null || moveObject == null)
+            return;
+
+        Vector3 rightPos = rightController.transform.position;
+        Vector3 leftPos = leftController.transform.position;
+
+        // Mittelpunkt zwischen beiden Controllern
+        Vector3 middlePoint = (rightPos + leftPos) * 0.5f;
+
+        // Rotation senkrecht zur Verbindungslinie der Controller berechnen
+        Vector3 leftToRight = rightPos - leftPos;
+        Vector3 newForward = -Vector3.Cross(leftToRight, Vector3.up).normalized;
+        Quaternion newRotation = Quaternion.LookRotation(newForward, Vector3.up);
+
+        // WICHTIG: Offset mit der neuen Rotation transformieren statt in Weltkoordinaten zu addieren
+        Vector3 rotatedOffset = newRotation * offsetVector;
+
+        moveObject.transform.position = middlePoint + rotatedOffset;
+        moveObject.transform.rotation = newRotation;
+    }
     void MoveMNM()
     {
         Debug.Log("Moved");
