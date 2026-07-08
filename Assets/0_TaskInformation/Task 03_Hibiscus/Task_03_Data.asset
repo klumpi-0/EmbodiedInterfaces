@@ -15,9 +15,9 @@ MonoBehaviour:
   namePhase: Hibiscus
   numberPhase: 3
   correctSprites:
-  - {fileID: 21300000, guid: 2bdec377c49c896488198853d3a839cb, type: 3}
-  - {fileID: 21300000, guid: 680dd2b650e6a0848a0af96a4e21f00f, type: 3}
   - {fileID: 21300000, guid: 8a95499105f4d054fa2aa87fadd67ec6, type: 3}
+  - {fileID: 21300000, guid: 680dd2b650e6a0848a0af96a4e21f00f, type: 3}
+  - {fileID: 21300000, guid: 2bdec377c49c896488198853d3a839cb, type: 3}
   lowSprites:
   - {fileID: 21300000, guid: 1f9a0f96ecb7cec4599df78130c77a14, type: 3}
   - {fileID: 21300000, guid: ba8f92c17b5ed5445b3757bed88c14f9, type: 3}

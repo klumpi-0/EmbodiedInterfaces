@@ -15,7 +15,10 @@ public class AppProgressController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (OVRInput.Get(OVRInput.Button.One))
+        {
+            LoadFirstTask();
+        }
     }
 
     public void LoadFirstTask()

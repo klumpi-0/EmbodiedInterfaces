@@ -30,8 +30,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 83020b2e0bd5ade409f6838cc3107484, type: 3}
   - {fileID: 21300000, guid: 143f79dcf7d9ba34ea65ba302b56df72, type: 3}
   - {fileID: 21300000, guid: 3d2a768e9110e0e4da575aa8a0346843, type: 3}
-  correctSolutionSites: 010000000200000001000000
-  arrowSolutionSites: 030000000000000003000000
+  correctSolutionSites: 020000000100000003000000
+  arrowSolutionSites: 000000000300000001000000
   solvedPuzzle: 1
   plantedPlant: 0
   grabbablePrefab: {fileID: 2310938113890387323, guid: 0fc6a27f282424b4eab62b3a8b42deb1, type: 3}
@@ -62,8 +62,8 @@ MonoBehaviour:
     neue Wurzeln, was die schnelle Vermehrungsf\xE4higkeit der Pflanze zeigt."
   intro_transforms: 0600000005000000
   intro_header:
-  - Blutnessel
-  - Blutnessel
+  - Buntnessel
+  - Buntnessel
   intro_texts:
   - Suche die Blutnessel
   - "Suche die Blutnessel.\nWenn du sie gefunden hast dr\xFCcke auf den Knopf."
@@ -73,8 +73,8 @@ MonoBehaviour:
   intro_states: 0300000004000000
   plant_transforms: 0700000002000000
   plant_header:
-  - Blutnessel pflanzen
-  - Blutnessel pflanzen
+  - Buntnessel pflanzen
+  - Buntnessel pflanzen
   plant_texts:
   - Greife die Blutnessel mit Daumen und Zeigefinger.
   - 'Greife die Blutnessel mit Daumen und Zeigefinger.
@@ -87,7 +87,7 @@ MonoBehaviour:
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
-  - Blutnessel Infos
+  - Buntnessel Infos
   moreInfo_texts:
   - "Drehe an den W\xFCrfeln f\xFCr mehr Informationen \xFCber die Blutnessel."
   moreInfo_clips:

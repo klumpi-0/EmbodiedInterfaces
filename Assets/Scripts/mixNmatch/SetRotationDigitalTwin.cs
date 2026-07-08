@@ -149,9 +149,9 @@ public class SetRotationDigitalTwin : MonoBehaviour
             return;
         }
 
-        lowOffset = -SerialDataHandler.Instance.lowAngle;
-        middleOffset = -SerialDataHandler.Instance.middleAngle;
-        highOffset = -SerialDataHandler.Instance.highAngle;
+        lowOffset = -SerialDataHandler.Instance.lowAngle + 10;
+        middleOffset = -SerialDataHandler.Instance.middleAngle + 10;
+        highOffset = -SerialDataHandler.Instance.highAngle + 10;
 
         Debug.Log($"[SetRotationDigitalTwin] Kalibriert. Offsets: low={lowOffset:F2}, middle={middleOffset:F2}, high={highOffset:F2}");
     }

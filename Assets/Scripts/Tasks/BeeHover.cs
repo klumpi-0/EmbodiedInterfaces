@@ -22,7 +22,7 @@ public class BeeHover : SpawnedObject
         //}
         if(Random.Range(0f, 1f) < chanceForAudio)
         {
-            ActivateAudio();
+            //ActivateAudio();
         }
         if(Random.Range(0f, 1f) < chanceForParticles)
         {
