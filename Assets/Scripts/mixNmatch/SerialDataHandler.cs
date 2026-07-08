@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Concurrent;
 using System.Globalization;
 using System.IO.Ports;
@@ -6,8 +6,8 @@ using System.Threading;
 using UnityEngine;
 
 /// <summary>
-/// Liest die (unveränderte) Arduino-Ausgabe ein. Diese verteilt sich pro Zyklus
-/// über mehrere Zeilen, z.B.:
+/// Liest die (unverï¿½nderte) Arduino-Ausgabe ein. Diese verteilt sich pro Zyklus
+/// ï¿½ber mehrere Zeilen, z.B.:
 ///
 ///   Sensor 1 : 45.23 deg  (Weak Field)
 ///   Sensor 2 : 12.10 deg
@@ -15,27 +15,27 @@ using UnityEngine;
 ///   Physical Button: PRESSED
 ///   ------------------------------
 ///
-/// Das eigentliche Lesen (serial.ReadLine) läuft in einem Background-Thread,
+/// Das eigentliche Lesen (serial.ReadLine) lï¿½uft in einem Background-Thread,
 /// damit blockierende Reads NICHT den Unity-Hauptthread / die Framerate belasten.
 /// Im Thread wird NUR gelesen und in eine lock-free Queue geschrieben - kein
-/// Debug.Log, kein Parsing dort (das würde bei hoher Rate GC-Druck/Spikes erzeugen).
+/// Debug.Log, kein Parsing dort (das wï¿½rde bei hoher Rate GC-Druck/Spikes erzeugen).
 ///
 /// Im Hauptthread (Update) werden ALLE seit dem letzten Frame angekommenen
 /// Zeilen der Reihe nach verarbeitet (nicht nur die letzte!), weil die Werte
-/// über mehrere Zeilen verteilt sind. Erst wenn die Trennzeile ("------...")
-/// gelesen wird, gilt ein Block als vollständig und die Werte werden atomar
-/// in die öffentlichen Properties übernommen.
+/// ï¿½ber mehrere Zeilen verteilt sind. Erst wenn die Trennzeile ("------...")
+/// gelesen wird, gilt ein Block als vollstï¿½ndig und die Werte werden atomar
+/// in die ï¿½ffentlichen Properties ï¿½bernommen.
 /// </summary>
 public class SerialDataHandler : MonoBehaviour
 {
     public static SerialDataHandler Instance;
 
-    // Öffentlich sichtbare, "committete" Werte (erst nach vollständigem Block gültig)
+    // ï¿½ffentlich sichtbare, "committete" Werte (erst nach vollstï¿½ndigem Block gï¿½ltig)
     public float lowAngle { get; private set; }
     public float middleAngle { get; private set; }
     public float highAngle { get; private set; }
 
-    // Abwärtskompatibel zu vorher (zeigt auf den ersten Sensor)
+    // Abwï¿½rtskompatibel zu vorher (zeigt auf den ersten Sensor)
     public float currentAngle => lowAngle;
 
     public bool buttonPressed { get; private set; }
@@ -50,7 +50,7 @@ public class SerialDataHandler : MonoBehaviour
     private volatile bool isRunning = false;
     private readonly ConcurrentQueue<string> dataQueue = new ConcurrentQueue<string>();
 
-    // Zwischenspeicher, während ein Block (Sensor1..3 + Button + Trennzeile) eintrudelt.
+    // Zwischenspeicher, wï¿½hrend ein Block (Sensor1..3 + Button + Trennzeile) eintrudelt.
     private float pendingLow;
     private float pendingMiddle;
     private float pendingHigh;
@@ -71,7 +71,7 @@ public class SerialDataHandler : MonoBehaviour
             serial = new SerialPort(portName, baudRate);
             serial.ReadTimeout = 500;
             serial.Open();
-            Debug.Log($"Port {portName} geöffnet");
+            Debug.Log($"Port {portName} geï¿½ffnet");
 
             isRunning = true;
             serialThread = new Thread(ReadSerialLoop);
@@ -80,7 +80,7 @@ public class SerialDataHandler : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError($"Fehler beim Öffnen des Ports: {e.Message}");
+            Debug.LogError($"Fehler beim ï¿½ffnen des Ports: {e.Message}");
         }
     }
 
@@ -109,8 +109,8 @@ public class SerialDataHandler : MonoBehaviour
     {
         lastButtonPressed = buttonPressed;
 
-        // WICHTIG: Hier alle Zeilen abarbeiten (nicht wie früher nur die letzte),
-        // da ein vollständiger Datensatz über mehrere Zeilen verteilt ist.
+        // WICHTIG: Hier alle Zeilen abarbeiten (nicht wie frï¿½her nur die letzte),
+        // da ein vollstï¿½ndiger Datensatz ï¿½ber mehrere Zeilen verteilt ist.
         while (dataQueue.TryDequeue(out string line))
         {
             ProcessLine(line);
@@ -144,7 +144,7 @@ public class SerialDataHandler : MonoBehaviour
         }
         else if (line.StartsWith(SeparatorPrefix))
         {
-            // Block vollständig -> alle gesammelten Werte atomar übernehmen.
+            // Block vollstï¿½ndig -> alle gesammelten Werte atomar ï¿½bernehmen.
             lowAngle = pendingLow;
             middleAngle = pendingMiddle;
             highAngle = pendingHigh;
@@ -173,8 +173,9 @@ public class SerialDataHandler : MonoBehaviour
         string numberPart = degIndex >= 0 ? rest.Substring(0, degIndex).Trim() : rest;
 
         if (float.TryParse(numberPart, NumberStyles.Float, CultureInfo.InvariantCulture, out float angle))
-            Debug.Log($"Angle from line: {line} is: {angle}");
+        {
             return angle;
+        }
 
         Debug.LogWarning($"[SerialDataHandler] Konnte Winkel nicht parsen: \"{line}\"");
         return previousValue;

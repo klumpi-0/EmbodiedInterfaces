@@ -4757,7 +4757,7 @@ PrefabInstance:
       objectReference: {fileID: 1359510050}
     - target: {fileID: 6709563176031190046, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: useSerialPort
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6712669762436165486, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.x
