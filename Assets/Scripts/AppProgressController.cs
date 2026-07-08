@@ -54,6 +54,7 @@ public class AppProgressController : MonoBehaviour
         {
             bubble.gameObject.SetActive(false);
         }
+        progress = 0;
         EvaluationController.Instance.WriteSummary();
     }
 }

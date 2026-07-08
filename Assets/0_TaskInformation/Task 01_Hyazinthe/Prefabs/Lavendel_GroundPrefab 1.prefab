@@ -9850,6 +9850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeeHover
   beeParticleSystem: {fileID: 7966369759178621889}
+  beeParticleSystem2: {fileID: 275357435454451060}
   audioSource: {fileID: 3017353836973564895}
   beeClip: {fileID: 8300000, guid: 7334e3204d2975f4e9b6615d5d97dafa, type: 3}
   chanceForParticles: 0.1
