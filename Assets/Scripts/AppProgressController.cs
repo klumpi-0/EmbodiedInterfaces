@@ -11,7 +11,7 @@ public class AppProgressController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        LoadFirstTask();
+        //LoadFirstTask();
         MixNMatchController.Instance.forwardArrowsEvent.AddListener(SkipToNextTask);
     }
 

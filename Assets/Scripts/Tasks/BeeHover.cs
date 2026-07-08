@@ -3,6 +3,7 @@ using UnityEngine;
 public class BeeHover : SpawnedObject
 {
     [SerializeField] private ParticleSystem beeParticleSystem;
+    [SerializeField] private ParticleSystem beeParticleSystem2;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip beeClip;
     [SerializeField]
@@ -49,11 +50,13 @@ public class BeeHover : SpawnedObject
     private void ActivateParticleSystem()
     {
         beeParticleSystem.Play();
+        beeParticleSystem2.Play();
     }
 
     private void RemoveParticleSystem()
     {
         Destroy(beeParticleSystem);
+        Destroy(beeParticleSystem2);
     }
 
     private void ActivateAudio()
