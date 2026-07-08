@@ -11005,6 +11005,7 @@ MonoBehaviour:
   middleCube: {fileID: 2382597932715146497}
   highCube: {fileID: 810396222463187983}
   buttonIsPressed: 0
+  lastButtonIsPressed: 0
   buttonPressedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -13248,6 +13249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigRedButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7516989854951799700, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 690de3d749a2b1d4b8db0410bf298675, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

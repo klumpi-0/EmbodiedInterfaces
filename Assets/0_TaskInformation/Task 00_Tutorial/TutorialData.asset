@@ -30,9 +30,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88a9c1e8667902142b576633d24c0e7d, type: 3}
   - {fileID: 21300000, guid: 664aa23ff5b8f894aa924d9d41f6d7f5, type: 3}
   - {fileID: 21300000, guid: c2836044cf8798a459e2054130952888, type: 3}
-  correctSolutionSites: 020000000100000002000000
-  arrowSolutionSites: 000000000300000000000000
-  solvedPuzzle: 0
+  correctSolutionSites: 010000000000000000000000
+  arrowSolutionSites: 030000000200000002000000
+  solvedPuzzle: 1
   plantedPlant: 0
   grabbablePrefab: {fileID: 2310938113890387323, guid: 45be5c9b7d2f6a144a9919e8b143c62b, type: 3}
   groundFlowerPrefab: {fileID: 7797516570994283050, guid: c185ada139f1d0247825491bac5acd71, type: 3}
@@ -40,9 +40,9 @@ MonoBehaviour:
   introClip: {fileID: 8300000, guid: 8fc353c00e12f83488c14764acee045d, type: 3}
   finishedPuzzleClip: {fileID: 8300000, guid: 5ce1bdaf2015db94489fba684424d8dd, type: 3}
   afterPlantAudio: {fileID: 8300000, guid: f678ef9a2f527de47a42d5b9d4f4f5d6, type: 3}
-  morInfo_01Clip: {fileID: 8300000, guid: 6e658d9bef279f34cbf5d96c84fa7744, type: 3}
-  morInfo_02Clip: {fileID: 8300000, guid: c688af1f8cd3a8443afe822bf9bc350d, type: 3}
-  morInfo_03Clip: {fileID: 8300000, guid: 76c87c9d350aaae439f454fed2d45c42, type: 3}
+  morInfo_01Clip: {fileID: 8300000, guid: fa154de96f9bc6143b301f78192e94c4, type: 3}
+  morInfo_02Clip: {fileID: 8300000, guid: 949334cf400e0a74c9b8ed9f3e8e4529, type: 3}
+  morInfo_03Clip: {fileID: 8300000, guid: 24509ef5ec760db4aaddee65c190d22c, type: 3}
   finishedText: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
@@ -68,9 +68,9 @@ MonoBehaviour:
   - "Drehe die W\xFCrfel so das die blauen Seiten zu dir zeigen.\nDr\xFCcke danach
     auf den Knopf unter mir."
   intro_clips:
-  - {fileID: 8300000, guid: 863651b128716ba4a803e747aafaf675, type: 3}
-  - {fileID: 8300000, guid: f4a23fa9221541f449acb501cff9ff46, type: 3}
-  - {fileID: 8300000, guid: ff8e2e5afb83bc146b3b50e39340bde6, type: 3}
+  - {fileID: 8300000, guid: d610a66171d4b5a43aaa58564e852932, type: 3}
+  - {fileID: 8300000, guid: e11062586da276d4f8cb1976c999769b, type: 3}
+  - {fileID: 8300000, guid: 21a18022ed424b440be259a7665df613, type: 3}
   intro_states: 000000000300000004000000
   plant_transforms: 0700000000000000
   plant_header:

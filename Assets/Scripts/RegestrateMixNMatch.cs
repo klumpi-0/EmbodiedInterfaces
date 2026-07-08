@@ -9,6 +9,7 @@ public class RegestrateMixNMatch : MonoBehaviour
     [SerializeField] private Vector3 offsetVector;
 
     [SerializeField] private GameObject moveObject;
+    [SerializeField] private GameObject mnmObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

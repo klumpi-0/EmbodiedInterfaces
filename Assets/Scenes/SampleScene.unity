@@ -393,6 +393,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67033370}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &79935165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79935166}
+  - component: {fileID: 79935167}
+  m_Layer: 0
+  m_Name: EvaluationController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79935166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79935165}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.00221, y: 2.10666, z: 0.5212}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1919572257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79935167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79935165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8b83440958adf4fa58fcd547f9c2f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EvaluationController
+  fileNamePrefix: Auswertung
+  writeLiveLog: 1
+  matchController: {fileID: 699623048}
 --- !u!1 &101200449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1168042862848444296, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
@@ -1157,6 +1204,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2115364382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &699623048 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6146088518293136126, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
+  m_PrefabInstance: {fileID: 3283563068774719430}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ddd801e9773f9468c5dfee07c117f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MixNMatchController
 --- !u!1 &715020126
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,6 +3336,7 @@ Transform:
   - {fileID: 1121837103}
   - {fileID: 1810253779}
   - {fileID: 624719345}
+  - {fileID: 79935166}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1973568186
@@ -4271,10 +4330,6 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1989637290650694705, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 690de3d749a2b1d4b8db0410bf298675, type: 2}
     - target: {fileID: 1989637292224462883, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.34

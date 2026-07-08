@@ -21,6 +21,7 @@ public class EvaluationController : MonoBehaviour
     [SerializeField] private string fileNamePrefix = "Auswertung";
     [Tooltip("Wenn aktiv, wird jede einzelne Aktion sofort in eine Log-Datei geschrieben (gut zum Debuggen).")]
     [SerializeField] private bool writeLiveLog = true;
+    [SerializeField] private MixNMatchController matchController;
 
     // Interne Zeitmessung
     private float appStartTime;
@@ -87,9 +88,14 @@ public class EvaluationController : MonoBehaviour
         currentAttemptStartTime = appStartTime;
         currentAttemptNumber = 0;
 
-        if (MixNMatchController.Instance != null)
+        if(matchController == null)
         {
-            var ctrl = MixNMatchController.Instance;
+            matchController = MixNMatchController.Instance;
+        }
+
+        if (matchController != null)
+        {
+            var ctrl = matchController;
             ctrl.setNewPuzzleEvent.AddListener(OnNewPuzzle);
             ctrl.foundMatchEvent.AddListener(OnFoundMatch);
             ctrl.wrongFeedbackEvent.AddListener(OnWrongFeedback);
