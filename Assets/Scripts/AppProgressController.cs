@@ -42,12 +42,12 @@ public class AppProgressController : MonoBehaviour
         // flower delete
         foreach(Transform flower in flowerParent)
         {
-            Destroy(flower);
+            Destroy(flower.gameObject);
         }
         // grab delete
         foreach(Transform grap in grapParent)
         {
-            Destroy(grap);
+            Destroy(grap.gameObject);
         }
         // deactivete bubbles
         foreach (Transform bubble in bubbleParent)
