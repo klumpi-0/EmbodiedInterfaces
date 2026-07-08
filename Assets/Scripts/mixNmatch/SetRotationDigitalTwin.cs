@@ -123,14 +123,11 @@ public class SetRotationDigitalTwin : MonoBehaviour
 
     private void SetRotationForCube(GameObject cube, float newRotation, float offset)
     {
-        if (cube == null)
-            return;
+        if (cube == null) return;
 
-        var angles = cube.transform.eulerAngles;
-        angles.y = NormalizeAngle(newRotation + offset);
-        cube.transform.eulerAngles = angles;
+        float y = NormalizeAngle(newRotation + offset);
+        cube.transform.localRotation = Quaternion.Euler(0f, y, 0f);
     }
-
     /// <summary>
     /// Kalibriert den Versatz zwischen Arduino-Rohwinkel und Unity-Rotation.
     /// Aufruf genau in dem Moment, in dem die realen Bauteile von Hand korrekt
@@ -149,9 +146,9 @@ public class SetRotationDigitalTwin : MonoBehaviour
             return;
         }
 
-        lowOffset = -SerialDataHandler.Instance.lowAngle + 10;
-        middleOffset = -SerialDataHandler.Instance.middleAngle + 10;
-        highOffset = -SerialDataHandler.Instance.highAngle + 10;
+        lowOffset = -SerialDataHandler.Instance.lowAngle;
+        middleOffset = -SerialDataHandler.Instance.middleAngle;
+        highOffset = -SerialDataHandler.Instance.highAngle;
 
         Debug.Log($"[SetRotationDigitalTwin] Kalibriert. Offsets: low={lowOffset:F2}, middle={middleOffset:F2}, high={highOffset:F2}");
     }

@@ -993,6 +993,37 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   copyPosition: 1
   copyRotation: 1
+--- !u!1 &477128763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 477128764}
+  m_Layer: 0
+  m_Name: FlowerParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &477128764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477128763}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &568704974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9218423871546051903, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
@@ -1079,6 +1110,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f980241c9548f3429ad36dc8256227b, type: 2}
   - {fileID: 11400000, guid: 82071d04eff056648a893f50e90f93b2, type: 2}
   - {fileID: 11400000, guid: 0c7951acbc4dc8242b3df1a09856fa51, type: 2}
+  flowerParent: {fileID: 0}
 --- !u!1 &640590635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,6 +3093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FlowerWaveSpawner
   flowerPrefabs:
   - {fileID: 4809857706931833784, guid: fe0901a4c5c7e624d9a28c1f47e24125, type: 3}
+  flowerParent: {fileID: 0}
   origin: {fileID: 1810253779}
   maxRadius: 60
   waveSpeed: 10
@@ -4757,7 +4790,7 @@ PrefabInstance:
       objectReference: {fileID: 1359510050}
     - target: {fileID: 6709563176031190046, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: useSerialPort
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6712669762436165486, guid: 87caaab9708c4824caee9c1aadc3ff85, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5236,3 +5269,4 @@ SceneRoots:
   - {fileID: 1502074283}
   - {fileID: 2259622640675854331}
   - {fileID: 945010326}
+  - {fileID: 477128764}

@@ -4,6 +4,8 @@ public class AppProgressController : MonoBehaviour
 {
     [SerializeField] private int progress;
     [SerializeField] private PuzzleData[] puzzleDatas;
+    [SerializeField] private GameObject flowerParent;
+    [SerializeField] private GameObject grabParent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +19,7 @@ public class AppProgressController : MonoBehaviour
     {
         if (OVRInput.Get(OVRInput.Button.One))
         {
-            LoadFirstTask();
+            ReloadAPplication();
         }
     }
 
@@ -31,5 +33,21 @@ public class AppProgressController : MonoBehaviour
         if(progress + 1 >= puzzleDatas.Length) { return; }
         MixNMatchController.Instance.SetNewPuzzleData(puzzleDatas[progress + 1]);
         progress = progress + 1;
+    }
+
+    private void ReloadAPplication()
+    {
+        LoadFirstTask();
+        // Delete flowers
+        foreach(Transform flower in flowerParent.transform)
+        {
+            Destroy(flower.gameObject);
+        }
+        // Reset progress
+        progress = 0;
+
+        // Reset  Bubbles
+
+        // Destroy GrabPrefabs
     }
 }
