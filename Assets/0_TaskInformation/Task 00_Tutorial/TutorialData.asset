@@ -86,7 +86,7 @@ MonoBehaviour:
   plant_states: 0000000000000000
   moreInfo_transforms: 06000000
   moreInfo_header:
-  - Mehr Informationen
+  - Informationen
   moreInfo_texts:
   - "Drehe an den den W\xFCrfeln um mehr Informationen zu erhalten.\nSp\xE4ter dann
     \xFCber die Pflanzen"

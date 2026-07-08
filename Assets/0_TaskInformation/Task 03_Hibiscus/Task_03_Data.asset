@@ -47,20 +47,15 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: "Die von Juli bis September erscheinenden, glockenf\xF6rmigen Bl\xFCten
-    sind reich an leicht zug\xE4nglichem Pollen und Nektar und werden vor allem von
-    Honigbienen, aber auch Hummeln und Schmetterlingen stark beflogen. Ungef\xFCllte
-    Sorten sind dabei deutlich insektenfreundlicher als gef\xFCllte Bl\xFCtenformen,
-    da Best\xE4uber bei gef\xFCllten Bl\xFCten kaum an Pollen und Nektar herankommen."
-  middleInfoText: "Der Strauch-Eibisch w\xE4chst trichterf\xF6rmig, eher langsam
-    und legt pro Jahr etwa 30 bis 40 Zentimeter an H\xF6he zu, wobei die Bl\xFCten
-    am einj\xE4hrigen, frischen Holz erscheinen. Ein j\xE4hrlicher Erziehungsschnitt
-    im April lenkt die Kraft der Pflanze gezielt in neue Bl\xFCtentriebe statt in
-    altes Holz."
-  lowInfoText: "Die Wurzeln des Hibiskus reichen tief ins Erdreich, erreichen aber
-    selbst bei \xE4lteren, mehrere Meter hohen Pflanzen nur in Ausnahmef\xE4llen
-    mehr als 1,5 Meter Tiefe. Da die Pflanze empfindlich auf Staun\xE4sse reagiert,
-    ist eine gute Drainage im Boden wichtig, damit die Wurzeln nicht im Wasser stehen."
+  highInfoText: "Die glockenf\xF6rmigen Bl\xFCten (Juli\u2013September) sind reich
+    an Pollen und Nektar und werden vor allem von Honigbienen, aber auch Hummeln
+    und Schmetterlingen besucht. Ungef\xFCllte Sorten sind insektenfreundlicher als
+    gef\xFCllte."
+  middleInfoText: "Der Strauch-Eibisch w\xE4chst langsam, trichterf\xF6rmig, etwa
+    30\u201340 cm pro Jahr, und bl\xFCht am neuen Holz. Ein R\xFCckschnitt im April
+    lenkt die Kraft in neue Bl\xFCtentriebe."
+  lowInfoText: "Die Hibiskuswurzeln reichen tief, meist aber nicht \xFCber 1,5 m.
+    Da die Pflanze staun\xE4sseempfindlich ist, braucht sie eine gute Drainage."
   intro_transforms: 0600000005000000
   intro_header:
   - Hibiscus

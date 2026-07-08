@@ -47,19 +47,15 @@ MonoBehaviour:
     nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
     voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
     kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  highInfoText: "Obwohl die eher unscheinbaren Bl\xFCten meist zugunsten der bunten
-    Bl\xE4tter entfernt werden, sind sie bei ihrem Erscheinen im Sp\xE4tsommer und
-    Herbst nektarreich und ziehen Bienen, Hummeln und Schmetterlinge an. Trotz ihrer
-    nicht-heimischen Herkunft aus den Tropen Afrikas und Asiens profitieren immerhin
-    29 Wildbienenarten von der Buntnessel als Nahrungsquelle."
-  middleInfoText: "Als Vertreter der Lippenbl\xFCtler besitzt die Buntnessel vierkantige,
-    weiche St\xE4ngel, deren Triebspitzen regelm\xE4\xDFig gestutzt werden, damit
-    die Pflanze buschig statt hoch und kahl w\xE4chst. Aus abgeschnittenen Kopfstecklingen
-    mit zwei bis drei Bl\xE4ttern lassen sich zudem leicht neue Pflanzen ziehen."
-  lowInfoText: "Die Buntnessel bildet ein dichtes, faseriges Wurzelwerk, das den
-    Topf schnell durchw\xE4chst, weshalb sie regelm\xE4\xDFig umgetopft werden sollte.
-    Selbst abgeschnittene Stecklinge bilden bereits nach kurzer Zeit im Wasserglas
-    neue Wurzeln, was die schnelle Vermehrungsf\xE4higkeit der Pflanze zeigt."
+  highInfoText: "Die unscheinbaren Bl\xFCten der Buntnessel erscheinen im Sp\xE4tsommer/Herbst,
+    sind nektarreich und ziehen Bienen, Hummeln und Schmetterlinge an. Trotz ihrer
+    Herkunft aus Afrika/Asien profitieren 29 Wildbienenarten von ihr."
+  middleInfoText: "Als Lippenbl\xFCtler hat die Buntnessel vierkantige, weiche St\xE4ngel,
+    die zugunsten buschigen Wachstums regelm\xE4\xDFig gestutzt werden. Aus Kopfstecklingen
+    lassen sich leicht neue Pflanzen ziehen."
+  lowInfoText: "Die Buntnessel bildet dichte Wurzeln und sollte daher regelm\xE4\xDFig
+    umgetopft werden. Auch Stecklinge wurzeln schnell im Wasserglas \u2013 ein Zeichen
+    ihrer raschen Vermehrungsf\xE4higkeit."
   intro_transforms: 0600000005000000
   intro_header:
   - Buntnessel

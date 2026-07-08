@@ -10,6 +10,7 @@ public class FlowerWaveSpawner : MonoBehaviour
 
     [Header("Prefabs")]
     public GameObject[] flowerPrefabs = new GameObject[1];
+    [SerializeField] private GameObject flowerParent;
 
     [Header("Wave Settings")]
     public Transform origin;
@@ -89,7 +90,7 @@ public class FlowerWaveSpawner : MonoBehaviour
         Vector3 pos = origin.position + new Vector3(randomCircle.x, 0f, randomCircle.y);
         GameObject prefab = flowerPrefabs[Random.Range(0, flowerPrefabs.Length)];
         GameObject flower = Instantiate(prefab, pos, Quaternion.identity);
-
+        flower.transform.parent = flowerParent.transform;
         flower.transform.localScale = Vector3.zero;
         //spawned.Add(flower);
 
