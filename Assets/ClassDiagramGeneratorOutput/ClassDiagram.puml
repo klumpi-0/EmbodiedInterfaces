@@ -1,0 +1,389 @@
+@startuml
+class AppProgressController {
+}
+class CanvasSwitchSides {
+}
+' CanvasSwitchSides: <summary> Script decides if Flora is left or right in Viewport. Based on that the canvas gets moved </summary>
+class DirectionalGlow {
+    + sourceObject : Transform
+    + direction : GlowDirection
+    + useLocalAxes : bool
+    + originOffset : Vector3
+    + maxDistance : float
+    + hitMask : LayerMask
+    + use2DPhysics : bool
+    + updateContinuously : bool
+    + glowColor : Color
+    + thickness : float
+    + particleSize : float
+    + density : float
+    + swirl : float
+    + sizeVariation : float
+    - _ps : ParticleSystem
+    - _psRenderer : ParticleSystemRenderer
+    - _psObject : GameObject
+    - _lastOrigin : Vector3
+    - _lastHitPoint : Vector3
+    - _hasHit : bool
+}
+' DirectionalGlow: <summary> Erzeugt einen gelben "Zauber-Nebel"-Glow, der von einem Referenzobjekt aus in eine wählbare Richtung (Oben/Unten/Links/Rechts) ausgeht. Die Reichweite wird per Raycast bestimmt: der Glow reicht nur bis zum getroffenen Objekt (oder bis maxDistance, falls nichts getroffen wird).  Die Optik wird zur Laufzeit als ParticleSystem mit einer weichen, selbst generierten Glow-Textur (additiv, Farbverlauf, leichtes Noise) aufgebaut – es müssen keine externen Materialien/Texturen zugewiesen werden. </summary>
+class FloraButtonPress {
+    + Instance : FloraButtonPress
+    + onPressStart : UnityEvent
+    + onPressBottom : UnityEvent
+    + onPressFinished : UnityEvent
+    - _startLocalPos : Vector3
+    - _isAnimating : bool
+}
+class FloraController {
+    + Instance : FloraController
+    + floraMoveObject : GameObject
+    + startedMovingEvent : UnityEvent
+    + finishedMovingEvent : UnityEvent
+    + finishedMultipleEvent : UnityEvent
+    + OnStateChangeAction : Action<FloraStates>
+    - floraState : FloraStates
+}
+class FloraGrabProcessor {
+    + Instance : FloraGrabProcessor
+}
+class FloraHovering {
+    + Instance : FloraHovering
+    - startPosition : Vector3
+    - startScale : Vector3
+}
+class FloraSpinAnimation {
+    + Instance : FloraSpinAnimation
+    + onSpinStart : UnityEvent
+    + onSpinFinished : UnityEvent
+    - _startLocalPos : Vector3
+    - _startLocalRot : Quaternion
+    - _isAnimating : bool
+}
+class FloraViewportGuard {
+    - _state : GuardState
+    - _snappedWorldPos : Vector3
+    - _trueTargetPosition : Vector3
+    - _animationTimer : float
+    - _animationDuration : float
+    - corners : Vector3[]
+}
+class GlowMover {
+    + startPoint : Transform
+    + endPoint : Transform
+    + duration : float
+    + movementCurve : AnimationCurve
+    + playOnStart : bool
+    + loop : bool
+    + pingPong : bool
+    + glowColor : Color
+    + glowLight : Light
+    + lightIntensity : float
+    + pulseAmount : float
+    + pulseSpeed : float
+    + glowSprite : SpriteRenderer
+    + trail : TrailRenderer
+    - _t : float
+    - _isPlaying : bool
+    - _reverse : bool
+}
+class InteractableZoneHandler {
+    + onEnterZone : UnityEvent
+    + onExitZone : UnityEvent
+    + onPinch : UnityEvent
+    + onRelease : UnityEvent
+    - _interactable : HandGrabInteractable
+    - _isInZone : bool
+    - _isSelected : bool
+}
+class SceneTargets {
+    + Instance : SceneTargets
+    + targetsParent : Transform
+    + targets : Transform[]
+}
+class ControlCanvas {
+}
+class CopyTransform {
+    + sourceObject : Transform
+    + targetObject : Transform
+    + copyPosition : bool
+    + copyRotation : bool
+}
+class CubeController {
+    + portName : string
+    - stream : SerialPort
+    + snapToSides : bool
+    + snapSpeed : float
+    + leafStatusText : TextMeshProUGUI
+    - currentAngle : float
+    - targetRotationY : float
+    - isRotationLocked : bool
+    - lastButtonState : bool
+    - leafNumberMapping : int[]
+}
+class EvaluationController {
+    + Instance : EvaluationController
+    - appStartTime : float
+    - currentPhaseStartTime : float
+    - currentAttemptStartTime : float
+    - currentAttemptNumber : int
+    - sessionId : string
+    - outputFolder : string
+    - logFilePath : string
+    - summaryFilePath : string
+    - attempts : List<AttemptRecord>
+    - phases : List<PhaseRecord>
+    - CurrentPhase : int
+}
+' EvaluationController: <summary> Auswertungsskript für den MixNMatch-Puzzle-Flow. Hängt sich an die vorhandenen UnityEvents von MixNMatchController und protokolliert: - Gesamtzeit der Anwendung - Zeit pro Versuch bis ein Match gefunden wurde (inkl. richtig/falsch) - Gesamtzeit pro Phase  Einfach als Component auf ein (leeres) GameObject in der Szene ziehen. Erwartet, dass MixNMatchController.Instance vor Start() gesetzt ist. </summary>
+class AttemptRecord {
+    + phase : int
+    + attemptNumber : int
+    + wasCorrect : bool
+    + durationSeconds : float
+    + timeStampSinceAppStart : float
+}
+class PhaseRecord {
+    + phase : int
+    + durationSeconds : float
+    + totalAttempts : int
+    + wrongAttempts : int
+}
+class FadeInOut {
+    + fadeIn : bool
+    + fadeOut : bool
+    + calibrate : bool
+    + startPos : Vector3
+    + startScale : Vector3
+    + animationVector : Vector3
+    + animLerpSpeed : float
+    + fadeInEvent : UnityEvent
+    + fadeOutEvent : UnityEvent
+    + fadeOutOnLaunch : bool
+    + animationDuration : float
+    + isFadedIn : bool
+}
+class Helper {
+}
+class LookAtCamera {
+}
+class ParticleSystemTester {
+    + particleSystems : List<ParticleSystem>
+}
+class SceneSwitcher {
+}
+class SmoothMover {
+    + targetPosition : Vector3
+    + targetRotation : Vector3
+    - startPos : Vector3
+    - startRot : Quaternion
+    - endRot : Quaternion
+    - time : float
+    - drunkSeed : float
+    + atFinalTransformEvent : UnityEvent
+}
+class StartParticleSystem {
+}
+class CreateMixNMatchFill {
+    + Instance : CreateMixNMatchFill
+    + puzzleData : PuzzleData
+    + solution : int[]
+}
+class GetVirtuallRotation {
+    + Instance : GetVirtuallRotation
+}
+class MixNMatchController {
+    + Instance : MixNMatchController
+    + data : PuzzleData
+    + setNewPuzzleEvent : UnityEvent
+    + foundMatchEvent : UnityEvent
+    + wrongFeedbackEvent : UnityEvent
+    + plantedPlantEvent : UnityEvent
+    + allInformationReceivedEvent : UnityEvent
+    + forwardArrowsEvent : UnityEvent
+}
+class MNM_AudioController {
+    + Instance : MNM_AudioController
+}
+class moreInfoAudioWatcher {
+    - lastRotCubeLow : float
+    - lastRotCubeMiddle : float
+    - lastRotCubeHigh : float
+}
+' moreInfoAudioWatcher: <summary> Is a script which specifically is used to watch the rotation </summary>
+class MoreInformationController {
+    + Instance : MoreInformationController
+}
+class ParticleController {
+}
+class ProcessRoations {
+    + Instance : ProcessRoations
+    + newFrontSideLowEvent : UnityEvent<int>
+    + newFrontSideMiddleEvent : UnityEvent<int>
+    + newFrontSideHighEvent : UnityEvent<int>
+    + leftFrontFacingSideEvent : UnityEvent<int>
+    - rotationSteps : float[]
+}
+class PuzzleData {
+    + namePhase : string
+    + numberPhase : int
+    + correctSprites : Sprite[]
+    + lowSprites : Sprite[]
+    + middleSprites : Sprite[]
+    + highSprites : Sprite[]
+    + correctSolutionSites : int[]
+    + arrowSolutionSites : int[]
+    + solvedPuzzle : bool
+    + plantedPlant : bool
+    + grabbablePrefab : GameObject
+    + groundFlowerPrefab : GameObject
+    + shrinkChanceGround : float
+    + introClip : AudioClip
+    + finishedPuzzleClip : AudioClip
+    + afterPlantAudio : AudioClip
+    + morInfo_01Clip : AudioClip
+    + morInfo_02Clip : AudioClip
+    + morInfo_03Clip : AudioClip
+    + finishedText : string
+    + intro_transforms : int[]
+    + intro_header : string[]
+    + intro_clips : AudioClip[]
+    + intro_states : FloraStates[]
+    + plant_transforms : int[]
+    + plant_header : string[]
+    + plant_clips : AudioClip[]
+    + plant_states : FloraStates[]
+    + moreInfo_transforms : int[]
+    + moreInfo_header : string[]
+    + moreInfo_clips : AudioClip[]
+    + moreInfo_states : FloraStates[]
+    + weiter_transforms : int[]
+    + weiter_header : string[]
+    + weiter_clips : AudioClip[]
+    + weiter_states : FloraStates[]
+}
+class SerialDataHandler {
+    + Instance : SerialDataHandler
+    + currentAngle : float
+    - lastButtonPressed : bool
+    - serial : SerialPort
+    - serialThread : Thread
+    - isRunning : bool
+    - dataQueue : ConcurrentQueue<string>
+    - pendingLow : float
+    - pendingMiddle : float
+    - pendingHigh : float
+    - pendingButtonPressed : bool
+    - SeparatorPrefix : string
+}
+' SerialDataHandler: <summary> Liest die (unver�nderte) Arduino-Ausgabe ein. Diese verteilt sich pro Zyklus �ber mehrere Zeilen, z.B.:  Sensor 1 : 45.23 deg  (Weak Field) Sensor 2 : 12.10 deg Sensor 3 : No Magnet Physical Button: PRESSED ------------------------------  Das eigentliche Lesen (serial.ReadLine) l�uft in einem Background-Thread, damit blockierende Reads NICHT den Unity-Hauptthread / die Framerate belasten. Im Thread wird NUR gelesen und in eine lock-free Queue geschrieben - kein Debug.Log, kein Parsing dort (das w�rde bei hoher Rate GC-Druck/Spikes erzeugen).  Im Hauptthread (Update) werden ALLE seit dem letzten Frame angekommenen Zeilen der Reihe nach verarbeitet (nicht nur die letzte!), weil die Werte �ber mehrere Zeilen verteilt sind. Erst wenn die Trennzeile ("------...") gelesen wird, gilt ein Block als vollst�ndig und die Werte werden atomar in die �ffentlichen Properties �bernommen. </summary>
+class SetImagesOnMixNMatch {
+    + Instance : SetImagesOnMixNMatch
+}
+class SetRotationDigitalTwin {
+    + Instance : SetRotationDigitalTwin
+    + buttonPressedEvent : UnityEvent
+}
+class MoveCameraToNextPosition {
+}
+class RegestrateMixNMatch {
+}
+class ScreenFade {
+    + Instance : ScreenFade
+    + OnBlackScreenEvent : UnityEvent
+    + OnStartFadingToTransparentEvent : UnityEvent
+    + OnTransparentScreenEvent : UnityEvent
+    - currentFade : Coroutine
+}
+class BeeHover {
+}
+class FlowerWaveSpawner {
+    + Instance : FlowerWaveSpawner
+    + flowerPrefabs : GameObject[]
+    + origin : Transform
+    + maxRadius : float
+    + waveSpeed : float
+    + totalFlowers : int
+    + growDuration : float
+    + shrinkDelay : float
+}
+class FollowTaskController {
+    + Instance : FollowTaskController
+    + finishedTaskEvent : UnityEvent
+}
+' FollowTaskController: <summary> Is the controller which is used to create the following task of the mixNmatch </summary>
+class PlantInBubbleLogic {
+}
+class PlantInBubbleVisuals {
+    - waitingIntervall : float
+    - intervallSpeed : float
+    - floatToFinalPositionTime : float
+    - currentRoutine : Coroutine
+}
+class SpawnedObject <<abstract>> {
+    + ActivateSpecialThing() : void
+}
+class Task01 {
+}
+class TestChangeImage {
+    + puzzleData : PuzzleData
+}
+class InfoBoxController {
+    - _externallySet : bool
+}
+class ProgressFieldController {
+    - activityNames : string[]
+}
+MonoBehaviour <|-- AppProgressController
+MonoBehaviour <|-- CanvasSwitchSides
+MonoBehaviour <|-- DirectionalGlow
+MonoBehaviour <|-- FloraButtonPress
+MonoBehaviour <|-- FloraController
+MonoBehaviour <|-- FloraGrabProcessor
+MonoBehaviour <|-- FloraHovering
+MonoBehaviour <|-- FloraSpinAnimation
+MonoBehaviour <|-- FloraViewportGuard
+MonoBehaviour <|-- GlowMover
+MonoBehaviour <|-- InteractableZoneHandler
+MonoBehaviour <|-- SceneTargets
+MonoBehaviour <|-- ControlCanvas
+MonoBehaviour <|-- CopyTransform
+MonoBehaviour <|-- CubeController
+MonoBehaviour <|-- EvaluationController
+MonoBehaviour <|-- FadeInOut
+MonoBehaviour <|-- LookAtCamera
+MonoBehaviour <|-- ParticleSystemTester
+MonoBehaviour <|-- SceneSwitcher
+MonoBehaviour <|-- SmoothMover
+MonoBehaviour <|-- StartParticleSystem
+MonoBehaviour <|-- CreateMixNMatchFill
+MonoBehaviour <|-- GetVirtuallRotation
+MonoBehaviour <|-- MixNMatchController
+MonoBehaviour <|-- MNM_AudioController
+MonoBehaviour <|-- moreInfoAudioWatcher
+MonoBehaviour <|-- MoreInformationController
+MonoBehaviour <|-- ParticleController
+MonoBehaviour <|-- ProcessRoations
+ScriptableObject <|-- PuzzleData
+MonoBehaviour <|-- SerialDataHandler
+MonoBehaviour <|-- SetImagesOnMixNMatch
+MonoBehaviour <|-- SetRotationDigitalTwin
+MonoBehaviour <|-- MoveCameraToNextPosition
+MonoBehaviour <|-- RegestrateMixNMatch
+MonoBehaviour <|-- ScreenFade
+SpawnedObject <|-- BeeHover
+MonoBehaviour <|-- FlowerWaveSpawner
+MonoBehaviour <|-- FollowTaskController
+MonoBehaviour <|-- PlantInBubbleLogic
+MonoBehaviour <|-- PlantInBubbleVisuals
+MonoBehaviour <|-- SpawnedObject
+MonoBehaviour <|-- Task01
+MonoBehaviour <|-- TestChangeImage
+MonoBehaviour <|-- InfoBoxController
+MonoBehaviour <|-- ProgressFieldController
+CreateMixNMatchFill --> PuzzleData : puzzleData
+MixNMatchController --> PuzzleData : data
+BeeHover --> SpawnedObject : ActivateSpecialThing()
+FlowerWaveSpawner --> SpawnedObject : ActivateSpecialThing()
+TestChangeImage --> PuzzleData : puzzleData
+@enduml
